@@ -253,17 +253,12 @@ PRINTL
 PRINTL 【口】　
 PRINTFORM 初吻履歴：
 ;IF !EXP:選択中角色ID:接吻経験
-IF TALENT:選択中角色ID:無接吻経験
-	SELECTCASE CFLAG:選択中角色ID:初吻喪失対象
-		CASE 0
-			CALL COLORMESSAGE(@"还保有初吻",C_YELLOW,1)
-		CASE 1
-			CALL COLORMESSAGE(@"%CSTR:選択中角色ID:初吻喪失履歴%",C_PINK,1)
-		CASE 2
-			CALL COLORMESSAGE(@"还保有初吻",C_YELLOW,1)
-			PRINTFORM 虽然是这样认为的、但其实……
-			CALL COLORMESSAGE(@"%CSTR:選択中角色ID:初吻喪失履歴%",C_PINK,1)
-	ENDSELECT
+IF TALENT:選択中角色ID:無接吻経験 > 0
+	CALL COLORMESSAGE(@"还保有初吻",C_YELLOW,1)
+ELSEIF TALENT:選択中角色ID:無接吻経験 < 0
+	CALL COLORMESSAGE(@"还保有初吻",C_YELLOW,1)
+	PRINTFORM 虽然是这样认为的、但其实……
+	CALL COLORMESSAGE(@"%CSTR:選択中角色ID:初吻喪失履歴%",C_PINK,1)
 ELSEIF CFLAG:選択中角色ID:初吻喪失記念日
 	IF STRFIND(CSTR:選択中角色ID:初吻喪失履歴, "￥ＢＲ") > 0
 		LOCAL = RESULT
@@ -276,10 +271,36 @@ ELSEIF CFLAG:選択中角色ID:初吻喪失記念日
 	ELSE
 		CALL COLORMESSAGE(@"%CSTR:選択中角色ID:初吻喪失履歴%",C_PINK,1)
 	ENDIF
-ELSEIF 選択中角色ID != MASTER
+ELSE
 	CALL COLORMESSAGE(@"在和%CALLNAME:MASTER%相遇之前失去了",C_AQUA,1)
-	;だと思うんだけど…
 ENDIF
+;IF TALENT:選択中角色ID:無接吻経験
+;	SELECTCASE CFLAG:選択中角色ID:初吻喪失対象
+;		CASE 0
+;			CALL COLORMESSAGE(@"还保有初吻",C_YELLOW,1)
+;		CASE 1
+;			CALL COLORMESSAGE(@"%CSTR:選択中角色ID:初吻喪失履歴%",C_PINK,1)
+;		CASE 2
+;			CALL COLORMESSAGE(@"还保有初吻",C_YELLOW,1)
+;			PRINTFORM 虽然是这样认为的、但其实……
+;			CALL COLORMESSAGE(@"%CSTR:選択中角色ID:初吻喪失履歴%",C_PINK,1)
+;	ENDSELECT
+;ELSEIF CFLAG:選択中角色ID:初吻喪失記念日
+;	IF STRFIND(CSTR:選択中角色ID:初吻喪失履歴, "￥ＢＲ") > 0
+;		LOCAL = RESULT
+;		SPLIT CSTR:選択中角色ID:初吻喪失履歴, "￥ＢＲ", LOCALS
+;		CALL COLORMESSAGE(@"%LOCALS:0%",C_PINK,1)
+;		PRINTFORM 虽然是这样认为的、但其实……
+;		CALL COLORMESSAGE(@"%LOCALS:1%",C_PINK,1)
+;		RESULT = LOCAL
+;		VARSET LOCALS
+;	ELSE
+;		CALL COLORMESSAGE(@"%CSTR:選択中角色ID:初吻喪失履歴%",C_PINK,1)
+;	ENDIF
+;ELSEIF 選択中角色ID != MASTER
+;	CALL COLORMESSAGE(@"在和%CALLNAME:MASTER%相遇之前失去了",C_AQUA,1)
+;	;だと思うんだけど…
+;ENDIF
 
 
 SIF EXP:選択中角色ID:接吻経験

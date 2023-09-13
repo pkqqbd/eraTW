@@ -432,18 +432,23 @@ SIF シチュエーション & 16
 PRINTFORMW (%CALLNAME:ARG%)
 RESETCOLOR
 
-CFLAG:ARG:初吻喪失記念日 = DAY
+IF TALENT:ARG:無接吻経験 > 0
+	CFLAG:ARG:初吻喪失記念日 = DAY
+	CFLAG:ARG:初吻喪失对手 = 接吻相手
+ENDIF
 TALENT:ARG:無接吻経験 = 0
-CFLAG:ARG:初吻喪失对手 = 接吻相手
 
 ;対象と修飾語決定
 IF TALENT:ARG:思慕
+	CFLAG:ARG:初吻喪失対象 |= 喪失_思慕
 	自己 = 1
 	LOCALS:0 = 寄托了感情的
 ELSEIF ARG == MASTER && TALENT:(接吻相手):恋人
+  CFLAG:ARG:初吻喪失対象 |= 喪失_恋慕
 	自己 = 1
 	LOCALS:0 = 爱着的
 ELSEIF TALENT:ARG:恋人 || TALENT:ARG:恋慕
+	CFLAG:ARG:初吻喪失対象 |= 喪失_恋慕
 	自己 = 1
 	LOCALS:0 = 爱着的
 ENDIF
@@ -457,27 +462,31 @@ IF シチュエーション & 2
 ENDIF
 IF シチュエーション & 4
 	LOCALS:1 = の阴茎
-	CFLAG:ARG:初吻喪失対象 = 1
+	CFLAG:ARG:初吻喪失対象 |= 喪失_阴茎
 ENDIF
 SIF シチュエーション & 8
 	自己 = 1
 IF シチュエーション & 16
 	IF FLAG:70
 		LOCALS:2 = 在時間停止中
+		CFLAG:ARG:初吻喪失対象 |= 喪失_時間停止
 	ELSEIF CFLAG:ARG:睡眠
 		LOCALS:2 = 在沉睡中
+		CFLAG:ARG:初吻喪失対象 |= 喪失_睡眠
 	ELSE
 		LOCALS:2 = 在自己不知道的时候
 	ENDIF
-	CFLAG:ARG:初吻喪失対象 = 2
+	CFLAG:ARG:初吻喪失対象 |= 喪失_强行
 	TALENT:ARG:無接吻経験 = -1
 ENDIF
-SIF TALENT:ARG:無知 && シチュエーション & 4
+IF TALENT:ARG:無知 && シチュエーション & 4
 	LOCALS:2 = %LOCALS:2%连这代表什么都不知道
-
-SIF 强行シチュ
+	CFLAG:ARG:初吻喪失対象 |= 喪失_無知
+ENDIF
+IF 强行シチュ
 	LOCALS:2 = %LOCALS:2%强行で
-
+	CFLAG:ARG:初吻喪失対象 |= 喪失_强行
+ENDIF
 ;場所決定
 IF シチュエーション & 1
 	CSTR:ARG:初吻位置 = 約會後回去的路上
@@ -504,6 +513,7 @@ IF 修飾語 == "糖と一緒に"
 	LOCALS:1 += "和"
 	LOCALS:3 = 交换了
 ELSEIF 自己
+	CFLAG:ARG:初吻喪失対象 |= 喪失_自己
 	LOCALS:1 += "に"
 	LOCALS:3 = 献上了
 ELSEIF シチュエーション & 32
