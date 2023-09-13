@@ -1,0 +1,82 @@
+﻿;読書
+@EXIST_FreeAct6
+#LOCALSIZE 1
+#LOCALSSIZE 1
+;オブジェクト本体
+@FreeAct6(ARG, O_DATA, V_NAME)
+#FUNCTION
+#LOCALSIZE 1
+#LOCALSSIZE 1
+#DIMS O_DATA
+#DIMS V_NAME
+#DIM 経過時間
+経過時間 = Activity_Duration:TARGET
+SELECTCASE O_DATA
+CASE "名称"
+	CALLF MAKE_STR(V_NAME, "詢問閱讀感想")
+CASE "CHAIN"
+;他角色に連鎖する場合コメントアウト外すこと
+;	CALLF MAKE_INT(V_NAME, 1)
+CASE "経過時間"
+;陪同行動指令での経過時間
+;未入力だと最大30分
+	IF Activity_Duration:TARGET > 30
+		CALLF MAKE_INT(V_NAME, 10)
+	ELSE
+		CALLF MAKE_INT(V_NAME, 0)
+	ENDIF
+ENDSELECT
+
+@自由行動内容_6(CHARA, ARGS, 時間係数, CHAIN)
+#DIM CHARA
+#DIM CHAIN
+#DIM 現在地
+#DIM メッセージ表示
+#DIM 時間係数
+#DIM 経過時間
+現在地 = CFLAG:CHARA:現在位置
+メッセージ表示 = 現在地 == CFLAG:MASTER:現在位置 ? 1 # 0
+SELECTCASE ARGS
+	CASE "発生"
+		;教養1以上の角色が読書できる場所または自室にいる時
+		SIF ABL:CHARA:教養 < 1
+			RETURN 0
+		SIF BASE:CHARA:気力 <= 500
+			RETURN 0
+		SIF !IS_LIBRARY(現在地, 1) && 現在地 != CFLAG:CHARA:神社在住
+			RETURN 0
+		SIF メッセージ表示
+			PRINTFORMW %CALLNAME:CHARA%開始看書了。
+		RETURN 60 + RAND:60
+	CASE "行動中"
+		SIF メッセージ表示
+			PRINTFORMW %CALLNAME:CHARA%在默默地看著書。
+	CASE "完了"
+		EXP:CHARA:学習経験 += 1
+		SIF メッセージ表示
+			PRINTFORMW %CALLNAME:CHARA%似乎看完書了。
+	CASE "中断"
+		EXP:CHARA:学習経験 += 1
+	CASE "交手"
+		PRINTFORML %CALLNAME:PLAYER%向%CALLNAME:TARGET%詢問了書的讀後感
+		IF TFLAG:193 < 0
+			PRINTFORML 似乎還沉浸在書中無法回話的樣子…
+		ELSE
+			PRINTFORML 和%CALLNAME:TARGET%熱烈地討論起了書本的內容…
+		ENDIF
+	CASE "ソース"
+		;読み終わる直前まで聞けない
+		IF Activity_Duration:TARGET > 30
+			TFLAG:193 = -1
+			DOWNBASE:MASTER:気力 += 40 * 時間係数
+			SOURCE:反感 = 50
+		ELSE
+			DOWNBASE:MASTER:気力 += 20 * 時間係数
+			DOWNBASE:TARGET:気力 += 20 * 時間係数
+			SOURCE:歓楽 = (100 + ((ABL:親密 + ABL:MASTER:教養) * 50)) * 時間係数
+			SOURCE:受動 = (100 + ((ABL:従順 + ABL:MASTER:教養) * 50)) * 時間係数
+			TFLAG:98 = 1
+			EXP:MASTER:会話経験 ++
+			EXP:MASTER:学習経験 ++
+		ENDIF
+ENDSELECT

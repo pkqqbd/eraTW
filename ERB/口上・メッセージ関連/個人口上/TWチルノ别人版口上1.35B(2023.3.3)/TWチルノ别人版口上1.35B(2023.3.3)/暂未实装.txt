@@ -1,0 +1,57 @@
+
+	ENDIF
+	IF CFLAG:14:5419 == 1 && CFLAG:14:IF_OR_NOT
+		CFLAG:1017 = 1
+		SETCOLOR 0x9370DB
+		PRINTFORMW   不是吧秋梨膏,你居然看到了这条口上
+		PRINTFORMW   嘛,还没实装,敬请期待吧www
+		SETCOLOR 0x87CEFA
+	ENDIF
+		
+		
+		
+		PRINTFORMDL  --"所以这些冰淇淋是怎么做的呢?"%CALLNAME:MASTER%好奇地问道
+						IF CFLAG:1200
+							PRINTFORML 「这些冰淇淋的制作过程吗」
+						ELSE
+						ENDIF
+						
+						
+		
+		ELSEIF CFLAG:14:1004 == 1
+			PRINTFORML                 
+			PRINTFORMW  「是你!」
+			PRINTFORMW   你向声音的源头看去
+			PRINTFORMW   还是那副娇小的蓝色身影，只不过…
+			PRINTFORMW   看起来似乎不太开心的样子…
+			PRINTFORMW  「你应该还记得你之前干了什么吧!」
+			PRINTFORMW  「一定记得吧!」
+			PRINTFORMW  「把%STR:14:20%晾在原地,自己跑掉了什么的…」
+			PRINTFORMW  「真的是!太差劲了!」
+			PRINTFORMW  「%STR:14:20%大发慈悲给你挑战的机会,结果你却就这么逃跑了!」
+			PRINTFORMW  「嘛,你要以什么作为让%STR:14:20%失望的补偿呢?」
+			$INPUT_LOOP_NANXIANHOUDIYICIJIANMIAN
+			PRINTL  [0] "等等,为什么?"
+			PRINTL  [1] "……"
+			INPUT
+			IF RESULT == 0
+				CFLAG:14:1006 += 1
+			ELSEIF RESULT == 1
+				SETCOLOR 0xFFA500
+				PRINTFORMW   "……"
+				PRINTFORMDW   面对这个天真而幼稚的少女,你实在提不起气来
+				PRINTFORMDW   你蹲了下来,看着她的眼睛,开口道
+				PRINTFORMW   "我觉得这个问题应该是由你来回答,琪露诺小姐"
+				PRINTFORMW   "你想要什么作为补偿呢?"
+				SETCOLOR 0x87CEFA
+				PRINTFORMW  「呜……你这么说的话,那就让%STR:14:20%想想吧」
+				PRINTFORML       
+				SELECTCASE RAND:3
+					CASE 0
+					CASE 1
+					CASE 2
+					ENDSELECT
+			ELSE
+				GOTO INPUT_LOOP_NANXIANHOUDIYICIJIANMIAN
+			ENDIF
+			CFLAG:14:1004 += 1

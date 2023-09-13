@@ -1,0 +1,1078 @@
+﻿;-------------------------------------------------
+;奴隷の絶頂時の口上
+;NOWEX:0～4 CVABM絶頂
+;NOWEX:6 二重絶頂
+;NOWEX:7 三重絶頂
+;NOWEX:8 四重絶頂
+;NOWEX:9 五重絶頂
+;NOWEX:10 噴乳
+;NOWEX:11 射精
+;NOWEX:12 放尿
+;随意組み合わせて使ってください
+;-------------------------------------------------
+@M_KOJO_MESSAGE_PALAMCNG_B_K9
+CALL PALAM_MESSAGE_B
+;-------------------------------------------------
+;噴乳
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL && NOWEX:噴乳
+	PRINTFORML 「んあっ、出てる……胸部出てるぅ……イきながら胸部出しちゃってる……\/\/\/」
+ENDIF
+;-------------------------------------------------
+;射精
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL && NOWEX:射精
+	PRINTFORML 
+ENDIF
+;-------------------------------------------------
+;放尿
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL && NOWEX:放尿
+	IF TALENT:57
+		SELECTCASE RAND:4
+			CASE 0
+				CALL HPH_PRINT,@"「あひ……HPH　ぁ……でたぁ……きもちぃ……HPH」","W"
+				PRINTFORMDW 絶頂の快感と放尿の安堵感をない交ぜにし的同时、夢美は蕩けた表情で尿を漏らした。
+			CASE 1
+				CALL HPH_PRINT,@"「んひ……ひ……いぃHPH　とまんあい……HPH　ぼーこー、ばかになってる……HPH」","W"
+				PRINTFORMDW 夢美は絶頂の喜びを嬉ションで表現しているようだ
+			CASE 2
+				CALL HPH_PRINT,@"「ぁはHPH　でてる……HPH　コレ、さいっこぉ……HPH」","W"
+				PRINTFORMDW 夢美は絶頂の快感に震えながら気持ちよさそうに尿を漏らしている。
+			CASE 3
+				CALL HPH_PRINT,@"「へっ……HPH　へっ……HPH」","W"
+				PRINTFORMDW 夢美はイった快感のあまり舌を突き出し、尿道口からは勢いよく尿を垂れ流した。
+		ENDSELECT
+	ELSEIF ABL:14 > 4
+		CALL HPH_PRINT,@"「あはぁ、はぁ……HPH　見てぇ……HPH　い、イキ的同时、おしっこ、もらし、てHPH」","W"
+		PRINTFORMDW 夢美は絶頂しながらお漏らしする様を%CALLNAME:MASTER%に見られる快楽に身を任せているようだ
+	ELSE
+		PRINTFORML 「いやっ、見ないでっ、見ないでぇっ……！」
+		PRINTFORMDW 夢美は絶頂しながらおもらししてしまい、赤面している
+	ENDIF
+ENDIF
+;-------------------------------------------------
+;絶頂
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;五重絶頂
+	;記入チェック（=0, 非表示、1, 表示）
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF NOWEX:五重絶頂
+		CALL HPH_PRINT,@"「～～～ﾍ√ﾚ～～√￣＼√ﾚ～～ﾍｖｖ＾～ッHPHHPHHPHHPHHPH」","W"
+		PRINTFORMDW 夢美は声にならない謎の音を発し的同时、全身で激烈地絶頂した。
+		CALL HPH_PRINT,@"「うぁ……はひ……ひっ……ぁ……は……しゅ、しゅてきぃ……HPH」","W"
+		RETURN 1
+	ENDIF
+	;-------------------------------------------------
+	;四重絶頂
+	;記入チェック（=0, 非表示、1, 表示）
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF NOWEX:四重絶頂
+		PRINTFORML 「だめぇっ！だめだめだめっ！、すごいのっ、すごいのキちゃうっ！」
+		PRINTFORMDW 凄まじい絶頂感の到来に夢美はかぶりを振って反射的に逃れようとする。
+		CALL HPH_PRINT,@"「こんなの、わたし、おかしくなっちゃう、おかしくなっちゃうよおっ！あっ、あひぃぃぃぃHPHHPHHPH」","W"
+		PRINTFORMDW そして一際大きく全身を震わせて、夢美は激烈地絶頂した。
+		CALL HPH_PRINT,@"「はぁっ……はぁ……しゅ、ご……いぃ……HPH」","W"
+		;部位を指定せず簡易的に書く場合、[SKIPSTART]&[SKIPEND]のコメントアウトを外して、[SKIPSTART]とこのコメントの間に書いてください
+		;[SKIPSTART]
+		SELECTCASE NOWEX:四重絶頂
+			;Ｃ＆Ｖ＆Ａ＆Ｂ絶頂
+			CASE 1
+				PRINTFORMW 「クリとオマンコ……ふあぁっ、それに……お尻と胸部まで、イっちゃうなんて……」
+				RETURN 1
+			;Ｃ＆Ｖ＆Ａ＆Ｍ絶頂
+			CASE 2
+				PRINTFORMW 「クリとオマンコ……それと……お尻と接吻で、一気にイかされちゃうなんて……」
+				RETURN 1
+			;Ｃ＆Ｖ＆Ｂ＆Ｍ絶頂
+			CASE 3
+				PRINTFORMW 「クリとオマンコ……胸部と接吻で、こんな、イくなんて……」
+				RETURN 1
+			;Ｃ＆Ａ＆Ｂ＆Ｍ絶頂
+			CASE 4
+				PRINTFORMW 「おしりとクリと胸部と……接吻……が、一気にキちゃうなんて……」
+				RETURN 1
+			;Ｖ＆Ａ＆Ｂ＆Ｍ絶頂
+			CASE 5
+				PRINTFORMW 「おまんことお尻と胸部でイきながら接吻でもイけちゃうとか……」
+				RETURN 1
+		ENDSELECT
+		;[SKIPEND]
+	ENDIF
+	;-------------------------------------------------
+	;三重絶頂
+	;記入チェック（=0, 非表示、1, 表示）
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF NOWEX:三重絶頂
+		;部位を指定せず簡易的に書く場合、[SKIPSTART]&[SKIPEND]のコメントアウトを外して、[SKIPSTART]とこのコメントの間に書いてください
+		;暫定追加
+		PRINTFORML 「みっ、みっつぅ！三つ同時とかだめっ、絶対すごいからだめだめぇ！」
+		PRINTFORMDW 身体のあちこちから襲い来る強烈な快感を前に、夢美は形だけイヤイヤをして逃れようとした。
+		CALL HPH_PRINT,@"「はぁぁぁっHPH　すごイキしちゃうっHPH　もうがまんできないっHPHHPHHPH」","W"
+		CALL HPH_PRINT,@"「あっ、ひっ、イくっ、だらしなくイっちゃうっ！もうだめイクイクイクいっ、うぅーーーHPHHPH」","W"
+		[SKIPSTART]
+		SELECTCASE NOWEX:三重絶頂
+			;Ｃ＆Ｖ＆Ａ絶頂
+			CASE 1
+				PRINTFORMW 
+				RETURN 1
+			;Ｂ＆Ｖ＆Ａ絶頂
+			CASE 2
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ｂ＆Ａ絶頂
+			CASE 3
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ｖ＆Ｂ絶頂
+			CASE 4
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ｖ＆Ｍ絶頂
+			CASE 5
+				PRINTFORMW 
+				RETURN 1
+			;Ｂ＆Ｖ＆Ｍ絶頂
+			CASE 6
+				PRINTFORMW 
+				RETURN 1
+			;Ａ＆Ｖ＆Ｍ絶頂
+			CASE 7
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ｂ＆Ｍ絶頂
+			CASE 8
+				PRINTFORMW 
+				RETURN 1
+			;Ａ＆Ｂ＆Ｍ絶頂
+			CASE 9
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ａ＆Ｍ絶頂
+			CASE 10
+				PRINTFORMW 
+				RETURN 1
+		ENDSELECT
+		[SKIPEND]
+		RETURN 1
+	ENDIF
+	;-------------------------------------------------
+	;二重絶頂
+	;記入チェック（=0, 非表示、1, 表示）
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF NOWEX:二重絶頂
+		;部位を指定せず簡易的に書く場合、[SKIPSTART]&[SKIPEND]のコメントアウトを外して、[SKIPSTART]とこのコメントの間に書いてください
+		;とりあえず暫定で
+		CALL HPH_PRINT,@"「ふあぁぁっ、くるっ、きちゃうっ、ふたつっHPH　ふたつ同時にいっちゃうっHPH」","W"
+		CALL HPH_PRINT,@"「いくっ、いくいくっ、いつもよりすごいでイくのぉっHPH」","W"
+		PRINTFORML 「イくっイクイく……あっ、はぁあああっ！」
+		PRINTFORMDW 複数箇所を責められた夢美はより強い絶頂感を味わいながら果てた。
+		[SKIPSTART]
+		SELECTCASE NOWEX:二重絶頂
+			;Ｃ＆Ｖ絶頂
+			CASE 1
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ａ絶頂
+			CASE 2
+				PRINTFORMW 
+				RETURN 1
+			;Ｖ＆Ａ絶頂
+			CASE 3
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ｂ絶頂
+			CASE 4
+				PRINTFORMW 
+				RETURN 1
+			;Ｖ＆Ｂ絶頂
+			CASE 5
+				PRINTFORMW 
+				RETURN 1
+			;Ａ＆Ｂ絶頂
+			CASE 6
+				PRINTFORMW 
+				RETURN 1
+			;Ａ＆Ｍ絶頂
+			CASE 7
+				PRINTFORMW 
+				RETURN 1
+			;Ｖ＆Ｍ絶頂
+			CASE 8
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ｍ絶頂
+			CASE 9
+				PRINTFORMW 
+				RETURN 1
+			;Ｂ＆Ｍ絶頂
+			CASE 10
+				PRINTFORMW 
+				RETURN 1
+		ENDSELECT
+		[SKIPEND]
+		RETURN 1
+	ENDIF
+	IF NOWEX:Ｃ絶頂
+		;超強絶頂Ｃ
+		IF NOWEX:Ｃ絶頂 == 3
+			CALL HPH_PRINT,@"「すごっ、むり、むりっHPH　こんなの我慢できないっHPH」","W"
+			CALL HPH_PRINT,@"「とんでもないのがきちゃうっ、すごいクリイキしちゃうっHPH　だからっ、やめないでぇHPH」","W"
+			CALL HPH_PRINT,@"「あっ、あぁ、イく、いくいくっ、イッちゃう、イっ……～―――――ッ！HPHHPHHPH」","W"
+		;強絶頂Ｃ
+		ELSEIF NOWEX:Ｃ絶頂 == 2
+			PRINTFORML 「んはぁ、きもちいいっ、クリ気持ちいいのっ！もっと気持ちよくしてぇ！」
+			PRINTFORMDW すっかり阴蒂の快感を受け入れた夢美が、より強烈な快感を求めて懇願する。
+			CALL HPH_PRINT,@"「ふぁぁHPH　きてるっ、あぁ、いくHPH　いつもよりすごいのくるっHPH　キちゃうっHPH」","W"
+		;絶頂Ｃ
+		ELSE
+			PRINTFORMW 「ああっ、だめっ、そこっ、もうコリコリしないでぇっ！もうだめなのっ！」
+			PRINTFORMDW 夢美の限界が近いと悟った%CALLNAME:MASTER%は、夢美の言葉に反して一層秘豆への刺激を強めていった。
+			PRINTFORML 「だめ、だめぇ、おまめいくっ、おマメでイっちゃうっ！……ふああああっ！」
+		ENDIF
+	ENDIF
+	IF NOWEX:Ｖ絶頂
+		;超強絶頂Ｖ
+		IF NOWEX:Ｖ絶頂 == 3
+			CALL HPH_PRINT,@"「うあああっ！あひっ、あっ、んぁぁっ！すごいっHPH　おまんこ気持ちいいHPH」","W"
+			PRINTFORMDW 夢美は目にハートを浮かべてヴァギナの快感に酔いしれている。
+			CALL HPH_PRINT,@"「ねえ%CALLNAME:MASTER%おねがいHPH　もっとずぽずぽしてっHPH　すごいアクメきちゃうのぉっHPH」","W"
+			CALL HPH_PRINT,@"「あぁっいくっ、いっっちゃう！もうらめぇ！おまんこイくっ、イクイクイクぅーーーーーっHPHHPH」","W"
+		;強絶頂Ｖ
+		ELSEIF NOWEX:Ｖ絶頂 == 2
+			PRINTFORML 「ああっだめぇ、おまんこ、いつもより感じちゃってるっ！」
+			PRINTFORML 「おねがい%CALLNAME:MASTER%っ、もっと突いてぇっ！いつもよりもっと気持ちよくイけそうなのっ！」
+			CALL HPH_PRINT,@"「ふあ、あぁっ、いっ、らめ、イク、いっちゃうぅーーーーーーーッHPHHPH」","W"
+		;絶頂Ｖ
+		ELSE
+			PRINTFORML 「あっ、あっ、あっ！%CALLNAME:MASTER%っ、イキそうなの、わたし、イッちゃう……！」
+			PRINTFORMDW どうやら夢美の絶頂が近いらしい。
+			PRINTFORML 「あっ、だめ、だめ、だめぇ、もうだめなのぉ！」
+			CALL HPH_PRINT,@"「あっ、や、やぁっ、イくぅっ、わたしイクのぉ、ふああぁぁぁっHPH」","W"
+		ENDIF
+	ENDIF
+	IF NOWEX:Ａ絶頂
+		;超強絶頂Ａ
+		IF NOWEX:Ａ絶頂 == 3
+			IF TALENT:75 == 1
+				CALL HPH_PRINT,@"「ああっ、要去了っHPH　もっとぉっ！もっとケツ穴ホジってえっHPHHPHHPH」","W"
+				PRINTFORMDW すっかり尻穴の快楽に溺れきった夢美は、下品な言葉で更なる快楽を求めている。
+				CALL HPH_PRINT,@"「そうっHPH　これぇ、これよぉっHPH　ああっ、ケツイキくるうっHPH」","W"
+				CALL HPH_PRINT,@"「あぐぅっ、いくっケツ穴いくっ、イグっHPH　はぁぁぁぁああああっHPHHPHHPH」","W"
+			ELSE
+				PRINTFORML 「あひいっ、だめぇっ、やめてぇっ！おしりもうだめぇ！すごいのきちゃうよぉ！」
+				PRINTFORMDW 言葉とは裏腹に夢美の尻は快楽を求めて蠢动の。
+				CALL HPH_PRINT,@"「ひいいっ、イイっ、だめっイくっイクイｋ……あ、もうっ……ダ……あぁぁぁぁ～っ！！HPH」","W"
+			ENDIF
+		;強絶頂Ａ
+		ELSEIF NOWEX:Ａ絶頂 == 2
+			CALL HPH_PRINT,@"「おぐっ、いひいっ、うはぁっ、すごっ、おしりぃっHPH」","W"
+			PRINTFORMDW 開発された尻がもたらす快楽に夢美も慣れてきたようで、自ら尻を振って快楽を味わっている。
+			CALL HPH_PRINT,@"「あひっ、いくっ、きもちいっHPH　イくぅぅぅぅっHPHHPH」","W"
+		;絶頂Ａ
+		ELSE
+			PRINTFORML 「あぐっ、ああっ、やっ、おしりっ、うあぁっ、おしりでイくっ……\/\/\/」
+			PRINTFORMDW 夢美は尻でイクことにはまだ抵抗があるようで、羞恥と快楽への期待がない交ぜになっている。
+			PRINTFORML 「ふぁっ、ああっ、いやっ、いやっ、イ、イくぅっ！」
+		ENDIF
+	ENDIF
+	IF NOWEX:Ｂ絶頂
+		;強絶頂Ｂ
+		IF NOWEX:Ｂ絶頂 == 3
+			CALL HPH_PRINT,@"「らめぇ、胸部すごいっHPH　しゅごぉ、あ、うっあっあぁぁぁぁぁーーーっHPHHPH」","W"
+			PRINTFORMDW 凄まじいまでの快楽を胸で感じた夢美は、大きく背を反らして果てた。
+			CALL HPH_PRINT,@"「うはぁ……わらひの胸部……しゅご……HPH」","W"
+		;強絶頂Ｂ
+		ELSEIF NOWEX:Ｂ絶頂 == 2
+			PRINTFORML 「ああぁっ、だめ、それ以上胸部いじめないでぇっ！いつもよりすごいのきちゃうっ、からぁ！」
+			PRINTFORMDW 胸で更に強い絶頂の波を夢美が感じているらしく、声が大きくなっている。
+			CALL HPH_PRINT,@"「あっ、あーーーーーっHPH」","W"
+		;絶頂Ｂ
+		ELSE
+			PRINTFORML 「あっ、あっ、うそっ、いくっ、胸でぇ……っ？うぁっ？あああっ！」
+			PRINTFORMDW 夢美は胸を責められて絶頂した。
+			PRINTFORML 「うっ……んんっ……はぁっ……はぁ」
+		ENDIF
+	ENDIF
+	IF NOWEX:Ｍ絶頂
+		;超強絶頂Ｍ
+		IF NOWEX:Ｍ絶頂 == 3
+			CALL HPH_PRINT,@"「んむぅぅぅぅぅぅ～！？HPHHPHHPH」","W"
+			PRINTFORMDW 接吻とは思えない程の激しい絶頂を、夢美は口を塞がれたまま味わった。
+			CALL HPH_PRINT,@"「んぁ……いまの接吻……ひゅ、しゅ、しゅごかった……HPH」","W"
+		;強絶頂Ｍ
+		ELSEIF NOWEX:Ｍ絶頂 == 2
+			PRINTFORML 「んちゅっ、もっろぉ！じゅるっ、もうひゅこひぃ、しゅごいのくるのぉ！」
+			PRINTFORMDW 夢美是つもより激しい絶頂を予期し、より一層接吻を激烈地してくる。
+			CALL HPH_PRINT,@"「んもぉ……あめぇ！ちゅぱっ、らめぇ、イク、いっひゃうぅぅっ！HPH」","W"
+			CALL HPH_PRINT,@"「ぷぁ……ぁ……はーっ……はぁ……HPH」","W"
+		;絶頂Ｍ
+		ELSE
+			PRINTFORML 「んんっ、んむぅ！、ぷぁ、らめぇ、接吻れイッひゃ……んむぅぅぅ！」
+			PRINTFORMDW 夢美は再び%CALLNAME:MASTER%に唇を奪われると同時に絶頂した。
+			CALL HPH_PRINT,@"「ぷはぁ……あ……ぁ……HPH」","W"
+		ENDIF
+	ENDIF
+ENDIF
+;-------------------------------------------------
+;奴隷の睡眠絶頂時の口上
+;-------------------------------------------------
+@M_KOJO_MESSAGE_PALAMCNG_B2_K9
+CALL PALAM_MESSAGE_B
+;-------------------------------------------------
+;噴乳
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL && NOWEX:噴乳
+	PRINTFORML 「ん、んぅぅ……？」
+	PRINTFORMDW 眠ったまま夢美は母乳を分泌した。衣服にじわりと染みが広がっている……
+ENDIF
+;-------------------------------------------------
+;射精
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL && NOWEX:射精
+	PRINTFORMW 
+ENDIF
+;-------------------------------------------------
+;放尿
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL && NOWEX:放尿
+	PRINTFORML 「んん……あ、あふぅ……」
+	PRINTFORMDW 夢美がどうやら絶頂した拍子におもらししたらしい。
+	PRINTFORMW じゅわぁぁ……と温暖液体が被窝へ広がっていく……
+ENDIF
+;-------------------------------------------------
+;絶頂
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;五重絶頂
+	;記入チェック（=0, 非表示、1, 表示）
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF NOWEX:五重絶頂
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+	;-------------------------------------------------
+	;四重絶頂
+	;記入チェック（=0, 非表示、1, 表示）
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF NOWEX:四重絶頂
+		;部位を指定せず簡易的に書く場合、[SKIPSTART]&[SKIPEND]のコメントアウトを外して、[SKIPSTART]とこのコメントの間に書いてください
+		;[SKIPSTART]
+		SELECTCASE NOWEX:四重絶頂
+			;Ｃ＆Ｖ＆Ａ＆Ｂ絶頂
+			CASE 1
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ｖ＆Ａ＆Ｍ絶頂
+			CASE 2
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ｖ＆Ｂ＆Ｍ絶頂
+			CASE 3
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ａ＆Ｂ＆Ｍ絶頂
+			CASE 4
+				PRINTFORMW 
+				RETURN 1
+			;Ｖ＆Ａ＆Ｂ＆Ｍ絶頂
+			CASE 5
+				PRINTFORMW 
+				RETURN 1
+		ENDSELECT
+		;[SKIPEND]
+	ENDIF
+	;-------------------------------------------------
+	;三重絶頂
+	;記入チェック（=0, 非表示、1, 表示）
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF NOWEX:三重絶頂
+		;部位を指定せず簡易的に書く場合、[SKIPSTART]&[SKIPEND]のコメントアウトを外して、[SKIPSTART]とこのコメントの間に書いてください
+		;[SKIPSTART]
+		SELECTCASE NOWEX:三重絶頂
+			;Ｃ＆Ｖ＆Ａ絶頂
+			CASE 1
+				PRINTFORMW 
+				RETURN 1
+			;Ｂ＆Ｖ＆Ａ絶頂
+			CASE 2
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ｂ＆Ａ絶頂
+			CASE 3
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ｖ＆Ｂ絶頂
+			CASE 4
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ｖ＆Ｍ絶頂
+			CASE 5
+				PRINTFORMW 
+				RETURN 1
+			;Ｂ＆Ｖ＆Ｍ絶頂
+			CASE 6
+				PRINTFORMW 
+				RETURN 1
+			;Ａ＆Ｖ＆Ｍ絶頂
+			CASE 7
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ｂ＆Ｍ絶頂
+			CASE 8
+				PRINTFORMW 
+				RETURN 1
+			;Ａ＆Ｂ＆Ｍ絶頂
+			CASE 9
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ａ＆Ｍ絶頂
+			CASE 10
+				PRINTFORMW 
+				RETURN 1
+		ENDSELECT
+		;[SKIPEND]
+	ENDIF
+	;-------------------------------------------------
+	;二重絶頂
+	;記入チェック（=0, 非表示、1, 表示）
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF NOWEX:二重絶頂
+		;部位を指定せず簡易的に書く場合、[SKIPSTART]&[SKIPEND]のコメントアウトを外して、[SKIPSTART]とこのコメントの間に書いてください
+		;[SKIPSTART]
+		SELECTCASE NOWEX:二重絶頂
+			;Ｃ＆Ｖ絶頂
+			CASE 1
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ａ絶頂
+			CASE 2
+				PRINTFORMW 
+				RETURN 1
+			;Ｖ＆Ａ絶頂
+			CASE 3
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ｂ絶頂
+			CASE 4
+				PRINTFORMW 
+				RETURN 1
+			;Ｖ＆Ｂ絶頂
+			CASE 5
+				PRINTFORMW 
+				RETURN 1
+			;Ａ＆Ｂ絶頂
+			CASE 6
+				PRINTFORMW 
+				RETURN 1
+			;Ａ＆Ｍ絶頂
+			CASE 7
+				PRINTFORMW 
+				RETURN 1
+			;Ｖ＆Ｍ絶頂
+			CASE 8
+				PRINTFORMW 
+				RETURN 1
+			;Ｃ＆Ｍ絶頂
+			CASE 9
+				PRINTFORMW 
+				RETURN 1
+			;Ｂ＆Ｍ絶頂
+			CASE 10
+				PRINTFORMW 
+				RETURN 1
+		ENDSELECT
+		;[SKIPEND]
+	ENDIF
+	IF NOWEX:Ｃ絶頂
+		;超強絶頂Ｃ
+		IF NOWEX:Ｃ絶頂 == 3
+			PRINTFORMW 
+		;強絶頂Ｃ
+		ELSEIF NOWEX:Ｃ絶頂 == 2
+			PRINTFORMW 
+		;絶頂Ｃ
+		ELSE
+			PRINTFORMW 
+		ENDIF
+	ENDIF
+	IF NOWEX:Ｖ絶頂
+		;超強絶頂Ｖ
+		IF NOWEX:Ｖ絶頂 == 3
+			PRINTFORMW 
+		;強絶頂Ｖ
+		ELSEIF NOWEX:Ｖ絶頂 == 2
+			PRINTFORMW 
+		;絶頂Ｖ
+		ELSE
+			PRINTFORMW 
+		ENDIF
+	ENDIF
+	IF NOWEX:Ａ絶頂
+		;超強絶頂Ａ
+		IF NOWEX:Ａ絶頂 == 3
+			PRINTFORMW 
+		;強絶頂Ａ
+		ELSEIF NOWEX:Ａ絶頂 == 2
+			PRINTFORMW 
+		;絶頂Ａ
+		ELSE
+			PRINTFORMW 
+		ENDIF
+	ENDIF
+	IF NOWEX:Ｂ絶頂
+		;強絶頂Ｂ
+		IF NOWEX:Ｂ絶頂 == 3
+			PRINTFORMW 
+		;強絶頂Ｂ
+		ELSEIF NOWEX:Ｂ絶頂 == 2
+			PRINTFORMW 
+		;絶頂Ｂ
+		ELSE
+			PRINTFORMW 
+		ENDIF
+	ENDIF
+	IF NOWEX:Ｍ絶頂
+		;超強絶頂Ｍ
+		IF NOWEX:Ｍ絶頂 == 3
+			PRINTFORMW 
+		;強絶頂Ｍ
+		ELSEIF NOWEX:Ｍ絶頂 == 2
+			PRINTFORMW 
+		;絶頂Ｍ
+		ELSE
+			PRINTFORMW 
+		ENDIF
+	ENDIF
+ENDIF
+
+
+;-------------------------------------------------
+;射精に関する口上の表示
+;一時的にTARGETを口上主に設定している
+;-------------------------------------------------
+
+@M_KOJO_MESSAGE_PALAMCNG_A_K9_00(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;TARGETの手による射精で、射精対象が非TARGET
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	PRINTFORMW 
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A_K9_0(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;避孕套
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	PRINTFORML 「うわ……また随分出したわねえ……」
+	IF TALENT:31 > 2
+		PRINTFORML （う……あんなにいっぱい、飲みたい……\/\/\/）
+		CALL HPH_PRINT,@"「ねえ%CALLNAME:MASTER%、それ、飲ませてくれないかしら……？HPH」","W"
+	ENDIF
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A_K9_23(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;深喉插入
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	PRINTFORMW 
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A_K9_22(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;六九式
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;同時射精
+	IF NOWEX:射精 && NOWEX:MASTER:射精
+		PRINTFORMW
+		RETURN 1
+	;TARGETだけ射精
+	ELSEIF NOWEX:射精
+		;PLAYERについてる
+		IF GETBIT(TALENT:PLAYER:性別,1)
+			PRINTFORMW
+			RETURN 1
+		;付いてない
+		ELSE
+			PRINTFORML 「ああっ、いくっ、イッちゃう……イク～～～っ！！」
+			PRINTFORMDW 夢美と%CALLNAME:MASTER%は互相用秘所を舐め合いながら果てた。
+			PRINTFORMDW 溢れ出る愛液がお互相用顔を濡らしていく……
+			CALL HPH_PRINT,@"「はぁ……はぁ……HPH」","W"
+			RETURN 1
+		ENDIF
+	;PLAYERだけ射精
+	ELSE
+		;TARGETについてる
+		IF GETBIT(TALENT:性別,1)
+			PRINTFORMW
+			RETURN 1
+		;付いてない
+		ELSE
+			;精液中毒のレベルで分岐
+			IF ABL:31 >= 3
+				CALL HPH_PRINT,@"「んんん～……HPH　んぐっ……んんっ……んくっ……」","W"
+				PRINTFORMDW 夢美は絶頂しながら口内に射精された精液を飲んでいる。
+				CALL HPH_PRINT,@"「ぷぁっ……おいし……おまんこも気持ちいい……HPH」","W"
+			ELSE
+				PRINTFORML 「んんっ？！ぷぁっ……！で、出てきた……」
+				PRINTFORMW 夢美はびくびくと震えながら慌てて肉棒から口を離した。
+			ENDIF
+			RETURN 1
+		ENDIF
+	ENDIF
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A_K9_21(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;乳夾口交
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF !FLAG:70
+		SELECTCASE RAND:3
+			CASE 0
+				CALL HPH_PRINT,@"「きゃっ、もう……出し過ぎ……HPH」","W"
+				CALL HPH_PRINT,@"「顔も胸部も%CALLNAME:MASTER%の精液まみれじゃないの……HPH」","W"
+			CASE 1
+				CALL HPH_PRINT,@"「あはっ、すっごい出てる……HPH　%CALLNAME:MASTER%、気持ちよかった？」","W"
+			CASEELSE
+				CALL HPH_PRINT,@"「はぁ……いっぱい……HPH　上手く出来たのかしら？」","W"
+		ENDSELECT
+	ENDIF
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A_K9_20(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;手淫口交
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF !FLAG:70
+		SELECTCASE RAND:3
+			CASE 0
+				PRINTFORML 「んぐっ、んんっ……んっ……」
+				PRINTFORMDW 夢美は口内に出された精液をごくんと飲み込んだ。
+				PRINTFORML 「出し過ぎよ……こぼれちゃうかと思ったじゃない……」
+			CASE 1
+				PRINTFORML 「ひゃあっ！？」
+				PRINTFORMDW %CALLNAME:MASTER%が射精した瞬間、夢美は素っ頓狂な声をあげて顔を逸らした
+				CALL HPH_PRINT,@"「って、あぁ、もう……顔に……べとべとじゃないの……HPH」","W"
+			CASEELSE
+				CALL HPH_PRINT,@"「んむぅっ！？んぐぅ、んぐぅ……！んんっ……んくっ、ぷぁ……HPH」","W"
+				CALL HPH_PRINT,@"「佳肴さま、とっても美味しかったわ……HPH」","W"
+		ENDSELECT
+	ENDIF
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A_K9_9(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;肛門奉仕
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	PRINTFORMW 
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A_K9_8(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;泡泡浴
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	;同時射精
+	IF NOWEX:射精 && NOWEX:MASTER:射精
+		PRINTFORMW
+		RETURN 1
+	;TARGETだけ射精
+	ELSEIF NOWEX:射精
+		;PLAYERについてる
+		IF GETBIT(TALENT:PLAYER:性別,1)
+			PRINTFORMW
+			RETURN 1
+		;付いてない
+		ELSE
+			PRINTFORMW
+			RETURN 1
+		ENDIF
+	;PLAYERだけ射精
+	ELSE
+		;TARGETについてる
+		IF GETBIT(TALENT:性別,1)
+			PRINTFORMW
+			RETURN 1
+		;付いてない
+		ELSE
+			PRINTFORMW
+			RETURN 1
+		ENDIF
+	ENDIF
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A_K9_7(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;足交
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF !FLAG:70
+		CALL HPH_PRINT,@"「あはHPH　%CALLNAME:MASTER%ったら足でコスられて出しちゃうなんて……HPH」","W"
+		PRINTFORML 「恥ずかしくないのかしら、これじゃヘンタイみたいじゃない……？\/\/\/」
+	ENDIF
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A_K9_6(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;素股
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF !FLAG:70
+		IF TALENT:0 == 1
+			PRINTFORML 「うわ、いっぱい……出たわね……あそこがべとべと……」
+			PRINTFORML （実際にするときはアレが挿入ってくるのよ、ね……\/\/\/）
+		ELSE
+			CALL HPH_PRINT,@"「ふふっ、私のあそこ、%CALLNAME:MASTER%のでべとべとになっちゃった……HPH」","W"
+		ENDIF
+	ENDIF
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A_K9_5(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;乳交
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF !FLAG:70
+		PRINTFORML 「あっ、出てる……私の胸のナカで……気持ちよかった？」
+		PRINTFORMDW %CALLNAME:MASTER%は射精しながら頷いた。
+		PRINTFORML 「そう、それなら良かったわ」
+	ENDIF
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A_K9_4(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;口交
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF !FLAG:70
+		SELECTCASE RAND:3
+			CASE 0
+				CALL HPH_PRINT,@"「んぐっ、んぶっ、じゅるっ、じゅるるるっ……っぐん……ぷはぁHPH」","W"
+				PRINTFORMDW 夢美は口内に出された精液を勢いよく啜って飲み込んだ。
+				PRINTFORML 「ふふ……佳肴さま」
+			CASE 1
+				PRINTFORML 「んぶぅっ！？ぷぁっ、あっ……顔にかかっちゃった……やだ、髪も……？」
+				PRINTFORML 「洗うの大変なのよ？これ……まあいいけど……\/\/\/」
+			CASEELSE
+				CALL HPH_PRINT,@"「んん～～っ！んむっ、んんっ、んぐっ……んくっ……はぁHPH」","W"
+				PRINTFORMDW 射精の終わった亀頭を舌で舐り的同时、夢美が慢慢地口を離していく。
+				PRINTFORMDW 絶頂したての%CALLNAME:MASTER%はその度にびくりと震えた。
+		ENDSELECT
+	ENDIF
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A_K9_3(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;手淫
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF !FLAG:70
+		PRINTFORML 「あっ……出るなら出るって言いなさいよ、もう、手がべっとべとじゃないの」
+		;精液中毒があがっていると追加表示
+		IF ABL:31 > 2
+			CALL HPH_PRINT,@"「まあ、こうして舐めるのも好きだから良いけど……HPH」","W"
+			PRINTFORMDW 夢美はそう言って手に付着した精液を舐め取って味わっている。
+		ENDIF
+	ENDIF
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A_K9_2(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;肛門
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF !FLAG:70
+		IF TALENT:75 == 1
+			;尻穴狂用
+			SELECTCASE RAND:3
+				CASE 0
+					CALL HPH_PRINT,@"「あーっHPH　でてるぅHPH　わたしのケツマンコにざーめん出てるっHPH」","W"
+					CALL HPH_PRINT,@"「あついっ……もっとどぴゅどぴゅしてぇ……HPH」","W"
+				CASE 1
+					CALL HPH_PRINT,@"「んひぃHPH　すごっ、%CALLNAME:MASTER%のせーえきあっついHPH　おしりやけどしそうHPH」","W"
+					CALL HPH_PRINT,@"「きもちいい、おしりなかだしきもちいいのぉ……HPH」","W"
+				CASEELSE
+					CALL HPH_PRINT,@"「あはぁぁぁっ……HPH　%CALLNAME:MASTER%のちんぽみるくっ、わたしのおケツに飲まされてるっHPH」","W"
+					CALL HPH_PRINT,@"「あひっ……あっつぅい……HPH　すごいよぉ……HPH」","W"
+			ENDSELECT
+		ELSE
+			SELECTCASE RAND:3
+				CASE 0
+					PRINTFORML 「あっ、ああっ、で、出てるっ……私のおしりに、%CALLNAME:MASTER%のが……\/\/\/」
+				CASE 1
+					CALL HPH_PRINT,@"「ふはあぁぁぁっ、あぁっ……？おしり、が、あっつぅい……HPH」","W"
+				CASEELSE
+					CALL HPH_PRINT,@"「んはぁっ、すごっ、ああっ、おしりぃ……びゅーびゅー出てるぅ……HPH」","W"
+			ENDSELECT
+		ENDIF
+	ENDIF
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A_K9_1(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;膣内
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF !FLAG:70
+		IF TALENT:74 == 1
+			SELECTCASE RAND:3
+				CASE 0
+					CALL HPH_PRINT,@"「あぁーっHPH　しゃせぇきもちぃっHPH　しきゅうにざーめん、どくどくって出てるぅっHPH」","W"
+					CALL HPH_PRINT,@"「あついっ……もっとだしてぇ……HPH」","W"
+				CASE 1
+					CALL HPH_PRINT,@"「んひぃHPH　すごっ、%CALLNAME:MASTER%のせーえきあっついHPH　あそこやけどしそうHPH」","W"
+					CALL HPH_PRINT,@"「うはっ……きもちいいっ、なかだし、いいのぉ……HPH」","W"
+				CASEELSE
+					CALL HPH_PRINT,@"「あはぁぁぁっ……HPH　%CALLNAME:MASTER%のちんぽみるくっ、おまんこにでてるっHPH」","W"
+					CALL HPH_PRINT,@"「あひっ……あっつぅい……HPH　すごいよぉ……HPH」","W"
+			ENDSELECT
+		ELSE
+			SELECTCASE RAND:3
+				CASE 0
+					PRINTFORML 「あっ、ああっ、で、出てるっ……私のナカに、%CALLNAME:MASTER%のが……\/\/\/」
+				CASE 1
+					CALL HPH_PRINT,@"「ふはあぁぁぁっ、あぁっ……？おまんこ、が、あっつぅい……HPH」","W"
+				CASEELSE
+					CALL HPH_PRINT,@"「んはぁっ、すごっ、ああっ、膣内……びゅーびゅー出てるぅ……HPH」","W"
+			ENDSELECT
+		ENDIF
+		;危険日か,且つ口服避孕薬を飲ませていない(ゴム有りは別処理なので考慮しない)
+		IF CFLAG:900 == 7 && TCVAR:109 == 0
+			IF TALENT:3
+				PRINTFORML 「こんなに出されたら……その……デキちゃうかもしれないわね……\/\/\/」
+			ELSE
+				PRINTFORML （つい膣内で出させちゃったけど……大丈夫、よね……？）
+			ENDIF
+		ENDIF
+	ENDIF
+	RETURN 1
+ENDIF
+RETURN 1
+
+;-------------------------------------------------
+;眠姦射精に関する口上の表示
+;一時的にTARGETを口上主に設定している
+;-------------------------------------------------
+
+@M_KOJO_MESSAGE_PALAMCNG_A2_K9_0(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;避孕套
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	PRINTFORMW 
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A2_K9_23(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;深喉插入
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	PRINTFORMW 
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A2_K9_7(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;足交
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	PRINTFORMW 
+	RETURN 1
+ENDIF
+RETURN 1
+
+
+@M_KOJO_MESSAGE_PALAMCNG_A2_K9_5(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;乳交
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	PRINTFORMW 
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A2_K9_4(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;口交
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	PRINTFORMW 
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A2_K9_3(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;手淫
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	PRINTFORMW 
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A2_K9_2(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;肛門
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	PRINTFORMW 
+	RETURN 1
+ENDIF
+RETURN 1
+
+@M_KOJO_MESSAGE_PALAMCNG_A2_K9_1(ARG)
+CALL PALAM_MESSAGE_A
+;-------------------------------------------------
+;膣内
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	PRINTFORMW 
+	RETURN 1
+ENDIF
+RETURN 1
+
+
+@M_KOJO_MESSAGE_PALAMCNG_F_K9(ARG)
+CALL PALAM_MESSAGE_F
+;-------------------------------------------------
+;挑逗
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	PRINTFORMW 
+	RETURN 1
+ENDIF
+RETURN 1

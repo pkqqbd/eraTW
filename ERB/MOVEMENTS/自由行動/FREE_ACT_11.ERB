@@ -1,0 +1,82 @@
+﻿@EXIST_FreeAct11
+#LOCALSIZE 1
+#LOCALSSIZE 1
+
+;オブジェクト本体
+@FreeAct11(ARG, O_DATA, V_NAME)
+#FUNCTION
+#LOCALSIZE 1
+#LOCALSSIZE 1
+#DIMS O_DATA
+#DIMS V_NAME
+#DIM 経過時間
+経過時間 = Activity_Duration:TARGET
+SELECTCASE O_DATA
+;陪同行動指令の名称
+CASE "名称"
+	CALLF MAKE_STR(V_NAME, "帮忙做实验")
+CASE "CHAIN"
+;他角色に連鎖しない場合コメントアウトすること
+	CALLF MAKE_INT(V_NAME, 1)
+CASE "経過時間"
+;陪同行動指令での経過時間
+;0だと30分か残り時間全部の小さい方
+	CALLF MAKE_INT(V_NAME, 0)
+ENDSELECT
+
+@自由行動内容_11(CHARA, ARGS, 時間係数, CHAIN)
+#DIM CHARA
+#DIM CHAIN
+#DIM 現在地
+#DIM メッセージ表示
+#DIM 時間係数
+#DIM 経過時間
+現在地 = CFLAG:CHARA:現在位置
+メッセージ表示 = 現在地 == CFLAG:MASTER:現在位置 ? 1 # 0
+SELECTCASE ARGS
+	CASE "発生"
+		;調合Lv1以上の角色が調合できる場所（主人公私室以外）または自室にいる時
+		SIF TALENT:CHARA:調合Lv < 1
+			RETURN 0
+		SIF BASE:CHARA:気力 <= 500
+			RETURN 0
+		;連鎖時はスキップ
+		IF !CHAIN
+			SIF PHARMACY_SPOT(現在地) != 2 && 現在地 != CFLAG:CHARA:神社在住
+				RETURN 0
+		ENDIF
+		SIF メッセージ表示
+			PRINTFORMW %CALLNAME:CHARA%\@ CHAIN ? 開始給%CALLNAME:CHAIN%的實驗幫忙了。# 開始準備做實驗了。\@
+		RETURN 60 + RAND:30
+	CASE "行動中"
+		IF メッセージ表示
+			PRINTFORMW %CALLNAME:CHARA%%TEXTR("調節著実験器具/布置着実験道具/记录着実験过程/做着可疑的実験")%。
+		ENDIF
+	CASE "完了"
+		EXP:CHARA:調合経験 += 1
+		SIF メッセージ表示
+			PRINTFORMW %CALLNAME:CHARA%似乎做完實驗了。
+	CASE "中断"
+		EXP:CHARA:調合経験 += 1
+	CASE "交手"
+		;自由行動に付き合ったとき用メッセージ
+		PRINTFORML %CALLNAME:PLAYER%給%CALLNAME:TARGET%的實驗幫忙了
+		SELECTCASE RAND:3
+		CASE 1
+			PRINTFORML 完全無法理解%CALLNAME:TARGET%在做什麼…
+		CASE 2
+			PRINTFORML 因為要处理危險物品、實在很是精疲力尽…
+		CASEELSE
+			PRINTFORML %CALLNAME:TARGET%露出了滿意的表情…
+		ENDSELECT
+	CASE "ソース"
+		;交手指令選択時の入手ソース、時間係数は付き合った時間の1/10
+		DOWNBASE:MASTER:体力 += 20 * 時間係数
+		DOWNBASE:MASTER:気力 += 40 * 時間係数
+		DOWNBASE:TARGET:体力 += 10 * 時間係数
+		DOWNBASE:TARGET:気力 += 20 * 時間係数
+		SOURCE:歓楽 = (150 + ((ABL:親密 + TALENT:MASTER:調合Lv) * 50)) * 時間係数
+		SOURCE:受動 = (100 + ((ABL:従順 + TALENT:MASTER:調合Lv) * 50)) * 時間係数
+		TFLAG:98 = 1
+		EXP:MASTER:調合経験 ++
+ENDSELECT

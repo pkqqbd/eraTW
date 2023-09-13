@@ -1,0 +1,2063 @@
+﻿;※※※※※※※※※※※※※※※※※※※※※※※※※
+;性交系指令
+;※※※※※※※※※※※※※※※※※※※※※※※※※
+;==================================================
+;60,正常位
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_60
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_60_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_60_1
+
+;-------------------------------------------------
+;立位
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL && TFLAG:193
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		;処女
+		IF TCVAR:破瓜 == 1
+			CALL M_KOJO_MESSAGE_LOSTVIRGIN_K9
+			RETURN 1
+		ELSE
+			IF TALENT:3
+				PRINTFORML 「立ったままで%CALLNAME:MASTER%とするのは……たぶん初めてよね」
+				PRINTFORML 「繋がり的同时、いっぱい抱きついちゃうと思うけど……いいわよね\/\/\/」
+			ELSEIF TALENT:8
+				PRINTFORML 「こ、こんな……立ったままでなんて……そういうもんなの？」
+				PRINTFORML 「も、もう稍微こう、ベッドでするとかないのかｓ――んぅっ！？\/\/\/」
+			ELSEIF TALENT:愛欲 || TALENT:炮友
+				PRINTFORML 「んふ、立ったままでヤりたいだなんて、ベッドまで我慢できなかった？」
+				CALL HPH_PRINT,@"「いいわよ――これはこれで、素敵じゃないHPH」","W"
+				PRINTFORMDW 夢美は開心的笑着的と、%CALLNAME:MASTER%の一物を自己的秘所に誘った。
+				CALL HPH_PRINT,@"「楽しみましょ？HPH」","W"
+			ELSE
+				PRINTFORML 「こ、このまま立ちっぱでするの？」
+				CALL HPH_PRINT,@"「い、いかにも若気の至りというかガッついてる感がして稍微そｎ――んぁっ！？HPH」","W"
+			ENDIF
+			RETURN 1
+		ENDIF
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:100 == PLAYER
+		;前回射精した
+		IF TCVAR:102
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_AFTERSHOT_K9
+			RETURN 1
+		ELSE
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_K9
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;不埒を外して思慕/愛欲炮友/無印分岐を入れる
+	;時姦中
+	IF FLAG:70
+		PRINTFORMW 止まった時の中で%CALLNAME:MASTER%は夢美の片足を持ち上げると、立ったまま膣内に肉棒を挿入した。
+		CALL M_KOJO_MESSAGE_TIMESTOP_INSERT_K9
+		RETURN 1
+	;恋慕
+	ELSEIF TALENT:恋慕
+		IF TALENT:74
+			CALL HPH_PRINT,@"「きたぁHPH　%CALLNAME:MASTER%のちんぽHPH　ぬるっ、って入ってきたぁHPH」","W"
+			PRINTFORMDW 夢美は挿入の感触にすぐさま腰を上下させ始め、結合部から水音を立てながら%CALLNAME:MASTER%に続きをねだる。
+			CALL HPH_PRINT,@"「ねぇ、はやくぅ、はやく動いてぇ……だいすきな%CALLNAME:MASTER%のモノで、わたしのおまんこビクビクってさせてぇHPH」","W"
+			PRINTFORMDW そんなに言うなら仕方ない。%CALLNAME:MASTER%は眼前の夢美の唇を奪うとすぐさま激しい抽送を開始した。
+		ELSEIF ABL:1 > 5
+			PRINTFORML 「また……立ったままするの？」
+			PRINTFORMDW %CALLNAME:MASTER%はこくりと頷くと、夢美と密着したまま正面から肉棒を突き入れる。
+			CALL HPH_PRINT,@"「ぁ……でも、この下から入ってくる感じ……ふぁ……好き……HPH」","W"
+			PRINTFORMDW 挿入された感覚がたまらないのか、快感を求めて夢美の腰はひとりでに上下しはじめている。
+			PRINTFORML 「んっ……ねぇ%CALLNAME:MASTER%、はやく……動いて……？　もっともっと%CALLNAME:MASTER%を、感じさせて……？」
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			PRINTFORML 「んぅ……入って……きたぁ……%CALLNAME:MASTER%のが……」
+			PRINTFORMDW まだ慣れ切って是ない様子の夢美ではあったが、その顔に苦痛の色はほぼ見られなくなっている。
+			PRINTFORML 「んっ……ぁ……だい、じょうぶ……動いて……いい、わ……」
+			PRINTFORMDW その言葉に応じて%CALLNAME:MASTER%は腰をゆっくり動かし始めた。
+		ELSE
+			PRINTFORML 「ぅ……っく……是って……くる……」
+			PRINTFORMDW 夢美の膣内が肉棒をキツく締め付けてくる。彼女が快感を得られるにはもう少しかかるだろう。
+			PRINTFORML 「はぁ……うぅ……%CALLNAME:MASTER%……わたしは、だいじょうぶだから……動いて、いいわ、よ……」
+			PRINTFORMDW %CALLNAME:MASTER%はゆっくり、ほんの僅かに、開始动起了腰身。
+		ENDIF
+		RETURN 1
+	;屈服3
+	;ELSEIF MARK:不埒刻印 == 3
+	ELSEIF TALENT:愛欲 || TALENT:炮友
+		IF TALENT:74
+			CALL HPH_PRINT,@"「あっはァHPH　すきぃ、コレ好きなのぉっHPH　%CALLNAME:MASTER%のチンポぉHPH　入ってきてるっHPH」","W"
+			PRINTFORMDW 夢美は挿入の感触に早くも腰を上下させ始め、結合部から水音を立てながら%CALLNAME:MASTER%の肉棒で快感を貪りはじめた。
+			CALL HPH_PRINT,@"「ねぇはやくぅ、はやく犯して……%CALLNAME:MASTER%のでわたしのスケベマンコっHPH　イかせまくってぇっHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%は眼前で乱れる夢美をしっかり抱到身边と、すぐさま激しい抽送を開始した。
+		ELSEIF ABL:1 > 5
+			CALL HPH_PRINT,@"「あら……%CALLNAME:MASTER%は立ったままするのが好き……？　ふふ……わ・た・し・もHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%と夢美はお互いにこくりと頷くと、すぐに密着して雌雄を交わらせた。
+			CALL HPH_PRINT,@"「あぁいぃ……HPH　この下から、こみ上げてくる感じ……ふぁぁん……好きっ、よぉHPH」","W"
+			PRINTFORMDW 挿入の感覚に、快感を求めて夢美の腰は無意識のうちに上下し、ぬちゃぬちゃと音を立て始めている。
+			CALL HPH_PRINT,@"「んっ……ねぇ%CALLNAME:MASTER%、はやくシてぇ……　もっともっとわたしのおマンコ、感じさせて……？HPH」","W"
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			PRINTFORML 「あ……入って……きた……いい、かも……\/\/\/　%CALLNAME:MASTER%はどう？」
+			PRINTFORMDW まだ慣れ切って是ない様子の夢美だが、その顔には快楽の色が見え隠れしてきている。
+			PRINTFORMDW こちらもいい具合だと%CALLNAME:MASTER%が伝えると、
+			CALL HPH_PRINT,@"「ふふ、よかった……HPH　その团扇たしのアソコの虜になったりして……？　ほら、動いていいわよ%CALLNAME:MASTER%？」","W"
+			PRINTFORMDW その言葉に応じ、%CALLNAME:MASTER%はお互相用肉欲の充足のため、腰をゆっくり動かし始めた。
+		ELSE
+			PRINTFORML 「ぅ……っく……是って……きた……ぁ」
+			PRINTFORMDW 夢美の膣内が肉棒をキツく締め付けてくる。表情と声色からして、快感を得られるにはもう少しかかるだろう。
+			PRINTFORML 「もう……そんな目してんじゃないわよ……わたしたちは、こういう関係なんだから……ヤってナンボでしょ……？」
+			PRINTFORML 「それに……そのうち、%CALLNAME:MASTER%もわたしも、コレ、ヤミツキになっちゃう気がするし……ね？」
+			PRINTFORMDW %CALLNAME:MASTER%はゆっくり、ほんの僅かに、開始动起了腰身。
+		ENDIF
+		RETURN 1
+	;それ以外
+	ELSE
+		IF ABL:1 > 5
+			CALL HPH_PRINT,@"「やだっ、うそっ、きもち、いっHPH　立ったまま、入れられてるの、にぃっ\/\/\/」","W"
+			CALL HPH_PRINT,@"「稍微、やだっ、見ないでぇっHPH、こんな体勢で感じてるっ　わた、しを、みない、でぇっ\/\/\/」","W"
+			PRINTFORMDW 言葉とは裏腹に夢美の腰の動きは一向に収まることがなく、膣肉は%CALLNAME:MASTER%の肉棒を咥え込んで離さない。
+			PRINTFORMDW そのことを%CALLNAME:MASTER%が夢美の耳元で囁いてやると、夢美は尚も上の口だけは否定し続けた。
+			CALL HPH_PRINT,@"「そんなっ、そんな、ことぉ、な、いっHPH　%CALLNAME:MASTER%がっ、こし、うごかして、るっHPH　だけ、よっHPH」","W"
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			PRINTFORML 「あっ……はぁっ……入ってきてる……\/\/\/」
+			PRINTFORML 「んっ……%CALLNAME:MASTER%……わたし、コレ、けっこう、慣れてきた……かも……\/\/\/」
+			PRINTFORMDW 夢美の膣内は%CALLNAME:MASTER%に快感を与えるようになってきているが、どうやら夢美もそこそこ慣れてきているようだ。
+			PRINTFORML 「うん、続き……して、いいわよ」
+		ELSE
+			PRINTFORML 「いっ……う……っ、く……まだ、稍微、痛い……」
+			PRINTFORMDW 開発途上の夢美の膣内は、まだまだきつく、快感を生み出すにはもう少しばかりかかりそうだ。
+			PRINTFORML 「继続ん、でしょ……いいけど、無理には……動かさないで、よ……？」
+		ENDIF
+		RETURN 1
+	ENDIF
+ENDIF
+;-------------------------------------------------
+;正常位
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		;処女
+		IF TCVAR:破瓜 == 1
+			PRINTFORMW 
+			CALL M_KOJO_MESSAGE_LOSTVIRGIN_K9
+			RETURN 1
+		ELSE
+			;やっぱりベッド/被窝の上で、が正常位の王道ぐらいには思ってるんじゃないですかね
+			IF TALENT:3
+				PRINTFORML 「こういうコトは初めてじゃないけど、ちゃんと寝かせてしてくれるのは、やっぱり嬉しい……」
+				PRINTFORMDW 夢美が心底開心地微笑着并%CALLNAME:MASTER%を見つめ、誘った。
+				PRINTFORML 「きて、%CALLNAME:MASTER%。わたしを、いっぱい愛してちょうだい」
+			ELSEIF TALENT:8
+				PRINTFORML 「そ、そうよね、やっぱりこの姿勢はこっちよね！」
+				PRINTFORML 「だって初めてじゃないにしてもやっぱりほら情緒とかあるじゃない？」
+				PRINTFORML 「だからこういうオーソドックスなのがなんだかんだ嬉しいというか……\/\/\/」
+				PRINTFORMDW 夢美は一人で早口にまくし立てていたが、やがて落ち着いたのか、少し不安も残したような笑みを浮かべた
+				PRINTFORML 「うん――いいよ、きて、%CALLNAME:MASTER%」
+			ELSEIF TALENT:愛欲 || TALENT:炮友
+				PRINTFORML 「ベッド以外でヤるのも良いけど、やっぱり性交はベッドの上が一番ね、ふふふ」
+				CALL HPH_PRINT,@"「さぁ――素敵な一時にしましょ？HPH」","W"
+				PRINTFORMDW 夢美は淫靡に笑うと、%CALLNAME:MASTER%に自己的秘所を開いて見せた。
+			ELSE
+				PRINTFORML 「まさか、%CALLNAME:MASTER%と寝ることになるとは思ってなかったけど――」
+				PRINTFORML 「ま、折角のひとときだし、お互い気持ちよくなれるように努力しましょ？」
+				PRINTFORML 「良かったら次もまたシたくなるかもだし、ね」
+			ENDIF
+			RETURN 1
+		ENDIF
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:100 == PLAYER
+		;前回射精した
+		IF TCVAR:102
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_AFTERSHOT_K9
+			RETURN 1
+		ELSE
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_K9
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;時姦中
+	IF FLAG:70
+		PRINTFORMW 時間が止まっているにもかかわらず、%CALLNAME:MASTER%は律儀に夢美を横たえると、両足を開かせて膣内へ肉棒を挿入した。
+		CALL M_KOJO_MESSAGE_TIMESTOP_INSERT_K9
+		RETURN 1
+	;恋慕
+	ELSEIF TALENT:恋慕
+		IF TALENT:74
+			CALL HPH_PRINT,@"「きたぁHPH　%CALLNAME:MASTER%のちんぽHPH　ずっぷり、入ってきたぁHPH」","W"
+			PRINTFORMDW 夢美は挿入の感触にすぐさま腰をくねらせ始め、結合部から水音を立てながら%CALLNAME:MASTER%に続きをねだる。
+			CALL HPH_PRINT,@"「ねぇ、はやくぅ、はやく動いてぇ……だいすきな%CALLNAME:MASTER%のモノで、わたしのおまんこビクビクってさせてぇHPH」","W"
+			PRINTFORMDW そんなに言うなら仕方ない。%CALLNAME:MASTER%は夢美の片足を掴んで固定すると、すぐさま激しい抽送を開始した。
+		ELSEIF ABL:1 > 5
+			PRINTFORMDW %CALLNAME:MASTER%は仰向けの夢美に覆いかぶさると、そのまま肉棒を突き入れた。
+			CALL HPH_PRINT,@"「んぁ……、是ってきた……HPH　%CALLNAME:MASTER%の……好き……HPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%と愛し合いながら挿入される感覚に、夢美の腰はひとりでに動きはじめる。
+			CALL HPH_PRINT,@"「んっ……やだぁ、腰……動いて……HPH　ねぇ%CALLNAME:MASTER%、はやく動いて……　もっと私を、愛して……\/\/\/」","W"
+			PRINTFORMDW %CALLNAME:MASTER%はおねだりに応えるべく、しっかりとしたピストンを開始した。
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			PRINTFORML 「んぅ……入って……きたぁ……%CALLNAME:MASTER%のが……\/\/\/」
+			PRINTFORMDW まだ慣れ切って是ない様子の夢美ではあったが、その顔に苦痛の色はほぼ見られなくなっている。
+			PRINTFORML 「んっ……ぁ……だい、じょうぶ……動いて……いい、から……　その、だいぶ、よくなって、きたし……\/\/\/」
+			PRINTFORMDW %CALLNAME:MASTER%は夢美に一度接吻をしてから、腰をゆっくり動かし始めた。
+		ELSE
+			PRINTFORML 「いっ……っく……是って……くる……」
+			PRINTFORMDW 夢美の膣内が肉棒をキツく締め付けてくる。彼女が快感を得られるにはもう少しかかるだろう。
+			PRINTFORML 「はぁ……ぅ……%CALLNAME:MASTER%……わたしは、だいじょうぶだから……動いて、いいわ、よ……」
+			PRINTFORMDW %CALLNAME:MASTER%は動きを少なくしつつ、ゆっくり開始动起了腰身。
+		ENDIF
+		RETURN 1
+	;屈服3
+	;ELSEIF MARK:不埒刻印 == 3
+	ELSEIF TALENT:愛欲 || TALENT:炮友
+		IF TALENT:74
+			CALL HPH_PRINT,@"「んはぁぁっHPH　きたぁっHPH　%CALLNAME:MASTER%のチンポぉHPH」","W"
+			PRINTFORMDW 夢美は待ちわびた挿入の感触に早くも腰をへこへこと動かし、結合部から水音を立てて快感を貪りはじめた。
+			CALL HPH_PRINT,@"「ねぇ、はやくぅ、はやく犯してぇ……ガチガチの%CALLNAME:MASTER%ちんぽでわたしのエロマンコっHPH　めちゃくちゃホジってぇっHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%は眼前で乱れる夢美の下半身をしっかり固定すると、肉欲の赴くままに激しい抽送を開始した。
+		ELSEIF ABL:1 > 5
+			CALL HPH_PRINT,@"「ん……やっぱりなんだかんだでこの体勢が性交としては一番よね……HPH　きて、%CALLNAME:MASTER%？」","W"
+			PRINTFORMDW %CALLNAME:MASTER%と夢美はお互いに頷いて唇を貪り合うと、すぐに密着して雌雄を交わらせた。
+			CALL HPH_PRINT,@"「あはぁ……HPH　いぃ……HPH　この押さえ付けられる感じが……HPH　だい……好きぃHPH」","W"
+			PRINTFORMDW 挿入の感覚に、快感を求める夢美の腰が無意識のうちに上下し、ぬちゃぬちゃと音を立て始めている。
+			CALL HPH_PRINT,@"「んっ……ねぇ%CALLNAME:MASTER%、はやく動いてぇ……　もっともっとわたしのマンコ、イかせてちょうだい……？HPH」","W"
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			PRINTFORML 「あ……入って……きた……いい感じ……\/\/\/　%CALLNAME:MASTER%は、どう？」
+			PRINTFORMDW まだ慣れ切って是ないようだが、夢美の顔にはしっかりと快楽の色が見えてきている。
+			PRINTFORMDW こちらもいい具合だと%CALLNAME:MASTER%が伝えると、
+			CALL HPH_PRINT,@"「あら、嬉しい……HPH　このままやみつきになったりとか……？　ふふ、動いてみて？」","W"
+			PRINTFORMDW その言葉に応じ、%CALLNAME:MASTER%はお互相用肉欲の充足のため、腰をゆっくり動かし始めた。
+		ELSE
+			PRINTFORML 「いぅ……っぐ……是って……き、た……」
+			PRINTFORMDW 夢美の膣内が肉棒をキツく締め付けてくる。表情と声色からして、快感を得られるにはもう少しかかるだろう。
+			PRINTFORML 「稍微……そんな目しないでよ……私達はこういう都合のいい関係なんだから……お互いヤってナンボじゃない？」
+			PRINTFORML 「それに……そのうち、%CALLNAME:MASTER%もわたしも、エッチ、慣れる気がするし……」
+			PRINTFORMDW その言葉を信じ、%CALLNAME:MASTER%は慢慢地、ほんの僅かに、開始动起了腰身。
+		ENDIF
+		RETURN 1
+	;それ以外
+	ELSE
+		IF ABL:1 > 5
+			CALL HPH_PRINT,@"「やだっ、うそっ、きもち、いいっHPH　こし、とまんなぃっ\/\/\/」","W"
+			CALL HPH_PRINT,@"「稍微、やだっ、見ないでぇっHPH、ぜったいエッチなかおしてるっ　わた、しを、みない、でぇっ\/\/\/」","W"
+			PRINTFORMDW 言葉と裏腹に夢美の腰はへこへこと動いて一向に収まることがなく、膣肉は%CALLNAME:MASTER%の肉棒を咥え込んで離さない。
+			PRINTFORMDW そのことを%CALLNAME:MASTER%が夢美の耳元で囁いてやると、夢美は尚も上の口だけは否定し続けた。
+			CALL HPH_PRINT,@"「そんなっ、そんな、ことぉ、な、いっHPH　%CALLNAME:MASTER%がっ、こし、うごかして、るっHPH　だけ、なん、だか、らぁっHPH」","W"
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			PRINTFORML 「あっ……はぁっ……入ってきてる……\/\/\/」
+			PRINTFORML 「んっ……%CALLNAME:MASTER%……わたし、コレ、けっこう、慣れてきた……かも……\/\/\/」
+			PRINTFORMDW 夢美の膣内は%CALLNAME:MASTER%に快感を与えるようになってきているが、どうやら夢美もそこそこ慣れてきているようだ。
+			PRINTFORML 「うん、大丈夫だから……続き、して……？\/\/\/」
+		ELSE
+			PRINTFORML 「いっ……う……っ、く……まだ、稍微、痛い……」
+			PRINTFORMDW 開発途上の夢美の膣内は、まだまだきつく、快感を生み出すにはもう少しばかりかかりそうだ。
+			PRINTFORML 「继続ん、でしょ……いいけど、無理には……動かさないで、よ……？」
+		ENDIF
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;61,後背位
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_61
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_61_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_61_1
+;-------------------------------------------------
+;立位
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL && TFLAG:193
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		;処女
+		IF TCVAR:破瓜 == 1
+			PRINTFORMW 
+			CALL M_KOJO_MESSAGE_LOSTVIRGIN_K9
+			RETURN 1
+		ELSE
+			IF TALENT:3
+				PRINTFORML 「やだ、もう……そんな、立ったまま从后面将したいだなんて……」
+				PRINTFORML 「ほんとスケベなんだから……ばか……\/\/\/」
+				PRINTFORMDW 夢美が有点害臊的微笑み、お尻を%CALLNAME:MASTER%の方に突き出して見つめてきた。
+				PRINTFORML 「ほら、きて、%CALLNAME:MASTER%。わたしのココ、思いっきり突いて……\/\/\/」
+			ELSEIF TALENT:8
+				PRINTFORML 「う、嘘、立ったまま从后面将したいの！？」
+				PRINTFORML 「こ、こんな――け、獣みたいな姿勢なのに……\/\/\/」
+				PRINTFORML （こらぁ、どこかドキドキしてる場合じゃないでしょ私ー！\/\/\/
+				PRINTFORMDW 夢美は一人で悶々としていたが、少し不安も残したような露出笑容%CALLNAME:MASTER%の方を振り向いた。
+				PRINTFORML 「しょうがないわね――このままシていいよ、%CALLNAME:MASTER%」
+			ELSEIF TALENT:愛欲 || TALENT:炮友
+				PRINTFORML 「あら、このまま从后面将挿入れたいの？ふふふ、好きねぇ……」
+				PRINTFORMDW 夢美は%CALLNAME:MASTER%に振り向いて淫靡な笑みを浮かべ、自己的秘所を開いて見せた。
+				CALL HPH_PRINT,@"「まぁそういう私も立ちバック、好きだけど……HPH」","W"
+				CALL HPH_PRINT,@"「%CALLNAME:MASTER%、わたしのおまんこ、いっぱい気持ちよくしてね？HPH」","W"
+			ELSE
+				PRINTFORML 「稍微、从后面将って你ね……私が初めてじゃないからって……」
+				PRINTFORML 「知り合いレベルの相手にいきなり立ちバック要求するとか……\/\/\/」
+				PRINTFORMDW 夢美は少し頬を赤くしながら何やらどもっていたが、渋々尻を%CALLNAME:MASTER%の方に向けた。
+				PRINTFORML 「はぁ……ほら、いいわよ。その代わりちゃんと気持ちよくしてよ？」
+			ENDIF
+			RETURN 1
+		ENDIF
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:100 == PLAYER
+		;前回射精した
+		IF TCVAR:102
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_AFTERSHOT_K9
+			RETURN 1
+		ELSE
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_K9
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;時姦中
+	IF FLAG:70
+		PRINTFORMW %CALLNAME:MASTER%は在停止的時間中夢美に立って尻を突き出した姿勢に変えると、一気に肉棒を突っ込んだ。
+		CALL M_KOJO_MESSAGE_TIMESTOP_INSERT_K9
+		RETURN 1
+	;恋慕
+	ELSEIF TALENT:恋慕
+		IF TALENT:74
+			CALL HPH_PRINT,@"「んぉっHPH　%CALLNAME:MASTER%のちんぽHPH　ずんっ、て、是ってぇ、イくぅHPH」","W"
+			PRINTFORMDW 立ちバックの姿勢で突き込まれた肉棒の感触に、夢美はすぐさま体をビクつかせながら絶頂した。
+			CALL HPH_PRINT,@"「ねぇ、もっとぉ、もっとシてぇ……だいすきな%CALLNAME:MASTER%のモノで、わたしのおまんこずぼずぼしてぇHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%は尻を振って続きをねだる夢美に応えるべく、尻を両手でしっかり掴み、望み街道に激烈地突いてやった。
+		ELSEIF ABL:1 > 5
+			PRINTFORMDW %CALLNAME:MASTER%はこちらに尻を向けて立つ夢美の腰を掴むと、そのまま一気に肉棒を突き入れた。
+			CALL HPH_PRINT,@"「んぁぁぁぁああっ……HPH　一気に是ってきたぁHPH　%CALLNAME:MASTER%の……好きぃ……HPH」","W"
+			PRINTFORMDW 从后面将ゴリゴリと膣内を抉るように挿入される肉棒に、夢美は体をビクつかせて快感を享受する。
+			CALL HPH_PRINT,@"「んひ……やだぁ、ナカ……ホジられて……HPH　ねぇ%CALLNAME:MASTER%、もっと……　もっと私のナカ、えぐってぇ……\/\/\/」","W"
+			PRINTFORMDW %CALLNAME:MASTER%は尻を振りながらの可愛いおねだりに応えるべく、しっかりと腰を打ちつけてやった。
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			PRINTFORML 「んぅ……押し分けて入ってくる……\/\/\/　%CALLNAME:MASTER%の、が……\/\/\/」
+			PRINTFORMDW 立ちバックのため夢美の表情はうかがい知れないが、その声に苦痛の色はほぼ見られない。
+			PRINTFORML 「んっ……ぁ……だい、じょうぶ……動いて……いい、から……　わたしも、だいぶ、よくなって、きてるし……\/\/\/」
+			PRINTFORMDW %CALLNAME:MASTER%は夢美の腰をしっかり掴んでから、腰を慢慢地深く動かした。
+		ELSE
+			PRINTFORML 「いっ……っく……是って……くる……」
+			PRINTFORMDW 从后面将挿入される肉棒に夢美はふるふると体を震わせたが、まだ痛みの方が強く快感を得るには至らないようだ。
+			PRINTFORML 「はぁ……ぅ……%CALLNAME:MASTER%……わたしは、だいじょうぶだから……動いて、いいわ、よ……」
+			PRINTFORMDW %CALLNAME:MASTER%は動きの幅を少なくしつつ、ゆっくり開始动起了腰身。
+		ENDIF
+		RETURN 1
+	;屈服3
+	;ELSEIF MARK:不埒刻印 == 3
+	ELSEIF TALENT:愛欲 || TALENT:炮友
+		IF TALENT:74
+			CALL HPH_PRINT,@"「きてきてっHPH　わたしのおマンコもう待ちきれないからぁHPH」","W"
+			PRINTFORMDW 立ちバックの姿勢からこちらを振り返り、尻を振りながら下の口を広げておねだりする夢美に、%CALLNAME:MASTER%はたまらず即座に挿入してやった。
+			CALL HPH_PRINT,@"「んはぁぁっHPH　きたぁっHPH　ぁ、やだもうイくっHPH　%CALLNAME:MASTER%のチンポですぐイぐHPH」","W"
+			PRINTFORMDW 夢美は待ちわびた挿入の感触に早くも尻を振りながら絶頂し、尚も結合部から水音を立てて快感を貪らんと体をくねらせる。
+			CALL HPH_PRINT,@"「ねぇ、はやくぅ、はやくもっと犯してぇ……ビキビキの%CALLNAME:MASTER%ちんぽでわたしのマン汁ドバドバのオマンコ、もっとめちゃくちゃにしてぇHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%は眼前で乱れる夢美の尻肉を痕が付くほどにしっかり掴むと、面包、面包と音を立てて激烈地腰を打ちつけてやった。
+		ELSEIF ABL:1 > 5
+			CALL HPH_PRINT,@"「ふふ……立って从后面将……？HPH　いいわよ、きて、%CALLNAME:MASTER%？」","W"
+			PRINTFORMDW 夢美は%CALLNAME:MASTER%の方へ尻を向けたまま振り返り、膣口を割り開いて見せつけると、%CALLNAME:MASTER%はすぐに亀頭をその中にねじ込んだ。
+			CALL HPH_PRINT,@"「あはぁ……HPH　いぃ……HPH　この場所を問わず盛って交尾してる感じがぁ……HPH　好き、なのぉHPH」","W"
+			PRINTFORMDW 膣内で蠢动の肉棒の感覚に、夢美が体をビクつかせているさまが%CALLNAME:MASTER%の目に焼き付く。うわ言のように夢美が続きをねだる。
+			CALL HPH_PRINT,@"「んっ……ねぇ%CALLNAME:MASTER%、もっとずぽずぽして……HPH　ちんぽ大好きなわたしのスケベマンコ、イかせてぇ……HPH」","W"
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			CALL HPH_PRINT,@"「んは……HPH　あぁっ……入って……きた……いい感じかも……\/\/\/　%CALLNAME:MASTER%は、どう？」","W"
+			PRINTFORMDW まだ慣れ切って是ないようだが、夢美の声色からはしっかりと快楽の色が見えてきている。
+			PRINTFORMDW こちらもいい具合だと%CALLNAME:MASTER%が伝えると、
+			CALL HPH_PRINT,@"「あら、嬉しい……HPH　このまま立ちバックでヤるのがやみつきになったりしちゃうかも……？　ほら、続けてちょうだい？」","W"
+			PRINTFORMDW その言葉に応じ、%CALLNAME:MASTER%は夢美の尻肉を揉みながらお互相用肉欲を充足させるべく、腰をゆっくり動かし始めた。
+		ELSE
+			PRINTFORML 「いぅ……っぐ……是って……き、た……」
+			PRINTFORMDW 夢美の膣内が肉棒をキツく締め付けてくる。表情と声色からして、快感を得られるにはもう少しかかるだろう。
+			PRINTFORML 「稍微……やめないで……私達はカラダだけの関係なんだから……お互いヤってナンボでしょ」
+			PRINTFORML 「それに……そのうち、%CALLNAME:MASTER%もわたしも、エッチ、慣れる気がするから……そのうち気持ちよくなるんじゃない？」
+			PRINTFORMDW その言葉を信じ、%CALLNAME:MASTER%は夢美の尻肉を揉みほぐしながら慢慢地、ほんの僅かに、開始动起了腰身。
+		ENDIF
+		RETURN 1
+	;それ以外
+	ELSE
+		IF ABL:1 > 5
+			CALL HPH_PRINT,@"「やだっ、うそっ、きもち、いいっHPH　きもちいいの、とまんなぃっ\/\/\/」","W"
+			CALL HPH_PRINT,@"「やだっ、こんなぁ、うしろからっ、つかれ、てぇHPH　なのにぃ、わたしっHPHぜったいえっちなかおしてる\/\/\/」","W"
+			PRINTFORMDW 快楽に呂律の回らない夢美の腰はへこへこと動いて一向に収まることがなく、膣肉は%CALLNAME:MASTER%の肉棒を咥え込んで離さない。
+			PRINTFORMDW そのさまを%CALLNAME:MASTER%が夢美に聞こえるように伝えてやると、夢美はよがりながら一層快楽に浸り始めた。
+			CALL HPH_PRINT,@"「すきHPH　%CALLNAME:MASTER%にっ、うしろからこし、ぶつけ、られ、てぇっHPH　おかされ、る、のぉHPH」","W"
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			PRINTFORML 「あっ……はぁっ……入ってきてる……\/\/\/」
+			PRINTFORML 「んっ……%CALLNAME:MASTER%……なんだか、从后面将されるの、これはこれで、けっこう、イイ……かも……\/\/\/」
+			PRINTFORMDW 夢美の膣内は%CALLNAME:MASTER%に快感を与えるようになってきているが、後ろが好きなのか、どうやら夢美も感じてきているようだ。
+			PRINTFORML 「うん、大丈夫だから……続き、して……？\/\/\/」
+		ELSE
+			PRINTFORML 「いっ……う……っ、く……まだ、稍微、痛い……」
+			PRINTFORMDW 開発途上の夢美の膣内は、まだまだきつく、快感を生み出すにはもう少しばかりかかりそうだ。
+			PRINTFORML 「继続ん、でしょ……いいけど、無理には……動かないで、よ……？」
+		ENDIF
+		RETURN 1
+	ENDIF
+ENDIF
+;-------------------------------------------------
+;後背位
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		;処女
+		IF TCVAR:破瓜 == 1
+			PRINTFORMW 
+			CALL M_KOJO_MESSAGE_LOSTVIRGIN_K9
+			RETURN 1
+		ELSE
+			IF TALENT:3
+				PRINTFORML 「从后面将したいの……？」
+				PRINTFORML 「こんなの犬みたいじゃない……ほんとスケベなんだから……ばか……\/\/\/」
+				PRINTFORMDW 夢美が有点害臊的微笑み、お尻を%CALLNAME:MASTER%の方に突き出して見つめてくる。
+				PRINTFORML 「ほら、きて、%CALLNAME:MASTER%。わたしのココ、思いっきり突いて……\/\/\/」
+			ELSEIF TALENT:8
+				PRINTFORML 「う、从后面将したいの？」
+				PRINTFORML 「こ、こんな――け、獣みたいな姿勢なのに……\/\/\/」
+				PRINTFORML （もしかしてそのまま、種付けとか、されちゃうのかしら……\/\/\/
+				PRINTFORMDW 夢美は真っ赤な顔でおそるおそる%CALLNAME:MASTER%の方を振り向いた。
+				PRINTFORML 「あ、あんまり激しすぎるのはヤだからね？」
+			ELSEIF TALENT:愛欲 || TALENT:炮友
+				PRINTFORML 「あら、このまま从后面将挿入れたいの？ふふふ、私のお尻も恶作剧したいとか？」
+				PRINTFORMDW 夢美は%CALLNAME:MASTER%に振り向いて淫靡な笑みを浮かべ、自己的秘所を開いて見せた。
+				CALL HPH_PRINT,@"「ふふふ、まぁお尻もおまんこも%CALLNAME:MASTER%の随便いいけど……HPH」","W"
+				CALL HPH_PRINT,@"「気持ちよくしてね？HPH」","W"
+			ELSE
+				PRINTFORML 「稍微、从后面将って你ね……いくら私が初めてじゃないからって……」
+				PRINTFORML 「知り合いレベルの相手にいきなりバック要求するとか……\/\/\/」
+				PRINTFORMDW 夢美は少し頬を赤くしながら何やらどもっていたが、渋々尻を%CALLNAME:MASTER%の方に向けた。
+				PRINTFORML 「はぁ……ほら、いいわよ。その代わりちゃんと気持ちよくしてよ？」
+			ENDIF
+			RETURN 1
+		ENDIF
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:100 == PLAYER
+		;前回射精した
+		IF TCVAR:102
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_AFTERSHOT_K9
+			RETURN 1
+		ELSE
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_K9
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;時姦中
+	IF FLAG:70
+		PRINTFORMW %CALLNAME:MASTER%は夢美を床にうつ伏せにし尻を突き出した姿勢にすると、一思いに膣内へ挿入した。
+		CALL M_KOJO_MESSAGE_TIMESTOP_INSERT_K9
+		RETURN 1
+	;恋慕
+	ELSEIF TALENT:恋慕
+		IF TALENT:74
+			CALL HPH_PRINT,@"「んぉっHPH　%CALLNAME:MASTER%のちんぽHPH　ずんっ、て、是ってぇ、イくぅHPH」","W"
+			PRINTFORMDW 立ちバックの姿勢で突き込まれた肉棒の感触に、夢美はすぐさま体をビクつかせながら絶頂した。
+			CALL HPH_PRINT,@"「ねぇ、もっとぉ、もっとシてぇ……だいすきな%CALLNAME:MASTER%のモノで、わたしのおまんこずぼずぼしてぇHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%は尻を振って続きをねだる夢美に応えるべく、尻を両手でしっかり掴み、望み街道に激烈地突いてやった。
+		ELSEIF ABL:1 > 5
+			PRINTFORMDW %CALLNAME:MASTER%はこちらに尻を向けて立つ夢美の腰を掴むと、そのまま一気に肉棒を突き入れた。
+			CALL HPH_PRINT,@"「んぁぁぁぁああっ……、一気に是ってきたぁHPH　%CALLNAME:MASTER%の……好きぃ……HPH」","W"
+			PRINTFORMDW 从后面将ゴリゴリと膣内を抉るように挿入される肉棒に、夢美は体をビクつかせて快感を享受する。
+			CALL HPH_PRINT,@"「んひ……やだぁ、ナカ……ホジられて……HPH　ねぇ%CALLNAME:MASTER%、もっと……　もっと私のナカ、えぐってぇ……\/\/\/」","W"
+			PRINTFORMDW %CALLNAME:MASTER%は尻を振りながらの可愛いおねだりに応えるべく、しっかりと腰を打ちつけてやった。
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			PRINTFORML 「んぅ……押し分けて入ってくる……\/\/\/　%CALLNAME:MASTER%の、が……\/\/\/」
+			PRINTFORMDW 立ちバックのため夢美の表情はうかがい知れないが、その声に苦痛の色はほぼ見られない。
+			PRINTFORML 「んっ……ぁ……だい、じょうぶ……動いて……いい、から……　わたしも、だいぶ、よくなって、きてるし……\/\/\/」
+			PRINTFORMDW %CALLNAME:MASTER%は夢美の腰をしっかり掴んでから、腰を慢慢地深く動かした。
+		ELSE
+			PRINTFORML 「いっ……っく……是って……くる……」
+			PRINTFORMDW 从后面将挿入される肉棒に夢美はふるふると体を震わせたが、まだ痛みの方が強く快感を得るには至らないようだ。
+			PRINTFORML 「はぁ……ぅ……%CALLNAME:MASTER%……わたしは、だいじょうぶだから……動いて、いいわ、よ……」
+			PRINTFORMDW %CALLNAME:MASTER%は動きの幅を少なくしつつ、ゆっくり開始动起了腰身。
+		ENDIF
+		RETURN 1
+	;屈服3
+	;ELSEIF MARK:不埒刻印 == 3
+	ELSEIF TALENT:愛欲 || TALENT:炮友
+		IF TALENT:74
+			CALL HPH_PRINT,@"「きてきてっHPH　わたしのおマンコもう待ちきれないからぁHPH」","W"
+			PRINTFORMDW 立ちバックの姿勢からこちらを振り返り、尻を振りながら下の口を広げておねだりする夢美に、%CALLNAME:MASTER%はたまらず即座に挿入してやった。
+			CALL HPH_PRINT,@"「んはぁぁっHPH　きたぁっHPH　ぁ、やだもうイくっHPH　%CALLNAME:MASTER%のチンポですぐイぐHPH」","W"
+			PRINTFORMDW 夢美は待ちわびた挿入の感触に早くも尻を振りながら絶頂し、尚も結合部から水音を立てて快感を貪らんと体をくねらせる。
+			CALL HPH_PRINT,@"「ねぇ、はやくぅ、はやくもっと犯してぇ……ビキビキの%CALLNAME:MASTER%ちんぽでわたしのマン汁ドバドバのオマンコ、もっとめちゃくちゃにしてぇHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%は眼前で乱れる夢美の尻肉を痕が付くほどにしっかり掴むと、面包、面包と音を立てて激烈地腰を打ちつけてやった。
+		ELSEIF ABL:1 > 5
+			CALL HPH_PRINT,@"「ふふ……立って从后面将……？HPH　いいわよ、きて、%CALLNAME:MASTER%？」","W"
+			PRINTFORMDW 夢美は%CALLNAME:MASTER%の方へ尻を向けたまま振り返り、膣口を割り開いて見せつけると、%CALLNAME:MASTER%はすぐに亀頭をその中にねじ込んだ。
+			CALL HPH_PRINT,@"「あはぁ……HPH　いぃ……HPH　この場所を問わず盛って交尾してる感じがぁ……HPH　好き、なのぉHPH」","W"
+			PRINTFORMDW 膣内で蠢动の肉棒の感覚に、夢美が体をビクつかせているさまが%CALLNAME:MASTER%の目に焼き付く。うわ言のように夢美が続きをねだる。
+			CALL HPH_PRINT,@"「んっ……ねぇ%CALLNAME:MASTER%、もっとずぽずぽして……HPH　ちんぽ大好きなわたしのスケベマンコ、イかせてぇ……HPH」","W"
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			CALL HPH_PRINT,@"「んは……HPH　あぁっ……入って……きた……いい感じかも……\/\/\/　%CALLNAME:MASTER%は、どう？」","W"
+			PRINTFORMDW まだ慣れ切って是ないようだが、夢美の声色からはしっかりと快楽の色が見えてきている。
+			PRINTFORMDW こちらもいい具合だと%CALLNAME:MASTER%が伝えると、
+			CALL HPH_PRINT,@"「あら、嬉しい……HPH　このまま立ちバックでヤるのがやみつきになったりしちゃうかも……？　ほら、続けてちょうだい？」","W"
+			PRINTFORMDW その言葉に応じ、%CALLNAME:MASTER%は夢美の尻肉を揉みながらお互相用肉欲を充足させるべく、腰をゆっくり動かし始めた。
+		ELSE
+			PRINTFORML 「いぅ……っぐ……是って……き、た……」
+			PRINTFORMDW 夢美の膣内が肉棒をキツく締め付けてくる。表情と声色からして、快感を得られるにはもう少しかかるだろう。
+			PRINTFORML 「稍微……やめないで……私達はカラダだけの関係なんだから……お互いヤってナンボでしょ」
+			PRINTFORML 「それに……そのうち、%CALLNAME:MASTER%もわたしも、エッチ、慣れる気がするから……そのうち気持ちよくなるんじゃない？」
+			PRINTFORMDW その言葉を信じ、%CALLNAME:MASTER%は夢美の尻肉を揉みほぐしながら慢慢地、ほんの僅かに、開始动起了腰身。
+		ENDIF
+		RETURN 1
+	;それ以外
+	ELSE
+		IF ABL:1 > 5
+			CALL HPH_PRINT,@"「やだっ、うそっ、きもち、いいっHPH　きもちいいの、とまんなぃっ\/\/\/」","W"
+			CALL HPH_PRINT,@"「やだっ、こんなぁ、うしろからっ、つかれ、てぇHPH　なのにぃ、わたしっHPHぜったいえっちなかおしてる\/\/\/」","W"
+			PRINTFORMDW 快楽に呂律の回らない夢美の腰はへこへこと動いて一向に収まることがなく、膣肉は%CALLNAME:MASTER%の肉棒を咥え込んで離さない。
+			PRINTFORMDW そのさまを%CALLNAME:MASTER%が夢美に聞こえるように伝えてやると、夢美はよがりながら一層快楽に浸り始めた。
+			CALL HPH_PRINT,@"「すきHPH　%CALLNAME:MASTER%にっ、うしろからこし、ぶつけ、られ、てぇっHPH　おかされ、る、のぉHPH」","W"
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			PRINTFORML 「あっ……はぁっ……入ってきてる……\/\/\/」
+			PRINTFORML 「んっ……%CALLNAME:MASTER%……なんだか、从后面将されるの、これはこれで、けっこう、イイ……かも……\/\/\/」
+			PRINTFORMDW 夢美の膣内は%CALLNAME:MASTER%に快感を与えるようになってきているが、後ろが好きなのか、どうやら夢美も感じてきているようだ。
+			PRINTFORML 「うん、大丈夫だから……続き、して……？\/\/\/」
+		ELSE
+			PRINTFORML 「いっ……う……っ、く……まだ、稍微、痛い……」
+			PRINTFORMDW 開発途上の夢美の膣内は、まだまだきつく、快感を生み出すにはもう少しばかりかかりそうだ。
+			PRINTFORML 「继続ん、でしょ……いいけど、無理には……動かないで、よ……？」
+		ENDIF
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;62,正常位肛交
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_62
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_62_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_62_1
+;-------------------------------------------------
+;立位
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL && TFLAG:193
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		;尻穴処女
+		IF TCVAR:Ａ破瓜
+			PRINTFORMW 
+			CALL M_KOJO_MESSAGE_LOSTVIRGIN_A_K9
+			RETURN 1
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:101 == PLAYER
+		;前回射精した
+		IF TCVAR:104
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_AFTERSHOT_A_K9
+			RETURN 1
+		ELSE
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_A_K9
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;時姦中
+	IF FLAG:70
+		PRINTFORMW %CALLNAME:MASTER%は一旦从后面将立ったままの夢美の尻穴に一物を挿入すると、犯しながら夢美の体をこちらに向ける。
+		CALL M_KOJO_MESSAGE_TIMESTOP_INSERT_A_K9
+		RETURN 1
+	;恋慕
+	ELSEIF TALENT:恋慕
+		PRINTFORMW 
+		RETURN 1
+	;屈服3
+	ELSEIF MARK:不埒刻印 == 3
+		PRINTFORMW 
+		RETURN 1
+	;それ以外
+	ELSE
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+ENDIF
+;-------------------------------------------------
+;正常位
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		;尻穴処女
+		IF TCVAR:Ａ破瓜
+			PRINTFORMW 
+			CALL M_KOJO_MESSAGE_LOSTVIRGIN_A_K9
+			RETURN 1
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:101 == PLAYER
+		;前回射精した
+		IF TCVAR:104
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_AFTERSHOT_A_K9
+			RETURN 1
+		ELSE
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_A_K9
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;時姦中
+	IF FLAG:70
+		PRINTFORMW %CALLNAME:MASTER%は仰向けに寝かせた夢美をまんぐり返しの姿勢にすると、一物を菊門に宛がい侵入させた。
+		CALL M_KOJO_MESSAGE_TIMESTOP_INSERT_A_K9
+		RETURN 1
+	;恋慕
+	ELSEIF TALENT:恋慕
+		PRINTFORMW 
+		RETURN 1
+	;屈服3
+	ELSEIF MARK:不埒刻印 == 3
+		PRINTFORMW 
+		RETURN 1
+	;それ以外
+	ELSE
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;63,後背位肛交
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_63
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_63_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_63_1
+;-------------------------------------------------
+;立位
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL && TFLAG:193
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		;尻穴処女
+		IF TCVAR:Ａ破瓜
+			PRINTFORMW 
+			CALL M_KOJO_MESSAGE_LOSTVIRGIN_A_K9
+			RETURN 1
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:101 == PLAYER
+		;前回射精した
+		IF TCVAR:104
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_AFTERSHOT_A_K9
+			RETURN 1
+		ELSE
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_A_K9
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;時姦中
+	IF FLAG:70
+		PRINTFORMW %CALLNAME:MASTER%は夢美を立ちバックの姿勢にさせると、尻肉を割り開いて肛門に一物を挿入する。
+		CALL M_KOJO_MESSAGE_TIMESTOP_INSERT_A_K9
+		RETURN 1
+	;恋慕
+	ELSEIF TALENT:恋慕
+		PRINTFORMW 
+		RETURN 1
+	;屈服3
+	ELSEIF MARK:不埒刻印 == 3
+		PRINTFORMW 
+		RETURN 1
+	;それ以外
+	ELSE
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+ENDIF
+;-------------------------------------------------
+;後背位
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		;尻穴処女
+		IF TCVAR:Ａ破瓜
+			PRINTFORMW 
+			CALL M_KOJO_MESSAGE_LOSTVIRGIN_A_K9
+			RETURN 1
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:101 == PLAYER
+		;前回射精した
+		IF TCVAR:104
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_AFTERSHOT_A_K9
+			RETURN 1
+		ELSE
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_A_K9
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;時姦中
+	IF FLAG:70
+		PRINTFORMW %CALLNAME:MASTER%はうつ伏せに寝かせた夢美の尻を突き上げた状態にすると、尻肉を左右に思い切り開いて肉棒を挿し込んだ。
+		CALL M_KOJO_MESSAGE_TIMESTOP_INSERT_A_K9
+		RETURN 1
+	;恋慕
+	ELSEIF TALENT:恋慕
+		PRINTFORMW 
+		RETURN 1
+	;屈服3
+	ELSEIF MARK:不埒刻印 == 3
+		PRINTFORMW 
+		RETURN 1
+	;それ以外
+	ELSE
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;====================================================================
+;64,逆強姦
+;紛らわしいが女你が上に乗るのであり、你が襲われるわけではない
+;====================================================================
+@M_KOJO_MESSAGE_COM_K9_64
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_64_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_64_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		;調教者が処女
+		IF TCVAR:PLAYER:破瓜 == 1
+			PRINTFORMW 
+			RETURN 1
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:PLAYER:100 == TARGET
+		;前回射精した
+		IF TCVAR:PLAYER:102
+			PRINTFORMW 
+			RETURN 1
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;恋慕
+	IF TALENT:恋慕
+		PRINTFORMW 
+		RETURN 1
+	;屈服3
+	ELSEIF MARK:不埒刻印 == 3
+		PRINTFORMW 
+		RETURN 1
+	;それ以外
+	ELSE
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;65,騎乗位
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_65
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_65_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_65_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		;処女
+		IF TCVAR:破瓜 == 1
+			PRINTFORMW 
+			CALL M_KOJO_MESSAGE_LOSTVIRGIN_K9
+			RETURN 1
+		ELSE
+			IF TALENT:3
+				PRINTFORML 「う、上に乗ってほしい……？　上ってその、%CALLNAME:MASTER%の……\/\/\/」
+				PRINTFORMDW %CALLNAME:MASTER%の一物をチラチラと見ながら呟く夢美に、大きく頷き返す%CALLNAME:MASTER%
+				PRINTFORML 「わ、わかった……うまく出来るか分かんないけど……\/\/\/」
+				PRINTFORMDW 夢美が恥ずかしそうな表情で%CALLNAME:MASTER%を見つめ的同时、自己的秘所へ肉棒を宛がい、ゆっくり腰を落とす。
+				PRINTFORMDW %CALLNAME:MASTER%からは夢美の陰毛と膣内へ飲み込まれていく陰茎がはっきりと視認できた。
+				PRINTFORML 「い、入れる……わね……んぅっ……あぁ……是って、きた……\/\/\/」
+			ELSEIF TALENT:8
+				PRINTFORML 「う、上に乗れですって！？　……そ、その、%CALLNAME:MASTER%の、ぉ、ぉ……んに、よね……\/\/\/」
+				PRINTFORML 「ぅ……わ、わかったわよ……や、やってみるわよ……\/\/\/」
+				PRINTFORMDW 夢美は真っ赤な顔でおそるおそる%CALLNAME:MASTER%の肉棒を跨ぐと、自己的秘所へ一物を宛がい、腰を落としていく。
+				PRINTFORMDW %CALLNAME:MASTER%からは夢美の陰毛と蜜壺へ飲み込まれていく陰茎がはっきりと見える。
+				PRINTFORML 「あ、あぁっ……入ってくるっ……突き上げられてる……感じ……」
+			ELSEIF TALENT:愛欲 || TALENT:炮友
+				PRINTFORML 「あら、上に乗ってほしいの？ふふふ、私と繋がってるトコロ、見たいのかしら？」
+				PRINTFORMDW 夢美は%CALLNAME:MASTER%の阴茎に跨ると淫靡な笑みを浮かべ、自己的秘所を開いて見せると、一気に腰を落としてきた。
+				CALL HPH_PRINT,@"「ふふ、それじゃ%CALLNAME:MASTER%の乗り心地、確かめさせてもらうわね……んぁぁぁっHPH」","W"
+				PRINTFORMDW %CALLNAME:MASTER%の目には夢美が腰を上下に動かし、快楽を貪る姿が存分に映りこんでくる。
+				CALL HPH_PRINT,@"「いいっHPH　コレいいっHPH　%CALLNAME:MASTER%っ、もっと突き上げてぇっHPH」","W"
+			ELSE
+				PRINTFORML 「稍微、上に乗ってくれって、你ね……いくら私が初めてじゃないからって……」
+				PRINTFORML 「知り合いレベルの相手とエッチするのに騎乗位要求するかしらフツー……\/\/\/」
+				PRINTFORMDW 夢美は少し頬を赤くしてどもっていたが、好奇心もあるようで%CALLNAME:MASTER%の陰茎を跨いで秘所に宛がうと、ゆっくり飲み込んでいく。
+				PRINTFORML 「はぁ……ぅ……入ってぇ……せりあがって、くるぅ……\/\/\/」
+			ENDIF
+			RETURN 1
+		ENDIF
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:100 == PLAYER
+		;前回射精した
+		IF TCVAR:102
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_AFTERSHOT_K9
+			RETURN 1
+		ELSE
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_K9
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;時姦中
+	IF FLAG:70
+		PRINTFORMW %CALLNAME:MASTER%は腰の上に夢美を跨らせると、その腰を掴んで下ろし一物を挿入するや、好き放題に腰を打ち上げて突いた。
+		CALL M_KOJO_MESSAGE_TIMESTOP_INSERT_K9
+		RETURN 1
+	;恋慕
+	ELSEIF TALENT:恋慕
+		IF TALENT:74
+			CALL HPH_PRINT,@"「んぉっHPH　%CALLNAME:MASTER%のちんぽHPH　ずんっ、て、是ってぇ、イくぅHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%の肉棒を秘所で咥え込み、腰を深く落とすと夢美はすぐさま体をビクつかせながら絶頂した。
+			CALL HPH_PRINT,@"「ねぇ、もっとぉHPH　もっと突き上げてぇ……HPH　%CALLNAME:MASTER%のモノで、わたしのおまんこ、おくまでえぐってぇHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%は腰をへこへこさせて続きをねだる夢美に応えるべく、夢美の腰を両手でしっかり掴み、望み街道下から激烈地突き上げた。
+		ELSEIF ABL:1 > 5
+			PRINTFORMDW %CALLNAME:MASTER%は肉棒を膣内に収めた夢美の腰を掴むと、そのまま下から腰を突き上げた。
+			CALL HPH_PRINT,@"「あひっ！　イイっHPH　%CALLNAME:MASTER%のっ、おくにっ！　あたってるっHPH」","W"
+			PRINTFORMDW 下から膣内を抉るように容赦なく挿入される肉棒に、夢美は体をビクつかせて快感を享受する。
+			CALL HPH_PRINT,@"「んひぃっ、やだぁ、ナカ……コンコンってされて……HPH　ねぇ%CALLNAME:MASTER%、もっと……　もっと私のナカ、えぐってぇ……\/\/\/」","W"
+			PRINTFORMDW %CALLNAME:MASTER%是やらしく腰を上下させての可愛いおねだりに応えるべく、さらに腰を突き上げた。
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			PRINTFORML 「ぅ……まっすぐ入ってくる……\/\/\/　%CALLNAME:MASTER%の、が……\/\/\/」
+			PRINTFORMDW %CALLNAME:MASTER%の上に乗って膣内に陰茎を咥え込む夢美の表情に、苦痛の色はほぼ見られない。
+			PRINTFORML 「んっ……ぁ……すご……動いて……いい、わよ……　わたしも、だいぶ、慣れて、きたし……\/\/\/」
+			PRINTFORMDW %CALLNAME:MASTER%は夢美の腰をしっかり掴んでから、腰を慢慢地深く上下させた。
+		ELSE
+			PRINTFORML 「いっ……っく……是って……くる……」
+			PRINTFORMDW 真下から挿入される肉棒に夢美はふるふると体を震わせたが、まだ痛みの方が強いようだ。
+			PRINTFORML 「はぁ……ぅ……%CALLNAME:MASTER%……わたしは、だいじょうぶだから……動いて、いいわ、よ……」
+			PRINTFORMDW %CALLNAME:MASTER%は夢美に負担をかけないように動きを少なくしつつ、小刻みに腰を上下させた。
+		ENDIF
+		RETURN 1
+	;屈服3
+	;ELSEIF MARK:不埒刻印 == 3
+	ELSEIF TALENT:愛欲 || TALENT:炮友
+		IF TALENT:74
+			CALL HPH_PRINT,@"「ふふっHPH　わたしのおマンコで%CALLNAME:MASTER%のちんぽ、いただきまぁすHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%の肉棒に跨った夢美は自ら秘所を割り開いて見せつけると、待ちきれないとばかりに腰を下ろしてきた。
+			CALL HPH_PRINT,@"「んはぁぁっHPH　きたぁっHPH　ぁ、やだもうイくっHPH　%CALLNAME:MASTER%のチンポですぐイぐぅHPH」","W"
+			PRINTFORMDW 夢美は待ちわびた肉棒の感触に小刻みに腰を上下させながら絶頂し、尚も結合部から水音を立てて快感を貪らんと体をくねらせる。
+			CALL HPH_PRINT,@"「ねぇ、はやくぅ、はやくもっと犯してぇ……ビキビキの%CALLNAME:MASTER%ちんぽでわたしのマン汁ドバドバのオマンコ、もっとめちゃくちゃにしてぇHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%は眼前で乱れる夢美の腰しっかり掴むと、面包、面包と音を立つほどに激烈地腰を打ち上げてやった。
+		ELSEIF ABL:1 > 5
+			CALL HPH_PRINT,@"「あら……乗ってほしいの……？HPH」","W"
+			PRINTFORMDW 夢美は%CALLNAME:MASTER%の肉棒を跨いで立ち、膣口を割り開いて見せつけると、亀頭を蜜壺に咥え込んできた。
+			CALL HPH_PRINT,@"「あはぁ……HPH　いぃ……HPH　この下からガツンとくる感じ……HPH　好きぃHPH」","W"
+			PRINTFORMDW 膣内で蠢动の肉棒の感覚に、夢美が体をビクつかせているさまが%CALLNAME:MASTER%の目に焼き付く。うわ言のように夢美が続きをねだる。
+			CALL HPH_PRINT,@"「んっ……ねぇ%CALLNAME:MASTER%、もっとずぽずぽして……HPH　ちんぽ大好きなわたしのスケベ穴、イかせてぇ……HPH」","W"
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			CALL HPH_PRINT,@"「んは……HPH　あぁっ……入って……きた……いい感じかも……\/\/\/　%CALLNAME:MASTER%は、どう？」","W"
+			PRINTFORMDW まだ慣れ切って是ないようだが、夢美の声色からはしっかりと快楽の色が見えてきている。
+			PRINTFORMDW こちらもいい具合だと%CALLNAME:MASTER%が伝えると、
+			CALL HPH_PRINT,@"「あら、嬉しい……HPH　%CALLNAME:MASTER%を見下ろしながらヤれるのって、なんか良いわね……HPH　ほら、もっと突き上げて？」","W"
+			PRINTFORMDW その言葉に応じ、%CALLNAME:MASTER%は夢美の腰を掴むと肉欲を充足させるべく、より奥に届くように深く突き込んでやった。
+		ELSE
+			PRINTFORML 「いぅ……っぐ……是って……き、た……」
+			PRINTFORMDW 夢美の膣内が肉棒をキツく締め付けてくる。表情と声色からして、快感を得られるにはもう少しかかるだろう。
+			PRINTFORML 「稍微……やめないで……私達はカラダだけの関係なんだから……お互いヤってナンボでしょ」
+			PRINTFORML 「それに……そのうち、%CALLNAME:MASTER%もわたしも、エッチ、慣れる気がするから……そのうち気持ちよくなるんじゃない？」
+			PRINTFORMDW その言葉を信じ、%CALLNAME:MASTER%は夢美の腰を掴んむとゆっくり、小刻みに開始动起了腰身。
+		ENDIF
+		RETURN 1
+	;それ以外
+	ELSE
+		IF ABL:1 > 5
+			CALL HPH_PRINT,@"「やだっ、うそっ、きもち、いいっHPH　きもちいいの、とまんなぃっ\/\/\/」","W"
+			CALL HPH_PRINT,@"「やだっ、こんなぁ、したっからっ、つかれ、てぇHPH　なのにぃ、わたしっHPHぜったいえっちなかおしてる\/\/\/」","W"
+			PRINTFORMDW 快楽に呂律の回らない夢美の腰はへこへこと動いて一向に収まることがなく、膣肉は%CALLNAME:MASTER%の肉棒を咥え込んで離さない。
+			PRINTFORMDW そのさまを%CALLNAME:MASTER%が夢美に聞こえるように伝えてやると、夢美はよがりながら一層快楽に浸り始めた。
+			CALL HPH_PRINT,@"「すきHPH　%CALLNAME:MASTER%にっ、のってッ、つきあげ、られ、てぇっHPH　えっち、する、のぉHPH」","W"
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			PRINTFORML 「あっ……はぁっ……入ってきてる……\/\/\/」
+			PRINTFORML 「んっ……%CALLNAME:MASTER%に……乗るのも、これはこれで、けっこう、イイ……かも……\/\/\/」
+			PRINTFORMDW 夢美の膣内は%CALLNAME:MASTER%に快感を与えるようになってきているが、どうやら夢美もナカを突かれて感じているようだ。
+			PRINTFORML 「うん、大丈夫だから……続き、して……？\/\/\/」
+		ELSE
+			PRINTFORML 「いっ……う……っ、く……まだ、稍微、痛い……」
+			PRINTFORMDW 開発途上の夢美の膣内は、まだまだきつく、快感を生み出すにはもう少しばかりかかりそうだ。
+			PRINTFORML 「继続ん、でしょ……いいけど、無理には……動かないで、よ……？」
+		ENDIF
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;66,騎乗位肛交
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_66
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_66_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_66_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		;尻穴処女
+		IF TCVAR:Ａ破瓜
+			PRINTFORMW 
+			CALL M_KOJO_MESSAGE_LOSTVIRGIN_A_K9
+			RETURN 1
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:101 == PLAYER
+		;前回射精した
+		IF TCVAR:104
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_AFTERSHOT_A_K9
+			RETURN 1
+		ELSE
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_A_K9
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;時姦中
+	IF FLAG:70
+		PRINTFORMDW %CALLNAME:MASTER%は夢美の尻穴をしっかり開いて肉棒の上へと跨らせた姿勢にすると、その腰を掴んで下ろし、肉棒を咥え込ませた。
+		PRINTFORMDW しっかりと入ったことを確認した%CALLNAME:MASTER%は、一心不乱に腰を上下させて夢美の尻穴を蹂躙した。
+		CALL M_KOJO_MESSAGE_TIMESTOP_INSERT_A_K9
+		RETURN 1
+	;恋慕
+	ELSEIF TALENT:恋慕
+		PRINTFORMW 
+		RETURN 1
+	;屈服3
+	ELSEIF MARK:不埒刻印 == 3
+		PRINTFORMW 
+		RETURN 1
+	;それ以外
+	ELSE
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;67,対面座位
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_67
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_67_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_67_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		;処女
+		IF TCVAR:破瓜 == 1
+			PRINTFORMW 
+			CALL M_KOJO_MESSAGE_LOSTVIRGIN_K9
+			RETURN 1
+		ELSE
+			IF TALENT:3
+				PRINTFORML 「う、座って、向かい合って……？　座るってその、%CALLNAME:MASTER%の……ソレに？\/\/\/」
+				PRINTFORMDW 胡坐をかいて座る%CALLNAME:MASTER%の一物をチラチラと見ながら呟く夢美に、大きく頷き返す%CALLNAME:MASTER%
+				PRINTFORML 「わ、わかった……うまく出来るか分かんないけど……\/\/\/」
+				PRINTFORMDW 密着状態で%CALLNAME:MASTER%を見つめ的同时、自己的秘所へ肉棒を宛がい、ゆっくり腰を落とす。
+				PRINTFORML 「い、入れる……わね……んぅっ……あぁ……是って、きた……\/\/\/」
+			ELSEIF TALENT:8
+				PRINTFORML 「え、向き合って！？　……そ、その、%CALLNAME:MASTER%の、ぉ、ぉ……んに、よね……\/\/\/」
+				PRINTFORML 「ぅ……わ、わかったわよ……や、やってみるわよ……\/\/\/」
+				PRINTFORMDW 夢美は真っ赤な顔でおそるおそる%CALLNAME:MASTER%の肉棒を跨ぐと、自己的秘所へ一物を宛がい、腰を落としていく。
+				PRINTFORML 「う……あ、あぁっ……入ってくるっ……突き上げられてる……感じ……」
+			ELSEIF TALENT:愛欲 || TALENT:炮友
+				PRINTFORML 「あら、向かい合ってしたい？ふふふ、情熱的ね？」
+				PRINTFORMDW 夢美は%CALLNAME:MASTER%の阴茎に跨ると淫靡な笑みを浮かべ、自己的秘所を開いて一気に腰を落とす。
+				CALL HPH_PRINT,@"「ふふ、それじゃ%CALLNAME:MASTER%の座り心地、確かめさせてもらうわね……んぁぁぁっHPH」","W"
+				CALL HPH_PRINT,@"「いいっHPH　コレいいっHPH　%CALLNAME:MASTER%もっ、もっと腰動かしてぇっHPH」","W"
+			ELSE
+				PRINTFORML 「稍微、向かい合って座ってくれって、你ね……」
+				PRINTFORML 「知り合いレベルの相手とエッチするのにこんな体勢要求するかしらフツー……\/\/\/」
+				PRINTFORMDW 夢美は少し頬を赤くしてどもっていたが、好奇心もあるようで%CALLNAME:MASTER%の陰茎を跨いで秘所に宛がうと、ゆっくり飲み込んでいく。
+				PRINTFORML 「はぁ……ぅ……入ってぇ……せりあがって、くるぅ……\/\/\/」
+			ENDIF
+			RETURN 1
+		ENDIF
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:100 == PLAYER
+		;前回射精した
+		IF TCVAR:102
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_AFTERSHOT_K9
+			RETURN 1
+		ELSE
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_K9
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;恋慕
+	IF TALENT:恋慕
+		IF TALENT:74
+			CALL HPH_PRINT,@"「んぉっHPH　%CALLNAME:MASTER%のちんぽHPH　ずんっ、て、是ってぇ、イくぅHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%の肉棒を秘所で咥え込み、腰を深く落とすと夢美はすぐさま体をビクつかせながら絶頂した。
+			CALL HPH_PRINT,@"「ねぇ、もっとぉHPH　もっと突き上げてぇ……HPH　%CALLNAME:MASTER%のモノで、わたしのおまんこ、おくまでえぐってぇHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%は腰をへこへこさせて続きをねだる夢美に応えるべく、しっかり抱きつくよう伝えると望み街道下から激烈地突き上げた。
+		ELSEIF ABL:1 > 5
+			PRINTFORMDW %CALLNAME:MASTER%は肉棒を膣内に収めた夢美の腰を掴むと、そのまま下から腰を突き上げた。
+			CALL HPH_PRINT,@"「あひっ！　イイっHPH　%CALLNAME:MASTER%のっ、おくにっ！　あたってるっHPH」","W"
+			PRINTFORMDW 下から膣内を抉るように容赦なく挿入される肉棒に、夢美は体をビクつかせて快感を享受する。
+			CALL HPH_PRINT,@"「んひぃっ、やだぁ、ナカ……コンコンってされて……HPH　ねぇ%CALLNAME:MASTER%、もっと……　もっと私のナカ、えぐってぇ……\/\/\/」","W"
+			PRINTFORMDW %CALLNAME:MASTER%是やらしく耳元で囁かれるおねだりに応えるべく、さらに腰を突き上げた。
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			PRINTFORML 「ぅ……まっすぐ入ってくる……\/\/\/　%CALLNAME:MASTER%の、が……\/\/\/」
+			PRINTFORMDW %CALLNAME:MASTER%の上に乗って膣内に陰茎を咥え込む夢美の表情に、苦痛の色はほぼ見られない。
+			PRINTFORML 「んっ……ぁ……すご……動いて……いい、わよ……　わたしも、だいぶ、慣れて、きたし……\/\/\/」
+			PRINTFORMDW %CALLNAME:MASTER%は夢美の腰をしっかり掴んでから、腰を慢慢地深く上下させた。
+		ELSE
+			PRINTFORML 「いっ……っく……是って……くる……」
+			PRINTFORMDW 真下から挿入される肉棒に夢美はふるふると体を震わせたが、まだ痛みの方が強いようだ。
+			PRINTFORML 「はぁ……ぅ……%CALLNAME:MASTER%……わたしは、だいじょうぶだから……動いて、いいわ、よ……」
+			PRINTFORMDW %CALLNAME:MASTER%は夢美に負担をかけないように動きを少なくしつつ、小刻みに腰を上下させた。
+		ENDIF
+		RETURN 1
+	;屈服3
+	;ELSEIF MARK:不埒刻印 == 3
+	ELSEIF TALENT:愛欲 || TALENT:炮友
+		IF TALENT:74
+			CALL HPH_PRINT,@"「ふふっHPH　わたしのおマンコで%CALLNAME:MASTER%のちんぽ、いただきまぁすHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%の肉棒に跨った夢美はすぐに腰を下ろしてきた。
+			CALL HPH_PRINT,@"「んはぁぁっHPH　きたぁっHPH　ぁ、やだもうイくっHPH　%CALLNAME:MASTER%のチンポですぐイぐぅHPH」","W"
+			PRINTFORMDW 夢美は待ちわびた肉棒の感触に%CALLNAME:MASTER%に抱きついたまま絶頂し、尚も結合部から水音を立てて快感を貪らんと体をくねらせる。
+			CALL HPH_PRINT,@"「ねぇ、はやくぅ、はやくもっと犯してぇ……ビキビキの%CALLNAME:MASTER%ちんぽでわたしのマン汁ドバドバのオマンコ、もっとめちゃくちゃにしてぇHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%は眼前で乱れる夢美の腰しっかり掴むと、面包、面包と音を立つほどに激烈地腰を打ち上げてやった。
+		ELSEIF ABL:1 > 5
+			CALL HPH_PRINT,@"「あら……乗ってほしいの……？HPH」","W"
+			PRINTFORMDW 夢美は%CALLNAME:MASTER%の肉棒を跨いで立ち、しゃがみながら亀頭を蜜壺に咥え込んできた。
+			CALL HPH_PRINT,@"「あはぁ……HPH　いぃ……HPH　この下からガツンとくる感じ……HPH　好きぃHPH」","W"
+			PRINTFORMDW 膣内で蠢动の肉棒の感覚に、夢美が体をビクつかせているさまが%CALLNAME:MASTER%の目に焼き付く。うわ言のように夢美が続きをねだる。
+			CALL HPH_PRINT,@"「んっ……ねぇ%CALLNAME:MASTER%、もっとずぽずぽして……HPH　ちんぽ大好きなわたしのスケベ穴、イかせてぇ……HPH」","W"
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			CALL HPH_PRINT,@"「んは……HPH　あぁっ……入って……きた……いい感じかも……\/\/\/　%CALLNAME:MASTER%は、どう？」","W"
+			PRINTFORMDW まだ慣れ切って是ないようだが、夢美の声色からはしっかりと快楽の色が見えてきている。
+			PRINTFORMDW こちらもいい具合だと%CALLNAME:MASTER%が伝えると、
+			CALL HPH_PRINT,@"「あら、嬉しい……HPH　%CALLNAME:MASTER%を見ながらヤれるのって、なんか良いわね……HPH　ほら、もっと突き上げて？」","W"
+			PRINTFORMDW その言葉に応じ、%CALLNAME:MASTER%は夢美の腰を掴むと肉欲を充足させるべく、より奥に届くように深く突き込んでやった。
+		ELSE
+			PRINTFORML 「いぅ……っぐ……是って……き、た……」
+			PRINTFORMDW 夢美の膣内が肉棒をキツく締め付けてくる。表情と声色からして、快感を得られるにはもう少しかかるだろう。
+			PRINTFORML 「稍微……やめないで……私達はカラダだけの関係なんだから……お互いヤってナンボでしょ」
+			PRINTFORML 「それに……そのうち、%CALLNAME:MASTER%もわたしも、エッチ、慣れる気がするから……そのうち気持ちよくなるんじゃない？」
+			PRINTFORMDW その言葉を信じ、%CALLNAME:MASTER%は夢美の腰を掴んむとゆっくり、小刻みに開始动起了腰身。
+		ENDIF
+		RETURN 1
+	;それ以外
+	ELSE
+		IF ABL:1 > 5
+			CALL HPH_PRINT,@"「やだっ、うそっ、きもち、いいっHPH　きもちいいの、とまんなぃっ\/\/\/」","W"
+			CALL HPH_PRINT,@"「やだっ、こんなぁ、したっからっ、つかれ、てぇHPH　なのにぃ、わたしっHPHぜったいえっちなかおしてる\/\/\/」","W"
+			PRINTFORMDW 快楽に呂律の回らない夢美の腰はへこへこと動いて一向に収まることがなく、膣肉は%CALLNAME:MASTER%の肉棒を咥え込んで離さない。
+			PRINTFORMDW そのさまを%CALLNAME:MASTER%が夢美に聞こえるように伝えてやると、夢美はよがりながら一層快楽に浸り始めた。
+			CALL HPH_PRINT,@"「すきHPH　%CALLNAME:MASTER%にっ、のってッ、つきあげ、られ、てぇっHPH　えっち、する、のぉHPH」","W"
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			PRINTFORML 「あっ……はぁっ……入ってきてる……\/\/\/」
+			PRINTFORML 「んっ……%CALLNAME:MASTER%に……乗るのも、これはこれで、けっこう、イイ……かも……\/\/\/」
+			PRINTFORMDW 夢美の膣内は%CALLNAME:MASTER%に快感を与えるようになってきているが、どうやら夢美もナカを突かれて感じているようだ。
+			PRINTFORML 「うん、大丈夫だから……続き、して……？\/\/\/」
+		ELSE
+			PRINTFORML 「いっ……う……っ、く……まだ、稍微、痛い……」
+			PRINTFORMDW 開発途上の夢美の膣内は、まだまだきつく、快感を生み出すにはもう少しばかりかかりそうだ。
+			PRINTFORML 「继続ん、でしょ……いいけど、無理には……動かないで、よ……？」
+		ENDIF
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;68,背面座位
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_68
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_68_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_68_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		;処女
+		IF TCVAR:破瓜 == 1
+			PRINTFORMW 
+			CALL M_KOJO_MESSAGE_LOSTVIRGIN_K9
+			RETURN 1
+		ELSE
+			IF TALENT:3
+				PRINTFORML 「うん……？　座って、背を向けて……？　座るってその、%CALLNAME:MASTER%の……ソレに？\/\/\/」
+				PRINTFORMDW 胡坐をかいて座る%CALLNAME:MASTER%の一物をチラチラと見ながら呟く夢美に、大きく頷き返す%CALLNAME:MASTER%
+				PRINTFORML 「わ、わかった……うまく出来るか分かんないけど……\/\/\/」
+				PRINTFORMDW 夢美が%CALLNAME:MASTER%を時折振り返り的同时、自己的秘所へ肉棒を宛がい、ゆっくり腰を落とす。
+				PRINTFORML 「い、入れる……わね……んぅっ……あぁ……是って、きた……\/\/\/」
+			ELSEIF TALENT:8
+				PRINTFORML 「え、い、椅子に座る感じで……！？　……そ、その、%CALLNAME:MASTER%の、ぉ、ぉ……んに、よね……\/\/\/」
+				PRINTFORML 「ぅ……わ、わかったわよ……や、やってみるわよ……\/\/\/」
+				PRINTFORMDW 夢美は真っ赤な顔でおそるおそる%CALLNAME:MASTER%の肉棒を跨ぐと、自己的秘所へ一物を宛がい、腰を落としていく。
+				PRINTFORML 「う……あ、あぁっ……入ってくるっ……突き上げられてる……感じ……」
+			ELSEIF TALENT:愛欲 || TALENT:炮友
+				PRINTFORML 「あら、背中を向けて座ってほしいですって？ふふふ、%CALLNAME:MASTER%が椅子代わりなの？」
+				PRINTFORMDW 夢美は%CALLNAME:MASTER%の阴茎に跨ると淫靡な笑みを浮かべ、自己的秘所を開いて一気に腰を落とす。
+				CALL HPH_PRINT,@"「ふふ、それじゃ%CALLNAME:MASTER%の座り心地、確かめさせてもらうわね……んぁぁぁっHPH」","W"
+				CALL HPH_PRINT,@"「いいっHPH　コレいいっHPH　%CALLNAME:MASTER%もっ、もっと腰動かしてぇっHPH」","W"
+			ELSE
+				PRINTFORML 「稍微、背中向けて座ってくれって、你ね……」
+				PRINTFORML 「知り合いレベルの相手とエッチするのにこんな体勢要求するかしらフツー……\/\/\/」
+				PRINTFORMDW 夢美は少し頬を赤くしてどもっていたが、好奇心もあるようで%CALLNAME:MASTER%の陰茎を跨いで秘所に宛がうと、ゆっくり飲み込んでいく。
+				PRINTFORML 「はぁ……ぅ……入ってぇ……せりあがって、くるぅ……\/\/\/」
+			ENDIF
+			RETURN 1
+		ENDIF
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:100 == PLAYER
+		;前回射精した
+		IF TCVAR:102
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_AFTERSHOT_K9
+			RETURN 1
+		ELSE
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_K9
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;恋慕
+	IF TALENT:恋慕
+		IF TALENT:74
+			CALL HPH_PRINT,@"「んぉっHPH　%CALLNAME:MASTER%のちんぽHPH　ずんっ、て、是ってぇ、イくぅHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%の肉棒を秘所で咥え込み、腰を深く落とすと夢美はすぐさま体をビクつかせながら絶頂した。
+			CALL HPH_PRINT,@"「ねぇ、もっとぉHPH　もっと突き上げてぇ……HPH　%CALLNAME:MASTER%のモノで、わたしのおまんこ、おくまでえぐってぇHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%は眼前で腰をへこへこさせて続きをねだる夢美に応えるべく、背後から胸も弄りつつ望み街道下から激烈地突き上げた。
+		ELSEIF ABL:1 > 5
+			PRINTFORMDW %CALLNAME:MASTER%は肉棒を膣内に収めた夢美の腰を掴むと、そのまま下から腰を突き上げた。
+			CALL HPH_PRINT,@"「あひっ！　イイっHPH　%CALLNAME:MASTER%のっ、おくにっ！　あたってるっHPH」","W"
+			PRINTFORMDW 下から膣内を抉るように容赦なく挿入される肉棒に、夢美は体をビクつかせて快感を享受する。
+			CALL HPH_PRINT,@"「んひぃっ、やだぁ、ナカ……コンコンってされて……HPH　ねぇ%CALLNAME:MASTER%、もっと……　もっと私のナカ、えぐってぇ……\/\/\/」","W"
+			PRINTFORMDW %CALLNAME:MASTER%是やらしく耳元で囁かれるおねだりに応えるべく、さらに腰を突き上げた。
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			PRINTFORML 「ぅ……まっすぐ入ってくる……\/\/\/　%CALLNAME:MASTER%の、が……\/\/\/」
+			PRINTFORMDW %CALLNAME:MASTER%の上に乗って膣内に陰茎を咥え込む夢美の表情に、苦痛の色はほぼ見られない。
+			PRINTFORML 「んっ……ぁ……すご……動いて……いい、わよ……　わたしも、だいぶ、慣れて、きたし……\/\/\/」
+			PRINTFORMDW %CALLNAME:MASTER%は夢美の胸も愛撫し的同时、腰を慢慢地深く上下させた。
+		ELSE
+			PRINTFORML 「いっ……っく……是って……くる……」
+			PRINTFORMDW 真下から挿入される肉棒に夢美はふるふると体を震わせたが、まだ痛みの方が強いようだ。
+			PRINTFORML 「はぁ……ぅ……%CALLNAME:MASTER%……わたしは、だいじょうぶだから……動いて、いいわ、よ……」
+			PRINTFORMDW %CALLNAME:MASTER%は夢美に負担をかけないように動きを少なくしつつ、小刻みに腰を上下させた。
+		ENDIF
+		RETURN 1
+	;屈服3
+	;ELSEIF MARK:不埒刻印 == 3
+	ELSEIF TALENT:愛欲 || TALENT:炮友
+		IF TALENT:74
+			CALL HPH_PRINT,@"「ふふっHPH　わたしのおマンコで%CALLNAME:MASTER%のちんぽ、いただきまぁすHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%の肉棒に跨った夢美はすぐに腰を下ろしてきた。
+			CALL HPH_PRINT,@"「んはぁぁっHPH　きたぁっHPH　ぁ、やだもうイくっHPH　%CALLNAME:MASTER%のチンポですぐイぐぅHPH」","W"
+			PRINTFORMDW 夢美は待ちわびた肉棒の感触に%CALLNAME:MASTER%に抱きついたまま絶頂し、尚も結合部から水音を立てて快感を貪らんと体をくねらせる。
+			CALL HPH_PRINT,@"「ねぇ、はやくぅ、はやくもっと犯してぇ……ビキビキの%CALLNAME:MASTER%ちんぽでわたしのマン汁ドバドバのオマンコ、もっとめちゃくちゃにしてぇHPH」","W"
+			PRINTFORMDW %CALLNAME:MASTER%は眼前で乱れる夢美の胸も揉みつつ、面包、面包と音を立つほどに激烈地腰を打ち上げてやった。
+		ELSEIF ABL:1 > 5
+			CALL HPH_PRINT,@"「あら……乗ってほしいの……？HPH」","W"
+			PRINTFORMDW 夢美は%CALLNAME:MASTER%の肉棒を跨いで立ち、しゃがみながら亀頭を蜜壺に咥え込んできた。
+			CALL HPH_PRINT,@"「あはぁ……HPH　いぃ……HPH　この下からガツンとくる感じ……HPH　好きぃHPH」","W"
+			PRINTFORMDW 膣内で蠢动の肉棒の感覚に、夢美が体をビクつかせているさまが%CALLNAME:MASTER%の目に焼き付く。うわ言のように夢美が続きをねだる。
+			CALL HPH_PRINT,@"「んっ……ねぇ%CALLNAME:MASTER%、もっとずぽずぽして……HPH　ちんぽ大好きなわたしのスケベ穴、イかせてぇ……HPH」","W"
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			CALL HPH_PRINT,@"「んは……HPH　あぁっ……入って……きた……いい感じかも……\/\/\/　%CALLNAME:MASTER%は、どう？」","W"
+			PRINTFORMDW まだ慣れ切って是ないようだが、夢美の声色からはしっかりと快楽の色が見えてきている。
+			PRINTFORMDW こちらもいい具合だと%CALLNAME:MASTER%が伝えると、
+			CALL HPH_PRINT,@"「あら、嬉しい……HPH　これ良いわね……HPH　ほら、もっと突き上げて？　胸ももっと弄って？」","W"
+			PRINTFORMDW その言葉に応じ、%CALLNAME:MASTER%は夢美の胸を揉みつつ肉欲を充足させるべく、より奥に届くように深く突き込んでやった。
+		ELSE
+			PRINTFORML 「いぅ……っぐ……是って……き、た……」
+			PRINTFORMDW 夢美の膣内が肉棒をキツく締め付けてくる。表情と声色からして、快感を得られるにはもう少しかかるだろう。
+			PRINTFORML 「稍微……やめないで……私達はカラダだけの関係なんだから……お互いヤってナンボでしょ」
+			PRINTFORML 「それに……そのうち、%CALLNAME:MASTER%もわたしも、エッチ、慣れる気がするから……そのうち気持ちよくなるんじゃない？」
+			PRINTFORMDW その言葉を信じ、%CALLNAME:MASTER%は夢美の胸を揉みながらゆっくり、小刻みに開始动起了腰身。
+		ENDIF
+		RETURN 1
+	;それ以外
+	ELSE
+		IF ABL:1 > 5
+			CALL HPH_PRINT,@"「やだっ、うそっ、きもち、いいっHPH　きもちいいの、とまんなぃっ\/\/\/」","W"
+			CALL HPH_PRINT,@"「やだっ、こんなぁ、したっからっ、つかれ、てぇHPH　なのにぃ、わたしっHPHぜったいえっちなかおしてる\/\/\/」","W"
+			PRINTFORMDW 快楽に呂律の回らない夢美の腰はへこへこと動いて一向に収まることがなく、膣肉は%CALLNAME:MASTER%の肉棒を咥え込んで離さない。
+			PRINTFORMDW そのさまを%CALLNAME:MASTER%が夢美に聞こえるように伝えてやると、夢美はよがりながら一層快楽に浸り始めた。
+			CALL HPH_PRINT,@"「すきHPH　%CALLNAME:MASTER%にっ、のってッ、つきあげ、られ、てぇっHPH　えっち、する、のぉHPH」","W"
+		ELSEIF ABL:1 > 1 && ABL:1 < 6
+			PRINTFORML 「あっ……はぁっ……入ってきてる……\/\/\/」
+			PRINTFORML 「んっ……%CALLNAME:MASTER%に……乗るのも、これはこれで、けっこう、イイ……かも……\/\/\/」
+			PRINTFORMDW 夢美の膣内は%CALLNAME:MASTER%に快感を与えるようになってきているが、どうやら夢美もナカを突かれて感じているようだ。
+			PRINTFORML 「うん、大丈夫だから……続き、して……？\/\/\/」
+		ELSE
+			PRINTFORML 「いっ……う……っ、く……まだ、稍微、痛い……」
+			PRINTFORMDW 開発途上の夢美の膣内は、まだまだきつく、快感を生み出すにはもう少しばかりかかりそうだ。
+			PRINTFORML 「继続ん、でしょ……いいけど、無理には……動かないで、よ……？」
+		ENDIF
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;69,対面座位肛交
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_69
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_69_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_69_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		;尻穴処女
+		IF TCVAR:Ａ破瓜
+			PRINTFORMW 
+			CALL M_KOJO_MESSAGE_LOSTVIRGIN_A_K9
+			RETURN 1
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:101 == PLAYER
+		;前回射精した
+		IF TCVAR:104
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_AFTERSHOT_A_K9
+			RETURN 1
+		ELSE
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_A_K9
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;恋慕
+	IF TALENT:恋慕
+		PRINTFORMW 
+		RETURN 1
+	;屈服3
+	ELSEIF MARK:不埒刻印 == 3
+		PRINTFORMW 
+		RETURN 1
+	;それ以外
+	ELSE
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;70,背面座位肛交
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_70
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_70_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_70_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		;尻穴処女
+		IF TCVAR:Ａ破瓜
+			PRINTFORMW 
+			CALL M_KOJO_MESSAGE_LOSTVIRGIN_A_K9
+			RETURN 1
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 1
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:101 == PLAYER
+		;前回射精した
+		IF TCVAR:104
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_AFTERSHOT_A_K9
+			RETURN 1
+		ELSE
+			;PRINTFORMW 
+			CALL M_KOJO_MESSAGE_KEEPINSERT_A_K9
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;恋慕
+	IF TALENT:恋慕
+		PRINTFORMW 
+		RETURN 1
+	;屈服3
+	ELSEIF MARK:不埒刻印 == 3
+		PRINTFORMW 
+		RETURN 1
+	;それ以外
+	ELSE
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;71,二穴挿入
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_71
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_71_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_71_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	;考えうる分岐が多すぎるので地の文の大まかな分岐だけ
+	;連続
+	IF PREVCOM == SELECTCOM
+		PRINTFORMW 
+		RETURN 1
+	;主人V挿入→助手A挿入
+	ELSEIF TCVAR:100 == MASTER
+		PRINTFORMW 
+		RETURN 1
+	;主人A挿入→助手V挿入
+	ELSEIF TCVAR:101 == MASTER
+		PRINTFORMW 
+		RETURN 1
+	;助手V挿入→主人A挿入
+	ELSEIF TCVAR:100 == ASSI
+		PRINTFORMW 
+		RETURN 1
+	;助手A挿入→主人V挿入
+	ELSEIF TCVAR:101 == ASSI
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;★7[2-5]の実処理は派生指令.ERB側の同名指令なのでここは2022/09/20現在、記載不要
+;==================================================
+;72,挿入Ｇ點玩弄
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_72
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_72_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_72_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:100 == PLAYER
+		;前回射精した
+		IF TCVAR:102
+			PRINTFORMW 
+			RETURN 1
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	ENDIF
+
+	;基本セット
+	;恋慕
+	IF TALENT:恋慕
+		PRINTFORMW 
+		RETURN 1
+	;屈服3
+	ELSEIF MARK:不埒刻印 == 3
+		PRINTFORMW 
+		RETURN 1
+	;それ以外
+	ELSE
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;73,挿入子宮口玩弄
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_73
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_73_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_73_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:100 == PLAYER
+		;前回射精した
+		IF TCVAR:102
+			RETURN 1
+		ENDIF
+	ELSE
+		RETURN 1
+	ENDIF
+	
+	;基本セット
+	;恋慕
+	IF TALENT:恋慕
+		PRINTFORMW 
+		RETURN 1
+	;屈服3
+	ELSEIF MARK:不埒刻印 == 3
+		PRINTFORMW 
+		RETURN 1
+	;それ以外
+	ELSE
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;74,玩弄Ｓ状結腸
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_74
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_74_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_74_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:101 == PLAYER
+		;前回射精した
+		IF TCVAR:104
+			PRINTFORMW 
+			RETURN 1
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;恋慕
+	IF TALENT:恋慕
+		PRINTFORMW 
+		RETURN 1
+	;屈服3
+	ELSEIF MARK:不埒刻印 == 3
+		PRINTFORMW 
+		RETURN 1
+	;それ以外
+	ELSE
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;75,隔着刺激陰道
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_75
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_75_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_75_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:101 == PLAYER
+		;前回射精した
+		IF TCVAR:104
+			PRINTFORMW 
+			RETURN 1
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;恋慕
+	IF TALENT:恋慕
+		PRINTFORMW 
+		RETURN 1
+	;屈服3
+	ELSEIF MARK:不埒刻印 == 3
+		PRINTFORMW 
+		RETURN 1
+	;それ以外
+	ELSE
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+; 処女喪失関数(V)
+;==================================================
+@M_KOJO_MESSAGE_LOSTVIRGIN_K9()
+
+IF FLAG:70
+	PRINTFORMDW 静止した時間の中で、%CALLNAME:MASTER%は夢美が処女であることなど歯牙にもかけず、膣内に一物をねじ込んだ。
+	IF ABL:1 > 5
+		PRINTFORMDW 十分に開発の進んだ夢美の蜜壺の中は初物とは思えないほどの仕上がりになっており、
+		PRINTFORMDW %CALLNAME:MASTER%の陰茎に絡みつき、確かな快感をもたらす。
+	ELSEIF ABL:1 > 1 && ABL:1 < 6
+		PRINTFORMDW 途上と是え開発が進んだ夢美の膣内は中々の具合になっていて、
+		PRINTFORMDW 程よく%CALLNAME:MASTER%の陰茎にも快感をもたらしてくれる。
+	ELSE
+		PRINTFORMDW 初物だけあってか夢美の膣内はまだまだキツく、きゅうきゅうと締め付けてくる。
+		PRINTFORMDW どれだけの痛みがあろうとも、今の夢美は微動だにしない。
+	ENDIF
+	PRINTFORMDW 再び時が動き出した時の反応を思い浮かべ的同时、
+	PRINTFORMDW 或いは单方面地蹂躙する愉悦を味わい的同时、%CALLNAME:MASTER%は腰を動かし続けた。
+	PRINTFORMDW 
+ELSEIF TALENT:恋慕
+	PRINTFORMDW 夢美は開心地笑いながら%CALLNAME:MASTER%を看了过来。
+	PRINTFORML 「嬉しい……やっと%CALLNAME:MASTER%とひとつになれるの、ね……\/\/\/」
+	PRINTFORML 「でも、初めてだから……その、温柔的してくれきゃイヤよ？」
+ELSEIF TALENT:思慕
+	PRINTFORML 「ま、まさか%CALLNAME:MASTER%とこんなコトするようになるなんて……\/\/\/」
+	PRINTFORML 「い、イヤじゃないのよ、イヤじゃないんだけど……稍微、その、可怕的……かも、って」
+	PRINTFORML 「だから、その、痛くしないでね？」
+ELSEIF TALENT:愛欲 || TALENT:炮友
+	PRINTFORML 「%CALLNAME:MASTER%とヤるようになってから、やっとココにって感じだけど……」
+	CALL HPH_PRINT,@"「これからもっと気持ちいいトコロが増えると思うと、素敵ね……HPH」","W"
+	CALL HPH_PRINT,@"「……きてHPH」","W"
+ELSE
+	PRINTFORML （私ったら頭がイカれちゃったのかしら、簡単にこんなコト許しちゃうとか……）
+	PRINTFORML 「まぁいいか……あ、私こういうの初めてだから、温柔的してよ？」
+ENDIF
+
+;-------------------------------------------------
+; 初回INSERT関数(非処女)
+;-------------------------------------------------
+@M_KOJO_MESSAGE_INSERT_FIRST_K9()
+IF ABL:1 > 5
+	PRINTFORMDW 十分に開発の進んだ夢美の蜜壺の中は名器と言って差し支えない仕上がりになっており、
+	PRINTFORMDW %CALLNAME:MASTER%の陰茎に絡みついて別屋ず、精を絞りだそうと蠢いている。
+ELSEIF ABL:1 > 1 && ABL:1 < 6
+	PRINTFORMDW 途上と是え開発が進んだ夢美の膣内は中々の具合になっていて、
+	PRINTFORMDW 程よく%CALLNAME:MASTER%の陰茎にも快感をもたらしてくれる。
+ELSE
+	PRINTFORMDW 使われた回数が少ないのか、夢美の膣内はまだキツく、きゅうきゅうと締め付けてくる。
+ENDIF
+
+;==================================================
+; 処女喪失関数(A)
+;==================================================
+@M_KOJO_MESSAGE_LOSTVIRGIN_A_K9()
+
+IF TALENT:恋慕
+	IF ABL:2 > 2 && EXP:62 == 0
+		PRINTFORML 「お、おしり……？\/\/\/　い、イヤじゃないけど……わ、私にも心の準備が……」
+		CALL HPH_PRINT,@"「だ、だってお尻もキモチよくなってきて是るけど、い、挿入れるのは……HPH」","W"
+		PRINTFORML （う、うん、でも、%CALLNAME:MASTER%ならきっと気持ちよくしてくれるわよね……？）
+		PRINTFORML 「ぅ～～～～～～……ゆっくりよ、ゆっくりお願いよ……\/\/\/」
+	ELSE
+		PRINTFORML 「えっ……おっ、お尻に挿入れたい……？！そ、そそそんなの無理！いくら%CALLNAME:MASTER%の頼みでも！」
+		PRINTFORML 「だ、だってそんなの入れて、元に戻らなくなったらどうするのよ……それに万一きもちょかったらやばいし……ごにょごにょ」
+		PRINTFORML 「……そ、それにこっちはそういう穴じゃないでしょ？ね？ね？考え直しましょ？ね？」
+		PRINTFORMDW なんとかそれだけはと食い下がる夢美だったが、%CALLNAME:MASTER%のお願いの前にとうとう折れてしまった
+		PRINTFORML 「しょうがないわね……ばか。……絶対痛くしないって、約束してよね？」
+	ENDIF
+ELSEIF TALENT:思慕
+	IF ABL:2 > 2 && EXP:62 == 0
+		PRINTFORML 「いっ……！？そ、そっちに挿入れたいの……！？」
+		PRINTFORML 「ちょ、稍微はその、確かにお尻も良くなってきたけど……可怕的というか……\/\/\/」
+		PRINTFORML 「……大丈夫、よね？もしわたしのお尻に何かあったら%CALLNAME:MASTER%に責任取ってもらうんだから……」
+	ELSE
+		PRINTFORML 「ちょ、稍微待って！？そ、そっちでしたいとかヘンタイじゃないの！」
+		PRINTFORML 「ムリよ無理無理！　そもそも、そんなの挿入れるための穴じゃないし！？」
+		PRINTFORML 「お願い考え直して！ね？お願いだから、ね？」
+		PRINTFORML 「……どうしても入れたいの？　……はぁ、わかったわよ、怪我させないでよね？」
+	ENDIF
+ELSEIF TALENT:愛欲 || TALENT:炮友
+	IF ABL:2 > 2  && EXP:62 == 0
+		CALL HPH_PRINT,@"「あらぁ……？お尻に挿入れたいですって？%CALLNAME:MASTER%ったらヘンタイさん……HPH」","W"
+		PRINTFORML 「んふふ……稍微可怕的感じもするけど……コッチならデキもしないし、ある意味安全かも\/\/\/」
+		CALL HPH_PRINT,@"「ふふ、いいわよ挿入れても……HPH」","W"
+		PRINTFORML 「――その代わり、たっくさん気持ちよくして頂戴ね？」
+	ELSE
+		PRINTFORML 「やだ、%CALLNAME:MASTER%ったらお尻でシたいの……？」
+		PRINTFORML 「流石に稍微引くわよ……？そういうプレイがあるのは知ってるけど……\/\/\/」
+		PRINTFORML 「その、気持ちいいなら良いけど、もし何かあったら%CALLNAME:MASTER%が責任を取ってくれるかしら？」
+		PRINTFORML 「痛くしないでね？」
+	ENDIF
+ELSE
+	;ケツに関してはここあるのかなあ……あるかもなあ……いやないか。たぶん。でも一応……
+	IF ABL:2 > 2 && EXP:62 == 0
+		PRINTFORML 「えっ、ちょ、稍微待ちなさいよ！どこ挿入れようとしてんのよ！？\/\/\/」
+		PRINTFORML 「そ、そりゃあ最近稍微は指とか入るようになったかもだけど……その、そ、ソレは……\/\/\/」
+		CALL HPH_PRINT,@"（き、気持ちいいのかしら……気にならないことはないけど……HPH）","W"
+		PRINTFORMDW 拒否する素振りを見せつつも自分の尻に指を這わせ、%CALLNAME:MASTER%のモノに視線を送る夢美
+		PRINTFORML 「ゆ……ゆっくりよ？初めてだから、ゆ～っくり挿入れるのよ？？」
+	ELSE
+		PRINTFORML 「えぇ……いきなりそんなところでしたい、なんて言うヤツが居るなんて思わなかったわ……」
+		PRINTFORML 「はぁ……私ってばなんでこんな奴と寝てるのかしら……我ながら頭がおかしいとしか思えない」
+		PRINTFORML 「いいわよいいわよ挿入れたいんでしょ……当たり前だけどお尻なんて初めてだから、温柔的しなさいよ」
+	ENDIF
+ENDIF
+
+;===========================================================
+; V挿入継続関数(射精後)
+;===========================================================
+@M_KOJO_MESSAGE_KEEPINSERT_AFTERSHOT_K9()
+IF TALENT:恋慕
+	PRINTFORMDW 夢美は開心地%CALLNAME:MASTER%のほうを見た。
+	PRINTFORML 「嬉しい……今出したばっかりなのに……もっとシてくれるのね……\/\/\/」
+	PRINTFORML 「ふふふ……もっといっぱい、愛してちょうだい？」
+ELSEIF TALENT:思慕
+	PRINTFORML 「ちょ、稍微%CALLNAME:MASTER%いま出したばっかじゃ……\/\/\/」
+	PRINTFORML 「あっ稍微待って！　そんないきなりっ！？\/\/\/」
+	CALL HPH_PRINT,@"「ちょっ、と、ま、おね、が、いっHPH！？」","W"
+ELSEIF TALENT:愛欲 || TALENT:炮友
+	PRINTFORML 「%CALLNAME:MASTER%ったら射精したばっかりなのに、そのままシたいの……？」
+	CALL HPH_PRINT,@"「ふふ、いいわよ……HPH」","W"
+	CALL HPH_PRINT,@"「……もっともっと、楽しみましょう？HPH」","W"
+ELSE
+	PRINTFORML 「えっ、稍微、このままするの……？\/\/\/」
+	CALL HPH_PRINT,@"「いや別にその、問題はないんだけど――お”っ！？HPH」","W"
+ENDIF
+
+;===========================================================
+; V挿入継続関数(単なる継続)
+;===========================================================
+@M_KOJO_MESSAGE_KEEPINSERT_K9()
+IF TALENT:恋慕
+	PRINTFORML 「ん……なに、もっとしたいの……？\/\/\/」
+	PRINTFORML 「ふふ、そうよね、まだカタいものね……？」
+	CALL HPH_PRINT,@"「いいわよ……沢山、気持ちよくしてね……HPH」","W"
+ELSEIF TALENT:思慕
+	PRINTFORML 「え、まだこのまま继続の？\/\/\/」
+	PRINTFORMDW どこか躊躇している夢美をよそに、%CALLNAME:MASTER%は腰の動きを再開させる。
+	CALL HPH_PRINT,@"「あっ、やHPH、稍微、待っ――てェッHPH」","W"
+ELSEIF TALENT:愛欲 || TALENT:炮友
+	PRINTFORML 「あら、まだこのまま続けたいの？まだイってないからって？」
+	CALL HPH_PRINT,@"「诶嘿嘿、そうよね……体が満足できなかったら、私達の関係は無意味だもの、ね……HPH」","W"
+	CALL HPH_PRINT,@"「……いいわよ、動いてHPH」","W"
+ELSE
+	PRINTFORML 「ん……まだ、シたいの？」
+	CALL HPH_PRINT,@"「うーん、そうね……いいわよ、動いても……んっHPH」","W"
+ENDIF
+
+;===========================================================
+; 尻挿入継続関数(射精後)
+;===========================================================
+@M_KOJO_MESSAGE_KEEPINSERT_AFTERSHOT_A_K9()
+IF TALENT:恋慕
+	PRINTFORML 「もう……今お尻に出したばっかりなのに、まだ出したいの？\/\/\/」
+	PRINTFORML 「別に、いいけど……お尻、壊しちゃイヤよ？」
+ELSEIF TALENT:思慕
+	PRINTFORML 「いっ、%CALLNAME:MASTER%いま、その、おしり、出したばっかり……\/\/\/」
+	PRINTFORML 「あっ稍微待って！　そんないきなりっ！？\/\/\/」
+	CALL HPH_PRINT,@"「ちょっ、と、ま、おね、が――い”っHPH」","W"
+ELSEIF TALENT:愛欲 || TALENT:炮友
+	PRINTFORML 「%CALLNAME:MASTER%ったら、今ケツに射精したばっかりなのに、そのまま……？」
+	CALL HPH_PRINT,@"「ふふ、%CALLNAME:MASTER%も好きねぇ……HPH」","W"
+	CALL HPH_PRINT,@"「いいわよ……もっとわたしのお尻、気持ちよくして？HPH」","W"
+ELSE
+	PRINTFORML 「えっ、稍微、今出したばっかなのに、このまま……？\/\/\/」
+	CALL HPH_PRINT,@"「いやその%CALLNAME:MASTER%、だってここ、おしｒ――あ”ぐっHPH」","W"
+ENDIF
+
+;===========================================================
+; 尻挿入継続関数(単なる継続)
+;===========================================================
+@M_KOJO_MESSAGE_KEEPINSERT_A_K9()
+IF TALENT:恋慕
+	PRINTFORML 「ん……なに、もっとお尻でしたい……？\/\/\/」
+	PRINTFORML 「そうよね、まだカタいものね……ただ、お尻でこうなのは、稍微アレだけど……」
+	CALL HPH_PRINT,@"「もう……その代わりお尻も沢山、気持ちよくしてねHPH」","W"
+ELSEIF TALENT:思慕
+	PRINTFORML 「え、このままお尻で继続……の？\/\/\/」
+	PRINTFORMDW どこか躊躇している夢美をよそに、%CALLNAME:MASTER%は夢美の菊門への抽送を再開した。
+	CALL HPH_PRINT,@"「あ”っ、うっHPH、ちょっ、待っ――てェッHPH」","W"
+ELSEIF TALENT:愛欲 || TALENT:炮友
+	PRINTFORML 「？　まだ私のお尻をホジりたい……？」
+	CALL HPH_PRINT,@"「あらあら、まったく%CALLNAME:MASTER%も物好きね……HPH」","W"
+	CALL HPH_PRINT,@"「……いいわよ、そのまま続けてHPH」","W"
+ELSE
+	PRINTFORML 「ん……まだ、シたいの？お尻で……？」
+	CALL HPH_PRINT,@"「うーん……まぁ、いいわよ、動いても……ん”っHPH」","W"
+ENDIF
+
+;===========================================================
+; 時間停止時挿入関数
+;===========================================================
+;一部使いまわしです
+@M_KOJO_MESSAGE_TIMESTOP_INSERT_K9()
+IF ABL:1 > 5
+	PRINTFORMDW しっかり使い込んだ結果か、夢美の蜜壺の中は名器と言って差し支えない仕上がりになっており、
+	PRINTFORMDW 止まった時の中で例外的に動き続けているそれは%CALLNAME:MASTER%の陰茎に絡みついて別屋ず、
+	PRINTFORMDW また精を絞り取ろうと蠢き、絶え間なく快感をもたらしてくる。
+ELSEIF ABL:1 > 1 && ABL:1 < 6
+	PRINTFORMDW 途上と是え開発が進んだ夢美の膣内は中々良い具合になってきており、
+	PRINTFORMDW 程よく%CALLNAME:MASTER%の陰茎に快感をもたらしてくれる。
+ELSE
+	PRINTFORMDW 使われた回数が少ないのか、夢美の膣内はまだキツく、きゅうきゅうと締め付けてくる。
+ENDIF
+
+;===========================================================
+; 時間停止時挿入関数(A)
+;===========================================================
+@M_KOJO_MESSAGE_TIMESTOP_INSERT_A_K9()
+PRINTFORMDW ミチィッ……というような感触が肉棒へと伝わってくるが、%CALLNAME:MASTER%が動きを止めることはない。
+IF ABL:2 > 2
+	PRINTFORMDW しっかり使い込んだ結果か、夢美の菊門は名器と言って差し支えない仕上がりになっている。
+	PRINTFORMDW 止まった時の中で尻穴を抉り的同时、%CALLNAME:MASTER%はこの肛門に出会った幸運を噛みしめた。
+	PRINTFORMDW 咥え込んだ%CALLNAME:MASTER%の陰茎にしっかり絡みついて別屋ずに快感をもたらしてくる。
+	PRINTFORMDW %CALLNAME:MASTER%時間停止を解除した後の痴態を思い描き的同时、この極上のケツ穴を味わい続けた。
+ELSE
+	PRINTFORMDW 使われた回数が少ないのか、夢美の尻穴はまだまだキツく、肉棒の先端をひりつかせるほどだ。
+	PRINTFORMDW これがどこまで変わるのか――%CALLNAME:MASTER%はこれから先を思い描き的同时、慢慢地腰を動かした。
+ENDIF
+
+
+

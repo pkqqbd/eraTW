@@ -1,0 +1,88 @@
+﻿@EXIST_FreeAct18
+#LOCALSIZE 1
+#LOCALSSIZE 1
+
+;オブジェクト本体
+@FreeAct18(ARG, O_DATA, V_NAME)
+#FUNCTION
+#LOCALSIZE 1
+#LOCALSSIZE 1
+#DIMS O_DATA
+#DIMS V_NAME
+#DIM 経過時間
+経過時間 = Activity_Duration:TARGET
+SELECTCASE O_DATA
+;陪同行動指令の名称
+CASE "名称"
+	CALLF MAKE_STR(V_NAME, "在被炉里放松")
+CASE "CHAIN"
+;他角色に連鎖しない場合コメントアウトすること
+	CALLF MAKE_INT(V_NAME, 1)
+CASE "経過時間"
+;陪同行動指令での経過時間
+;0だと30分か残り時間全部の小さい方
+	CALLF MAKE_INT(V_NAME, 0)
+ENDSELECT
+
+@自由行動内容_18(CHARA, ARGS, 時間係数, CHAIN)
+#DIM CHARA
+#DIM CHAIN
+#DIM 現在地
+#DIM メッセージ表示
+#DIM 時間係数
+#DIM 経過時間
+現在地 = CFLAG:CHARA:現在位置
+メッセージ表示 = 現在地 == CFLAG:MASTER:現在位置 ? 1 # 0
+SELECTCASE ARGS
+	CASE "発生"
+		;冬の炬燵がある場所で発生
+		SIF !炬燵発生可(CHARA, 現在地)
+			RETURN 0
+		SIF メッセージ表示
+			PRINTFORMW %CALLNAME:CHARA%\@ CHAIN ? 被%CALLNAME:CHAIN%拉入了被炉。# 钻进被炉開始了休息。\@
+		;猫耳
+		IF TALENT:CHARA:動物耳 == 4
+			RETURN 120 + RAND:60
+		;それ以外の動物耳
+		ELSEIF TALENT:CHARA:動物耳
+			RETURN 90 + RAND:45
+		ELSE
+			RETURN 60 + RAND:30
+		ENDIF
+	CASE "行動中"
+		IF メッセージ表示
+			PRINTFORMW %CALLNAME:CHARA%躺在被炉里%TEXTR("取暖/缩成一团/暖呼呼的/打哈欠/放松着")%。
+		ENDIF
+	CASE "完了"
+		SIF メッセージ表示
+			PRINTFORMW %CALLNAME:CHARA%%TEXTR("下定决心爬出了被炉/将十分温暖的身体从被炉里拖出/因为太热而从被炉里出来了/匆匆忙地从被炉里爬出来了")%。
+	CASE "中断"
+	CASE "交手"
+		;自由行動に付き合ったとき用メッセージ
+		PRINTFORML %CALLNAME:PLAYER%和%CALLNAME:TARGET%一起%TEXTR("在暖和的被炉里/蜷缩在被炉里/一边用被炉取暖一边")%%TEXTR("发着呆/无所事事/悠然自得的样子/放松着")%…
+	CASE "ソース"
+		;交手指令選択時の入手ソース、時間係数は付き合った時間の1/10
+		;のんびりすると同じ
+		CALL RECOVER_PERMIL(MASTER, 30, "体力", 1)
+		CALL RECOVER_PERMIL(MASTER, 80, "気力", 1)
+		CALL RECOVER_PERMIL(TARGET, 50, "体力", 1)
+		CALL RECOVER_PERMIL(TARGET, 100, "気力", 1)
+		SOURCE:歓楽 = (100 + ((ABL:親密 + 好感度係数(TARGET)) * 10)) * 時間係数
+		SOURCE:受動 = (50 + ((ABL:従順 + 好感度係数(TARGET)) * 5)) * 時間係数
+ENDSELECT
+
+;炬燵発生条件
+;ARG  現在位置
+@炬燵発生可(CHARA, ARG)
+#FUNCTION
+#DIM CHARA
+;冬のみ
+SIF GET_MONTH() != "冬之月"
+	RETURNF 0
+;炬燵のある場所のみ
+SIF !炬燵のある場所(ARG)
+	RETURNF 0
+;水棲と氷精はダメ
+SIF TALENT:CHARA:水棲 || TALENT:CHARA:氷精
+	RETURNF 0
+RETURNF 1

@@ -1,0 +1,561 @@
+﻿			;できあがりの反応
+			SELECTCASE ABL:MASTER:料理技能
+			;食べ続けたらＢＡＤＥＮＤに直行しそうな味
+			CASE 0
+				SELECTCASE DISHNAME
+				;軽食
+				CASE "三明治"
+					PRINTFORML 「呐、为什么只有切和夹的料理会做成这样呢…？」
+					PRINTFORML 「吃了的话感觉一个月后就会死的…」
+					PRINTW 
+				CASE "飯団"
+					PRINTFORML 「比起饭团『饭团』不如用『鬼斬』这种名字更适合呢…」（谐音饭团Onigiri鬼斩Onikiri）
+					PRINTW 
+				CASE "漢堡"
+					PRINTFORML 「呐、这个也只是用面包夹住的料理啊」
+					PRINTFORML 「为什么能听到被夹在里面的东西在呻吟啊！？」
+					PRINTW 
+				CASE "司康餅"
+					PRINTFORML 「难的是看起来很正经的食物呢…先尝尝味道、嗯…」
+					PRINTFORML 「…里面总觉得像泥泞一般ー…呜呜…」
+					PRINTW 
+				CASE "焼麥"
+					PRINTFORML 「这什么啊。下半部分看着快要溶化了…」
+					PRINTFORML 明明没有用什么不妙的东西啊…」
+					PRINTW 
+				CASE "肉包"
+					PRINTFORML 「『憎饅』用这个名字真的是很合适呢」（日语里肉包和憎饅同音）
+					PRINTFORML 「总觉得上面皱纹像是苦闷的表情什么的…是特意这样做的吗？」
+					PRINTW 
+				CASE "炸魚＆薯條"
+					PRINTFORML 「好臭！　什么呀这个！？　是用了很老的食材吗！？」
+					PRINTFORML 极因为恶臭不由得捏住鼻子紧皱着眉头
+					PRINTW 
+				CASE "墨西哥巻餅"
+					PRINTFORML 「…先告诉你、塔克可不是用薄面包夹着醋拌章鱼的东西哦」（墨西哥卷饼也称塔克和章鱼日语tako相同）
+					PRINTFORMW 「明明妖怪的我都知道的」
+					PRINTFORMW 「为什么！　你的是！　夹着活着的章鱼的啊！」
+					PRINTW 
+				CASE "章魚焼"
+					PRINTFORML 「呜哇ー外面是干干脆脆的里面却是湿乎乎的ー♪」
+					PRINTFORML 「而且里面是竹轮呢！」
+					PRINTFORML 为什么啊！　竹轮很美味的啊！这样子反驳的话「问题可不在这里啊！」被进一步的反驳了
+					PRINTW 
+				;主食
+				CASE "雑燴粥"
+					PRINTFORML 「%MASTERNAME:42%、你在关火之前就把鸡蛋放进去了对吧」
+					PRINTFORML 「鸡蛋完全凝固住了哟」
+					PRINTW 
+				CASE "蛋澆飯"
+					PRINTFORML 「呜呜、这只是打碎了鸡蛋放进去而已…」
+					PRINTFORML 「为什么里面有鸡蛋的壳啊…」
+					PRINTW 
+				CASE "炒蔬菜"
+					PRINTFORML 「变得湿漉漉的了啊…」
+					PRINTFORML 「而且野菜被切得乱七八糟、火也完全没掌握好…」
+				CASE "味噌汤"
+					PRINTFORML 「等等这个的味噌是不是不够啊？」
+					PRINTFORML 「这不是味噌汤而是清汤什么的啊」
+					PRINTW 
+				CASE "涼拌菜"
+					PRINTFORML 「唔ー嗯、有好好的浸泡着呢」
+					PRINTFORML 「凉拌的『ひた』可不是『ひたひた』哗啦哗啦的意思呢。要明白呢。马上就好了哟」（日语双关梗，涼拌菜的ひたひた的哗啦啦的意思然而凉拌不用那么多水）
+					PRINTW 
+				CASE "乌冬麺"
+					PRINTFORML 「乌冬…扁面条…面团…呜ー嗯…」
+					PRINTFORML 极看着形状稀奇古怪的乌冬面呻吟着
+					PRINTW 
+				CASE "素麺"
+					PRINTFORML 「%MASTERNAME:42%、这个煮过头了对吧」
+					PRINTFORML 「软绵绵的哟、这个」
+					PRINTW 
+				CASE "荞麦麺"
+					PRINTFORML 「总觉得荞麦面粘在一起黏成块了…」
+					PRINTW 
+				CASE "煎蛋巻"
+					PRINTFORML 「在粘稠的煎蛋上面用红色的东西写着恶灵呢这个…」
+					PRINTFORML 「这是啥啦？　是对我的骚扰吗？」
+					PRINTW 
+				CASE "燉菜"
+					PRINTFORML 「这个比我所知的炖菜更加的黏糊糊呢」
+					PRINTFORML 「有种能拉丝的感觉呢…」
+				CASE "漢堡肉"
+					PRINTFORML 「总觉得小小的肉块在四处散落着…这就是汉堡包？」
+					PRINTW 
+				CASE "芝士焗菜"
+					PRINTFORML 「外表好黑！　已经不是稍微烤了而是完全烤焦了啊」
+					PRINTW 
+				CASE "咖喱饭"
+					PRINTFORML 「%MASTERNAME:42%、就算是咖喱饭ー隐藏的味道也要有个限度哟」
+					PRINTFORML 「不要什么都随随便便就放进去、我可是看着你做的呢」
+					PRINTW 
+				CASE "涮涮锅"
+					PRINTFORML 「涮涮锅、在准备好吃之前是不可以放肉的吧？」
+					PRINTFORML 「这样的话、这锅里面的肉是什么情况啊…」
+					PRINTW 
+				CASE "拉麺"
+					PRINTFORML 「好臭！　为什么会这么臭啊！？」
+					PRINTFORML 「而且这个装盘好脏！」
+					PRINTW 
+				CASE "姜汁焼肉"
+					PRINTFORML 「确实这个是烧生姜呢ー。完全看不到肉在哪里啊」
+					PRINTW 
+				CASE "牛扒"
+					PRINTFORML 「烤过头的肉都变得硬邦邦了…」
+					PRINTFORML 「就连弹幕也能够反弹呢、这个」
+					PRINTW 
+				CASE "油淋鶏"
+					PRINTFORML 「なんかすごくギトギトして見える…」
+					PRINTW 
+				CASE "奶酪番茄沙拉"
+					PRINTFORML 「モッツァレラ乳酪ってこんな見た目してたっけ…」
+					PRINTFORML 「あと、普通番茄って顔付いてないわよね？」
+				CASE "興奮劑高湯"
+					PRINTFORML 「那个呢…不要什么都受到漫画的影响呀」（大概是魔人探偵脳噛ネウロ）
+					PRINTFORML 「这样的话马上就要出现死人了哟」
+					PRINTW 
+				CASE "澳洲鴕鳥肉"
+					PRINTFORML 「为什么盘子上有虫子呀！」
+					PRINTFORML 「GYAーーーー！！　动起来呀ーーーー！　已经受够啦～～～～」
+					PRINTW 
+				CASE "银吉獣料理"
+				CASE "天婦羅"
+					PRINTFORML 「等下啊、这个不是没有好好地炸过吗！」
+					PRINTFORML 「这边的炸过头啦ー」
+					PRINTW 
+				CASE "盛的滿滿的飯"
+					PRINTFORML 「等等这个饭多的过头了！　这个到底是做给谁吃的啊！」
+					PRINTFORML 「而且装盘弄得好脏！　对米饭道歉啊！」
+					PRINTW 
+				CASE "漬物大碗飯"
+					PRINTFORML 「所以说不要随便的在米饭上放漬物啊！」
+					PRINTFORML 「看着就很脏、才不要啊」
+					PRINTW 
+
+				;甜点
+				CASE "布丁"
+					PRINTFORML 「水放进了很多呢ー」
+					PRINTFORML 「外面世界的点心真困难呢」
+					PRINTW 
+				CASE "蛋糕"
+					PRINTFORML 「孩子玩泥巴的形状都比这个好呢…」
+					PRINTFORMW
+				CASE "果凍"
+					PRINTFORML 「把这个黏糊糊的ー叫做果冻、是不是太勉强了？」
+					PRINTW 
+				CASE "水果小馅饼"
+				CASE "曲奇"
+					PRINTFORML 「破破烂烂的啊。是没有做好吗看着都烧糊了」
+					PRINTW 
+				CASE "曲奇"
+					PRINTFORML 「派的话、给新人做的话是很难的吗？」
+					PRINTFORML 「所以说、没有ー办法哟。这已经这么松松垮垮的了」
+					PRINTW 
+				CASE "羊羹"
+					PRINTFORML 「%MASTERNAME:42%似乎、有个巨大的误会呢」
+					PRINTFORML 「羊羹是将红豆在琼脂中凝固的。不是用片栗粉哟」
+					PRINTW 
+				CASE "大福"
+					PRINTFORML 「arrange这个东西呢、是会做的人才能去做的哟」
+					PRINTFORML 「所以为什么要在大豆里放入纳豆呀ーーーーーーー！」
+					PRINTW 
+				CASE "蜂蜜蛋糕"
+					PRINTFORML 「总觉得是个超小的蜂蜜蛋糕呢…」
+					PRINTFORML 「缩水了吗？　唉、失败了竟然是会缩到这么小的吗？」
+				CASE "団子"
+					PRINTFORML 「啊咧、这个团子有好好的做好呢」」
+					PRINTFORML 「…等这个、不是鱼丸吗！　为什么！？」
+				CASE "水果拼盘"
+					PRINTFORML 「这不只是把水果切開装盘而已嘛…」
+					PRINTFORML 「这看起来就像是垃圾处理场一样啊…」
+					PRINTW 
+				CASE "奶油蛋糕"
+					PRINTFORML 「我可是一直在看着呢」
+					PRINTFORML 「你使用了強力粉对吧！」（強力粉指高筋面粉）
+					PRINTW 
+				CASE "馅蜜"
+					PRINTFORML 「让我尝尝味道…总觉得全都是汤水啊…」
+					PRINTFORML 「而且寒天好难吃～到底是什么呀这个～」
+					PRINTW 
+				CASE "马卡龙"
+					PRINTFORML 「满是裂缝啊ー、这个」
+					PRINTFORML 「啊、破碎掉了…」
+					PRINTW 
+				CASE "珍珠奶茶"
+					PRINTFORML 「你啊…这个…」
+					PRINTFORML 「算了…就当作我没见过这个吧…」
+					PRINTW 
+				CASE "痩馬（やしょうま）"
+					PRINTFORML 「所ー以ー说ー。是『瘦马』哟『瘦马』」
+					PRINTFORML 「没人叫你做『野生馬的馬刺』这种东西啊！」
+					PRINTW 
+					
+				;禁断の料理
+				CASE "油炸跳蛋"
+					PRINTFORML 被极无言地踹屁股了
+					PRINTW 
+				CASE "电动按摩风跳蛋湯引"
+					PRINTFORML 被极无言地拒绝了
+					PRINTW 
+				CASE "夹子用跳蛋握手"
+					PRINTFORML 极直接把桌子给掀了
+					PRINTW 
+				CASE "飛機杯剪裁跳蛋水煮"
+					PRINTFORML 被极狠狠地殴打了
+					PRINTW 
+				
+				;青蛙料理
+				CASE "炸青蛙"
+					PRINTFORML 「呜唉ー…这个、还没烤熟啊…」
+					PRINTW 
+				CASE "青蛙咖喱"
+					PRINTFORML 把原形毕露的青蛙地插进去时被极无言地拉住了
+					PRINTW 
+				CASE "炒青蛙"
+					PRINTFORML 「姑且是先告诉你、青蛙基本是吃后腿的」
+					PRINTFORML 「我觉得全身都煎了是不是哪里有问题啊」
+					PRINTW 
+				CASE "盐烤青蛙"
+					PRINTFORML 「啊ー…这是把盐和砂糖弄混了ー…」
+					PRINTFORML 「如果是甜辣煮物的话还可以接受…唔ー嗯…」
+					PRINTW 
+				
+				;魚料理
+				CASE "寿司"
+					PRINTFORML 「为什么在稻谷上放着生鱼啊」
+					PRINTFORML 「揍你哦」
+					PRINTW 
+				CASE "焼鱼"
+					PRINTFORML 「首先、要告诉你哇」
+					PRINTFORML 「炭块可不能称之为烤鱼哟」
+					PRINTW 
+				CASE "煮魚"
+					PRINTFORML 「感觉身体越来越迟扽了…」
+					PRINTW 
+				CASE "烤鳗"
+					PRINTFORML 「唔嗯、以黑焦的程度来说烤得真漂亮呢」
+					PRINTW 
+				CASE "生制"
+					PRINTFORML 「并不是说只要活着就好了啊」
+					PRINTFORML 「你是在小看料理对吧？」
+					PRINTW 
+				CASE "醋浸鱼"
+					PRINTFORML 「总觉得这道醋浸很鲜艳…」
+					PRINTFORML 「你完全没有用水洗过洋葱吧、这个…」
+					PRINTW 
+				CASE "文也鱼"
+					PRINTFORML 「等下ー！　这个粉末也太多了！」
+					PRINTW 
+				CASE "刺身"
+					PRINTFORML 「不好好研磨菜刀不行的啊ー…」
+					PRINTFORML 「这个的切口实在是太过分了…」
+					PRINTW 
+				CASE "照焼鱼"
+					PRINTFORML 「所以说为什么你烤鱼的时候总会烤焦啊」
+					PRINTFORML 「难道是鱼杀掉了你的双亲吗？」
+					PRINTW 
+				CASE "竜田揚"
+					PRINTFORML 「%MASTERNAME:42%你啊、和需要用火的鱼料理真的是相性不合呢…」
+					PRINTFORML 「外侧烤成黑色的话就不是龙田炸了啊！」
+					PRINTW 
+				CASE "咖喱鱼"
+					PRINTFORML 「咖喱里！　是不能！　放进去生鱼的！」
+					PRINTFORML 「而且完全没煮熟啊！」
+					PRINTW 
+				CASE "仰望星空派"
+					PRINTFORML 「刺在上面的鱼太多了！　不如说ー是什么仪式吗这个！？」
+					PRINTFORML 「萃香桑和勇仪桑感觉是赤着脚逃跑啊、这个…」
+					PRINTW 
+				;新しい料理が追加されたとき用の回避枠
+				CASEELSE
+				ENDSELECT
+			CASE 1 TO 2
+				SELECTCASE FLAG:料理
+				CASE 0 TO 9
+					PRINTFORML 「肚子有点饿的时候带便当去就ー挺好的呢」
+					PRINTW 
+				CASE 11, 20, 29, 30, 32
+					PRINTFORML 「呜…这个料理、我很不擅长啊…抱歉」
+					PRINTW 
+				CASE 10, 12 TO 19, 21 TO 28, 31, 33 TO 38
+					PRINTFORML 「噢噢ー做的真是奢侈呢♪　光是看着肚子就饿了♪」
+					PRINTW 
+				CASE 50 TO 61
+					PRINTFORML 「哇ー看起来好美味ー♪　甜食就是女孩子的燃料呢♪」
+					PRINTW 
+				CASEELSE
+				ENDSELECT
+			CASE IS > 3
+				SELECTCASE DISHNAME
+				;軽食
+				CASE "三明治"
+					PRINTFORML 「三明治呢、我感觉是更轻松随便做的食物呢…」
+					PRINTFORML 「做的这么好真是多谢款待呢。颜色也很漂亮ー♪」
+					PRINTW 
+				CASE "飯団"
+					PRINTFORML 「唉、这是什么呀ー♪　上面有动物的脸呢ー♪　真可爱ー♪」
+					PRINTW 
+				CASE "漢堡"
+					PRINTFORML 「哇噢！　这个相当地有分量呢」
+					PRINTFORML 「啊ー但是、总觉得看着这个就饿了呢ー」
+					PRINTW 
+				CASE "司康餅"
+					PRINTFORML 「里面放入了葡萄干吗？　嘿ー」
+					PRINTW 
+				CASE "焼麥"
+					PRINTFORML 「嚯哇嚯哇ー　这个蒸得真棒啊ー」
+					PRINTFORML 「这个粉色透明的是…虾肉？　嘿ー、看着真漂亮呢」
+					PRINTW 
+				CASE "肉包"
+					PRINTFORML 「肉馒头啊ー。啊咧、里面有不同颜色的呢」
+					PRINTFORML 「这个是ー咖喱馒头、那个是披萨馒头？　嘿ー、还能做到这种东西啊」（大致是日本特产里面就是咖喱味和披萨味的）
+					PRINTW 
+				CASE "炸魚＆薯條"
+					PRINTFORML 「鱼和土豆都炸得酥脆了ー。真期待吃的时候呢ー♪」
+					PRINTW 
+				CASE "墨西哥巻餅"
+					PRINTFORML 「唉、这些全部都是不同馅的吗？猪和牛和羊？」
+					PRINTFORMW 「做的可真是讲究呢ー」
+					PRINTW 
+				CASE "章魚焼"
+					PRINTFORML 「圆滚滚的ー♪　而且这个感觉烤得很香脆呢ー」
+					PRINTFORML 「这么圆润的章鱼烧我或许是第一次见呢」
+					PRINTW 
+					
+				;主食
+				CASE "雑燴粥"
+					PRINTFORML 「我还以为杂烩粥是用什么锅里残留的东西快速做成的」
+					PRINTFORML 「从高汤里取出来的话、是好好做成的料理呢ー。啊、食材、避開了鸡肉呢。谢谢你」
+					PRINTW 
+				CASE "蛋澆飯"
+					PRINTFORML 「美味的饭和美味的鸡蛋很相配呢！」
+					PRINTFORML 「…虽然是这么说、但是对于鸦天狗的我来说真复杂哇ー…啊ー、但是很美味…」
+					PRINTW 
+				CASE "炒蔬菜"
+					PRINTFORML 「这个野菜的切法、切得完全一致呢。好ー厉害」
+					PRINTFORML 「多余的水分也没有出来、%MASTERNAME:42%真能干呢」
+				CASE "味噌汤"
+					PRINTFORML 「美妙的香味呢ー。光是闻着感觉就幸福起来了呢」
+					PRINTFORML 「呐呐、从现在開始每天都给我做这个吧！」
+					PRINTW 
+				CASE "涼拌菜"
+					PRINTFORML 「嘿ー、是菜花的凉拌菜呢」
+					PRINTFORML 「上面放的白芝麻颜色很棒呢ー。这个小碗也ー超可爱」
+					PRINTW 
+				CASE "乌冬麺"
+					PRINTFORML 「真的是很细的乌冬呢。但是总觉得很漂亮ー」
+					PRINTFORML 「该怎么说呢、明明是乌冬却感觉很高等、这样的感觉？」
+					PRINTW 
+				CASE "素麺"
+					PRINTFORML 「我、是这么想的哟。美味的清醒不管什么时候吃都是美味的呢」
+					PRINTFORML 「%MASTERNAME:42%煮的清醒更是很美味呢！」
+					PRINTW 
+				CASE "荞麦麺"
+					PRINTFORML 「荞麦看起来很有光泽ー　摆盘也ー很漂亮呢」
+					PRINTFORML 「啊啊、真想要早点吃呀！」
+					PRINTW 
+				CASE "煎蛋巻"
+					PRINTFORML 「什么呀这个ー！　软绵绵的呀ー。真可爱ー」
+					PRINTFORML 「这个酱汁ー画着的是我？　啊哈哈、什么呀这个ー♪　超好笑的ー♪」
+					PRINTFORML 「唉、这个软绵绵的是鸡蛋、吗…？　gangー…」
+					PRINTW 
+				CASE "燉菜"
+					PRINTFORML 「看起来是能够让身体温暖起来、美味的炖菜ー呢」
+					PRINTFORML 「配料很多、看起来充满营养呢。嘛ー、对于妖怪的我来说营养并没有什么关系呢」
+					PRINTW 
+				CASE "漢堡肉"
+					PRINTFORML 「啊ー这个切了之后肉汁绝对会ーjuwa得渗出来呢。毫无疑问」
+					PRINTFORML 「嫩煎胡萝卜也做成了花的形状很可爱呢ー♪」
+					PRINTW 
+				CASE "芝士焗菜"
+					PRINTFORML 「总觉得和炖菜很像、但是表面微微地焦了看起来很美味呢ー」
+					PRINTFORML 「这个棕色的部分真的能够激起食欲呢ー」
+					PRINTW 
+				CASE "咖喱饭"
+					PRINTFORML 「嘿ー、是用蔬菜的水分煮的啊」
+					PRINTFORML 「用很长时间弄出来的呢ー。真期待呀ー♪」
+					PRINTW 
+				CASE "涮涮锅"
+					PRINTFORML 「什么呀这个肉。简直就像宝石一样啊！」
+					PRINTFORML 「高汤汁也是从海带里取得的吗？　用这种贵重品真的很奢侈呢ー♪」
+					PRINTW 
+				CASE "拉麺"
+					PRINTFORML 「明明食材十分的简单、却感觉不到寒酸呢ー。装盘真的很重要呢ー」
+					PRINTFORML 「我的胃在诉求着呢。『快点開吃啦！』这么说着呢」
+					PRINTW 
+				CASE "姜汁焼肉"
+					PRINTFORML 「这个肉很柔软呢ー。姜和酱汁的味道真的是极妙ー♪」
+					PRINTFORML 「这样的话不管几碗饭都能吃得下呢
+					PRINTW 
+				CASE "牛扒"
+					PRINTFORML 「啊啊、这个铁板上烤着肉的滋滋声…光是听着感觉就能大口吃饭了…」
+					PRINTFORML 「绝对很美味啊、这个。妖怪可没有diet这种说法哟。只有食欲而已哟！」
+					PRINTW 
+				CASE "油淋鶏"
+					PRINTFORML 「唔ー嗯、这个明明看起来ー非常的好吃…」
+					PRINTFORML 「但是这个是鸡对吧ー…」
+					PRINTW 
+				CASE "奶酪番茄沙拉"
+					PRINTFORML 「呜…我、对番茄很不擅长呀ー」
+					PRINTFORML 「但是这个看起来很鲜艳ー很漂亮呢ー…」
+					PRINTW 
+				CASE "興奮劑高湯"
+					PRINTFORML 「那个呢…不要什么都受到漫画的影响呀」（大概是魔人探偵脳噛ネウロ）
+					PRINTFORML 「这样的话马上就要出现死人了哟」
+					PRINTW 
+				CASE "澳洲鴕鳥肉"
+					PRINTFORML 「这是幻想乡迎来终结时也能吃到的料理…？」
+					PRINTFORML 「很适合弱肉強食的幻想乡吗…会这么思考的%MASTERNAME:42%真厉害哇…」
+					PRINTW 
+				CASE "银吉獣料理"
+					PRINTFORML 「我虽然知道%MASTERNAME:42%是不会端出吃不了的料理的…」
+					PRINTFORML 「这个是…呜ー嗯、该ー怎么说呢…」
+					PRINTW 
+				CASE "天婦羅"
+					PRINTFORML 「新鲜炸出的天妇罗、看起来很美味ー♪」
+					PRINTFORML 「沙鮻还有虾还有莲藕ー…不管哪个都很吸引人啊ー♪」
+					PRINTW 
+				CASE "盛的滿滿的飯"
+					PRINTFORML 「哇ー像小山一样多呢ー。但是饭粒看起来很光泽很好吃ー！」
+					PRINTW 
+				CASE "漬物大碗飯"
+					PRINTFORML 「嘿ー、有各种各样的漬物呀ー。看起来很美味ー」
+					PRINTFORML 「虽然很朴素、但是看着肚子就饿了啊ー」
+					PRINTW 
+
+				;卵不使用甜点なんて（洋菓子は）ほとんど皆無だけど、材料として使用分にはセーフってことで…
+				;甜点
+				CASE "布丁"
+					PRINTFORML 「好大！　不管怎么说都做得过头啦ー！」
+					PRINTFORML 「啊ー但是、不知不觉就会吃过头了呢、这个ー…」
+					PRINTW 
+				CASE "蛋糕"
+					PRINTFORML 「好ー厉害♪　明明很小却装饰着各种东西超漂亮ー♪」
+					PRINTFORML 「光是看着就兴奋起来了、吃了的话ー会怎么样呢？」
+					PRINTFORMW
+				CASE "果凍"
+					PRINTFORML 「哇、各种各样的果物ー被装在了果冻里面。绮丽ー♪」
+					PRINTFORML 「要是夏天拿出来绝对会大受欢迎的呢、这个」
+					PRINTW 
+				CASE "水果小馅饼"
+					PRINTFORML 「哇哦！　果物有好多啊ー！」
+					PRINTFORML 「虽然感觉吃掉做的这么好的很可惜、但是吃不完就更是浪费了呢♪」
+				CASE "曲奇"
+					PRINTFORML 「啊哈哈、这个上面是狗这个是猫呀。超可爱ー♪」
+					PRINTFORML 「唉、这个是我的脸？　真讨厌ー♪　什么呀这个ー♪」
+					PRINTW 
+				CASE "派"
+					PRINTFORML 「这个是苹果派、这个是樱桃派…唉、还有肉馅的派吗？　好ー厉害」
+					PRINTFORML 「不管那个都松脆可口啊ー。要从哪个開始吃真困扰呀！」
+					PRINTW 
+				CASE "羊羹"
+					PRINTFORML 「唉、这个是竹筒？」
+					PRINTFORML 「啊、里面有放着羊羹呢ー！」
+					PRINTW 
+				CASE "大福"
+					PRINTFORML 「哇哦、里面放着栗子草莓各种东西呢」
+					PRINTFORML 「已经试吃了很多次味道没问题？　嘿ー、会是怎样的味道真是期待呢」
+					PRINTW 
+				CASE "蜂蜜蛋糕"
+					PRINTFORML 「总觉得ー比起普通的蜂蜜蛋糕颜色更黄呢？」
+					PRINTFORML 「因为放进去了很多蜂蜜吗？　嘿唉ー」
+					PRINTW 
+				CASE "団子"
+					PRINTFORML 「三食（色）的団子呢ー♪」
+					PRINTFORML 「呼呼、即使没有装饰看起来也很可爱呢」
+				CASE "水果拼盘"
+					PRINTFORML 「嘿唉ー、这种切割方法、很漂亮呢ー」
+					PRINTFORML 「总觉得吃掉的话就太可惜了、要ー怎么办呢ー！」
+					PRINTW 
+				CASE "馅蜜"
+					PRINTFORML 「冰凉凉的很棒呢」
+					PRINTFORML 「寒天也是五颜六色的很漂亮。真是大饱眼福呢♪」
+					PRINTW 
+				CASE "马卡龙"
+					PRINTFORML 「真是绮丽可爱ー%UNICODE(0x2665) *1%　想要搭配红茶吃这个了呢ー」
+					PRINTW 
+				CASE "珍珠奶茶"
+					PRINTFORML 「这个软乎乎有弹性的、是用木薯做成的啊、嘿唉ー」
+					PRINTFORML 「这个上面做成的花纹非常漂亮ー♪」
+					PRINTW 
+					
+				;禁断の料理
+				CASE "油炸跳蛋"
+					PRINTFORML 
+				CASE "电动按摩风跳蛋湯引"
+				CASE "夹子用跳蛋握手"
+				CASE "飛機杯剪裁跳蛋水煮"
+					PRINTFORML 「库…先不说食材、这个调味我很喜欢呢…」
+					PRINTFORML 「为什么能用这种最糟的食材做出这种最棒的料理来啊…」
+					PRINTW 
+				
+				;青蛙料理
+				CASE "炸青蛙"
+					PRINTFORML 「嘿ー、青蛙这样子料理总觉得很时髦啊ー」
+					PRINTFORML 「周围装饰着漂亮的酱汁也是加分项呢♪」
+					PRINTW 
+				CASE "青蛙咖喱"
+					PRINTFORML 「青蛙尝起来是鸡肉味、意外的和咖喱ー相性很棒呢ー」
+					PRINTFORML 「好好的处理后看起来也不是那么恶心了呢ー」
+					PRINTW 
+				CASE "炒青蛙"
+					PRINTFORML 「嘿ー、虽然很简朴但是看起来却很好吃呢」
+					PRINTFORML 「虽然青蛙料理感觉就很令人毛骨悚然、但是并不是这样的呢」
+					PRINTW 
+				CASE "盐烤青蛙"
+					PRINTFORML 「说起来的话就是青蛙腿…的感觉呢」
+					PRINTFORML 「除非被告知的话否则不知道这是青蛙呢。虽然很简朴但是处理的很仔细呢♪」
+					PRINTW 
+				;魚料理
+				CASE "寿司"
+					PRINTFORML 「请好好的看着！　这个！　尖端有好好地立起来呢！」
+					PRINTFORML 「米饭也很饱满！　啊啊、肯定会在嘴里融化的吧」
+					PRINTW 
+				CASE "焼鱼"
+					PRINTFORML 「啊啊、烤鱼的香味在诱惑着我」
+					PRINTFORML 「呐呐、已经可以開动了吧。不行吗？」
+					PRINTW 
+				CASE "煮魚"
+					PRINTFORML 「真是美妙的香味ー。鱼身也很丰满看起来很好吃ー♪」
+					PRINTW 
+				CASE "烤鳗"
+					PRINTFORML 「啊啊、酱汁的香味勾起食欲了哇ー」
+					PRINTFORML 「可以把这个放在米饭上吃吗？　太好啦ー！」
+					PRINTW 
+				CASE "生制"
+					PRINTFORML 「哇！　鱼还在动着啊！」
+					PRINTFORML 「这就是匠人的技术吗…姆姆姆」
+					PRINTW 
+				CASE "醋浸鱼"
+					PRINTFORML 「洋葱也是变得软软的了呢ー」
+					PRINTFORML 「明明制作方法十分的简单、成品做出来却真的很漂亮呢♪」
+					PRINTW 
+				CASE "文也鱼"
+					PRINTFORML 「明明很简朴但是看起来却很有食欲…」
+					PRINTFORML 「老老实实的进到我的肚子里吧ー♪」
+					PRINTW 
+				CASE "刺身"
+					PRINTFORML 「真亏你能够发现这么棒的鱼呢ー」
+					PRINTFORML 「还是说%MASTERNAME:42%切食材的手法很棒呢ー」
+					PRINTW 
+				CASE "照焼鱼"
+					PRINTFORML 「快看呀这个闪闪发光的照烧鱼！」
+					PRINTFORML 「呐ー呐ー、还不能吃吗ー？　啊ー嗯、好想要快点開吃呀！」
+					PRINTW 
+				CASE "竜田揚"
+					PRINTFORML 「龙田炸呢、红色的肉与面衣的白、就如同龙田川河上漂浮着的红叶一般呢」
+					PRINTFORML 「%MASTERNAME:42%做的龙田炸正是如此呢♪」
+					PRINTW 
+				CASE "咖喱鱼"
+					PRINTFORML 「嘿ー、鱼的身体没有崩塌啊ー。做的真是很棒呢」
+					PRINTFORML 「虽说放进去肉也好、但是鱼肉很新鲜也很好呢♪」
+					PRINTW 
+				CASE "仰望星空派"
+					PRINTFORML 「总觉得鱼的头飞出来ー超有趣的♪」
+					PRINTFORML 「这个、像是鱼抬头看着星空ー所以叫仰望星空吗？　是ー这样啊ー」
+					PRINTW 
+				;新しい料理が追加されたとき用の回避枠
+				CASEELSE
+				ENDSELECT
+			CASEELSE
+			ENDSELECT

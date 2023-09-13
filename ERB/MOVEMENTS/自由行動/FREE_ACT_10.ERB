@@ -1,0 +1,91 @@
+﻿@EXIST_FreeAct10
+#LOCALSIZE 1
+#LOCALSSIZE 1
+
+;オブジェクト本体
+@FreeAct10(ARG, O_DATA, V_NAME)
+#FUNCTION
+#LOCALSIZE 1
+#LOCALSSIZE 1
+#DIMS O_DATA
+#DIMS V_NAME
+#DIM 経過時間
+経過時間 = Activity_Duration:TARGET
+SELECTCASE O_DATA
+;陪同行動指令の名称
+CASE "名称"
+	CALLF MAKE_STR(V_NAME, "一起釣魚")
+CASE "CHAIN"
+;他角色に連鎖しない場合コメントアウトすること
+	CALLF MAKE_INT(V_NAME, 1)
+CASE "経過時間"
+;陪同行動指令での経過時間
+;0だと30分か残り時間全部の小さい方
+	CALLF MAKE_INT(V_NAME, 0)
+ENDSELECT
+
+@自由行動内容_10(CHARA, ARGS, 時間係数, CHAIN)
+#DIM CHARA
+#DIM CHAIN
+#DIM 現在地
+#DIM メッセージ表示
+#DIM 時間係数
+#DIM 経過時間
+現在地 = CFLAG:CHARA:現在位置
+メッセージ表示 = 現在地 == CFLAG:MASTER:現在位置 ? 1 # 0
+SELECTCASE ARGS
+	CASE "発生"
+		;釣魚Lv1以上の角色が釣魚できる場所にいる時
+		SIF TALENT:CHARA:釣魚Lv < 1
+			RETURN 0
+		SIF !FISHING_SPOT(現在地)
+			RETURN 0
+		SIF BASE:CHARA:気力 <= 500
+			RETURN 0
+		SIF メッセージ表示
+			PRINTFORMW %CALLNAME:CHARA%\@ CHAIN ? 開始跟著%CALLNAME:CHAIN%一起釣魚了。# 拿出了釣魚竿開始釣魚。\@
+		RETURN 60 + RAND:120
+	CASE "行動中"
+		IF メッセージ表示
+			SELECTCASE RAND:4
+			CASE 1
+				PRINTFORMW %CALLNAME:CHARA%釣上了一条魚。
+			CASEELSE
+				PRINTFORMW %CALLNAME:CHARA%在悠哉由哉地釣著魚。
+			ENDSELECT
+		ENDIF
+	CASE "完了"
+		;完了までいったら経験+2
+		EXP:CHARA:釣魚経験 += 2
+		SIF メッセージ表示
+			PRINTFORMW %CALLNAME:CHARA%似乎釣完魚了。
+	CASE "中断"
+		EXP:CHARA:釣魚経験 += 1
+	CASE "交手"
+		;自由行動に付き合ったとき用メッセージ
+		IF TFLAG:193 < 0
+			PRINTFORML %CALLNAME:PLAYER%在釣魚中的%CALLNAME:TARGET%旁邊發著呆…
+		ELSE
+			PRINTFORML %CALLNAME:PLAYER%在%CALLNAME:TARGET%的旁邊一起釣著魚
+			PRINTFORML %TEXTR(@"%CALLNAME:TARGET%似乎釣上了什麼東西…/雖然沒釣上什麼、兩人渡過了悠閒自在的一段時間…/釣到了小魚、往%CALLNAME:TARGET%的釣魚桶里放進去了…")%
+		ENDIF
+	CASE "ソース"
+		;交手指令選択時の入手ソース、時間係数は付き合った時間の1/10
+		IF !ITEM:釣魚竿
+			;釣魚竿がないと見てるだけ
+			TFLAG:193 = -1
+			DOWNBASE:MASTER:気力 += 50 * 時間係数
+			DOWNBASE:TARGET:体力 += 10 * 時間係数
+			DOWNBASE:TARGET:気力 += 20 * 時間係数
+			SOURCE:歓楽 = (50 + ((ABL:親密 + TALENT:MASTER:釣魚Lv) * 25)) * 時間係数
+		ELSE
+			DOWNBASE:MASTER:体力 += 20 * 時間係数
+			DOWNBASE:MASTER:気力 += 40 * 時間係数
+			DOWNBASE:TARGET:体力 += 10 * 時間係数
+			DOWNBASE:TARGET:気力 += 20 * 時間係数
+			SOURCE:歓楽 = (150 + ((ABL:親密 + TALENT:MASTER:釣魚Lv) * 50)) * 時間係数
+			SOURCE:受動 = (100 + ((ABL:従順 + TALENT:MASTER:釣魚Lv) * 50)) * 時間係数
+			TFLAG:98 = 1
+			EXP:MASTER:釣魚経験 ++
+		ENDIF
+ENDSELECT

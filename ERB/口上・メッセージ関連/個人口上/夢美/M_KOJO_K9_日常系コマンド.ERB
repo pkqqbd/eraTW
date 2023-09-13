@@ -1,0 +1,2097 @@
+﻿;※※※※※※※※※※※※※※※※※※※※※※※※※
+;日常系指令
+;※※※※※※※※※※※※※※※※※※※※※※※※※
+;==================================================
+;300,会話
+;TFLAG:193(1=大成功 0=成功 -1=失敗 -2=大失敗（TARGETがMASTERより教養が4以上高い)
+;TCVAR:302(0=会話可能 1>=非恋慕時会話不能)
+;MARK:反発刻印(3以上=会話不能)(4以上はバグ
+;TCVAR:烂醉(1=通常成功or大失敗)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_300
+;指令共通メッセージ(TRAIN_MESSAGE) 
+;削除すると「～说着话。」とかが消えます。また、削除した場合は自動で口上色が付きません。
+CALL TRAIN_MESSAGE
+;口上メイン呼出
+CALL M_KOJO_MESSAGE_COM_K9_300_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_300_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;ここに口上書いて下さい
+
+	;利尿剤盛られた(これ専用関数で外出ししようかなあ)　一旦凍結
+	;IF TCVAR:141
+	;	IF CFLAG:MASTER == 14 || CFLAG:MASTER == 40 || CFLAG:MASTER == 236 || CFLAG:MASTER == 316 || CFLAG:MASTER == 322 || CFLAG:MASTER == 406 || CFLAG:MASTER == 418 || CFLAG:MASTER == 824 || CFLAG:MASTER == 906 || CFLAG:MASTER == 917
+	;		;廁所ならおしっこしてくれる
+	;		PRINTFORML 「お廁所、お廁所……！お願い、間に合って……！」
+	;		PRINTFORML 「いやいやいや、出る出るっ、出ちゃう漏れる漏れるもれちゃう！」
+	;		PRINTFORMDW 夢美は%CALLNAME:MASTER%が居るにもかかわらず眼前で%SHOW_BOTTOM(TARGET,1)%をまくり上げ、
+	;		IF CFLAG:291
+	;			PRINTFORMDW 露出了没穿内衣的裸露的秘部。
+	;		ELSE
+	;			PRINTFORMDW 是ていた%PANTSNAME(EQUIP:TARGET:下半身内衣２, TARGET)%を力任せにずり下げた。
+	;		ENDIF
+	;		PRINTFORML 「だめだめだめだめもう無理出る出ちゃう出ちゃう……！」
+	;		PRINTFORMDW そして辛うじて排尿の姿勢を整えた瞬間、勢いよく尿が噴き出してきた。
+	;		PRINTFORML 「あはぁ……うはぁ……\/\/\/ま、間に合ったぁ……\/\/\/」
+	;		PRINTFORMDW 便器に湛えられた水に尿が中奖了、ちょぼぼぼぼぼぼぼぼという豪快な音を響かせている。
+	;		PRINTFORML 「はっ、はぁ……こ、こんなに……んんっ……」
+	;		PRINTFORMDW 無事放尿を終えた夢美はぶるりと一度震えた後、しっかりと秘部周りを拭いた。
+	;		PRINTFORMDW 夢美がおしっこを拭く間に見え隠れする秘所を%CALLNAME:MASTER%はしっかりと目に焼き付けた。
+	;		PRINTFORML 「はぁ……すっきりし……って……%CALLNAME:MASTER%？……居たの？っていうか、見てた……？」
+	;		PRINTFORMDW 今頃気づいたのか
+	;		IF ABL:14 < 4
+	;			PRINTFORML 「え、ええと……わ、忘れてくれる？ね？お、お願い……」
+	;			PRINTFORMDW こんな刺激的な光景を忘れろという方が無理だ
+	;		ELSE
+	;			CALL HPH_PRINT,@"「ふふ、ねえ、見ててどうだった……？HPH」","W"
+	;			PRINTFORMDW 最高だったとしか言いようがない
+	;		ENDIF
+	;	ELSE
+	;		;そわそわする、随机で漏らそうかな
+	;		PRINTFORML 「へ、へえー、ふ、ふーん、そう……なのね……」
+	;		PRINTFORMDW どこか夢美はそわそわしていて、話に集中出来ていない。
+	;		PRINTFORML （やだやだやだ……おしっこ……おしっこしたい……！）
+	;	ENDIF
+	;ENDIF
+
+	;通常会話
+	IF TALENT:恋慕
+		SELECTCASE TFLAG:193
+			CASE 1
+				PRINTFORML 「呵呵，这样和你说话真的很開心」
+				PRINTFORML 「啊，再多说一会儿吧」
+			CASE 0
+				;今後もう稍微レパートリー増やしたいなあ
+				SELECTCASE RAND:3
+					CASE 0
+						PRINTFORML 「总感觉最近研究室变得狭窄了，你能帮忙增建吗?」
+						PRINTFORMDW 完成了。
+						PRINTFORML 「真快啊」
+						PRINTFORMDW 梦美假惺惺地做了个鬼脸。
+					CASE 1
+						PRINTFORML 「喂，你不想和我一起成为研究者吗?」
+						PRINTFORML 「尽管如此，那个，在那边……两个人生活……啦……不行吗?」
+						PRINTFORMDW 我觉得这会比较难吧。
+						PRINTFORML 「嗯，不就好了吗?如果是这样的话，你可以跟千百合一起?!」
+						PRINTFORMDW 擅自出卖助手的人生会如何呢?
+					CASE 2
+						PRINTFORML 「好想吃草莓味蛋糕啊--」
+						PRINTFORMDW 真是非常紧急的订单啊。
+						PRINTFORML 「突然就很想吃啊。你会做吗?」
+						PRINTFORMDW 也有可以制作的时候，先这样回答吧。
+						PRINTFORML 「期待你的表现哦」
+					
+				ENDSELECT
+			CASE -1
+				PRINTFORML 「我觉得不用勉强自己说话哦」
+		ENDSELECT
+	ELSEIF TALENT:184
+	;愛欲
+		SELECTCASE TFLAG:193
+			CASE 1
+				PRINTFORML 「ふふ、%CALLNAME:MASTER%ってえっちのことしか考えてないと思っていたけど……」
+				PRINTFORML 「ちゃんと面白い話も出来るのね、稍微見直したわ」
+				PRINTFORMDW 失敬な。
+				PRINTFORML 「ごめんなさいね、悪気はないのよ？」
+				PRINTFORML 「ああ、でも……やっぱりこうして%CALLNAME:MASTER%といるのだし、性交がしたいわ」
+			CASE 0
+				SELECTCASE RAND:6
+					CASE 0
+						PRINTFORML 「寝てる間も%CALLNAME:MASTER%とえっちしてる夢が見られる枕とかどうかしら」
+						PRINTFORMDW そんなの需要あるのか。
+						PRINTFORML 「少なくとも私にはあるわよ？」
+						PRINTFORML 「まぁ……ただ、そんな夢見たら……朝おまんこがびちゃびちゃになっちゃいそうだけど\/\/\/」
+					CASE 1
+						PRINTFORML 「私の居た世界じゃ、睡眠学習で大概のことは学べてしまうのだけど」
+						PRINTFORML 「えっちのテクとかも学べるように出来るかしら……」
+						PRINTFORMDW 実践第一だと思うんですが。
+						PRINTFORML 「そうよね。手の動かし方とか、咥え方とか、挟み方とか、色々あるわよね……」
+					CASE 2
+						PRINTFORML 「こっちじゃ河童の子達が、色々グッズを作っているみたいだけど」
+						PRINTFORML 「私も対抗して統一物理学世界のアダルトグッズを売りに出そうかしら」
+						PRINTFORMDW どんなものがあるのだろう。
+						PRINTFORML 「あっちに戻ってみないとわからないわね」
+					CASE 3
+						PRINTFORML 「%CALLNAME:MASTER%はえっちしたくてたまらない時ってあるかしら」
+						PRINTFORMDW ないことはない。
+						PRINTFORML 「うん、私もあるんだけどね、そんな時はどうしてる？」
+						PRINTFORMDW そりゃ時か……いや、稍微言えないなあ……%CALLNAME:MASTER%は言葉を濁した。
+						PRINTFORML 「私は研究室で自慰するときがあるの、こう、毛笔とか試験管をおまんこにずぽずぽしたりして……」
+						PRINTFORMDW 言いながら夢美は裙子をめくって見せて、棒状のものを挿入するような動きを披露する。
+						IF FLAG:1030 != 8
+							PRINTFORML 「これがいつもより気持ちぃのよね……\/\/\/ 多分千百合にはバレてない、と思うんだけど……」
+							IF ABL:14 > 5
+								CALL HPH_PRINT,@"「もし、バレてたら……それはそれで興奮するわね……HPH」","W"
+								PRINTFORML 「あいつがそれを見て何を思うのか、見て何をシてるのか、とか考えたら……诶嘿嘿」
+								PRINTFORML 「相互自慰とかだったら、素敵よね……\/\/\/」
+								PRINTFORMDW そ的房間の空気になって一部始終を見たいと思う%CALLNAME:MASTER%だった
+							ENDIF
+						ENDIF
+					CASE 4
+						PRINTFORML 「ねえ%CALLNAME:MASTER%、私的房間に照相机とか付けてみるのどうかしら」
+						PRINTFORMDW 防犯用かな？
+						PRINTFORML 「ノンノン、私の生活風景が%CALLNAME:MASTER%に丸見えに出来ないかなって思ったんだけど」
+						PRINTFORML 「ほら、着替えシーンとか自慰してるとことか、見放題よ？」
+						PRINTFORML 「稍微恥ずかしいけど……お風呂とかお廁所とかも……\/\/\/」
+						PRINTFORMDW 猛烈に見たいと思ったがなんとかこらえる%CALLNAME:MASTER%だった
+					CASE 5
+						PRINTFORML 「赤い内衣売ってないかしらねえ」
+						PRINTFORMDW いきなりなんだ。
+						PRINTFORML 「いやほら、私ってこれだけ赤いのにこう、内衣が白だったりしたらどうなのかしらと」
+						PRINTFORMDW 白でも良いじゃないかと思いつつ、赤も良いと思う%CALLNAME:MASTER%だった
+				ENDSELECT
+			CASE -1
+				PRINTFORML 「やっぱり私達、言葉を交わすよりも、身体を重ねた方が伝わるんじゃないかしら？」
+		ENDSELECT
+	ELSEIF TALENT:8
+	;思慕、追々追加予定
+		SELECTCASE TFLAG:193
+			CASE 1
+				PRINTFORML 「今の話良いわね、どんどん話して欲しいわ」
+				PRINTFORML 「他にはどんな話があるのかしら？」
+			CASE 0
+				SELECTCASE RAND:3
+					CASE 0
+						PRINTFORML 「ねえ、%CALLNAME:MASTER%は……誰か気になる人とか、いる……？」
+						PRINTFORMDW 夢美はチラチラこちらを見ながら話をしている。
+					CASE 1
+						PRINTFORML 「私最近、毎日が結構楽しいの。%CALLNAME:MASTER%のおかげかもね」
+						PRINTFORMDW 夢美はそう言って%CALLNAME:MASTER%に微笑んだ。
+					CASE 2
+						PRINTFORML 「ずっと研究ばっかりしてたからかもしれないけど」
+						PRINTFORML 「世の中まだまだ色々楽しいことがあったんだって、こっちに来てから思うのよね」
+				ENDSELECT
+			CASE -1
+				PRINTFORML 「……え、えーと、その」
+				PRINTFORMDW 夢美は気まずそうな顔をしてこちらをいる……
+		ENDSELECT
+	ELSEIF TALENT:185
+	;炮友(一部通常時を流用)
+		SELECTCASE TFLAG:193
+			CASE 1
+				PRINTFORML 「真有趣啊，那个故事能让我再听一听吗?」
+			CASE 0
+				SELECTCASE RAND:3
+					CASE 0
+						PRINTFORML 「唉，是这样啊。」
+						PRINTFORMDW 梦美似乎不怎么关心地听着。
+					CASE 1
+						PRINTFORML 「ねぇ、今日はしないの？」
+						PRINTFORMDW 夢美の関心は%CALLNAME:MASTER%の話よりも性交に向いているようだ
+					CASE 2
+						PRINTFORML 「お互いヤりたくなったら会って性交してスッキリして……ってどうかと思ってたけど」
+						PRINTFORML 「この関係、案外悪くないなって思ってるの、不思議よね」
+				ENDSELECT
+			CASE -1
+				PRINTFORML 「……話は終わりかしら？SEXしないなら今日は帰っても良いわよ」
+				PRINTFORMDW 夢美はつまらなさそうな顔をしている……
+		ENDSELECT
+	ELSE
+	;通常時
+		SELECTCASE TFLAG:193
+			CASE 1
+				PRINTFORML 「真有趣啊，那个故事能让我再听一听吗?」
+			CASE 0
+				PRINTFORML 「唉，是这样啊。」
+				PRINTFORMDW 梦美似乎不怎么关心地听着。
+			CASE -1
+				PRINTFORML 「那个，我刚才好像也听说过。」
+				PRINTFORMDW 一幅无聊的表情........
+			CASE -2
+				PRINTFORML 「……额?」
+				PRINTFORMDW 也许是这里的表述不通，梦美歪着头。好像重新開始比较好……
+		ENDSELECT
+	ENDIF
+	
+ENDIF
+RETURN 1
+;==================================================
+;301,泡茶
+;TFLAG:193(1=大成功 0=成功 -1=失敗)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_301
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_301_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_301_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF TFLAG:193 == 1
+		IF TALENT:3 
+			PRINTFORML 「む、今日のは一段と美味しいわね、何かコツでもあるの？」
+			PRINTFORMDW それは……那么、その、なんだ……
+			CALL HPH_PRINT,@"「まさかとは思うけど『おいしくなぁ～れHPH』的なものとか……？」","W"
+			PRINTFORMDW それがあんまり間違いじゃないのが困るんだよ
+		ELSEIF TALENT:184 || TALENT:185 || TALENT:142
+			PRINTFORML 「わ、なに、すごく美味しいわねこれ。あ、ところで%CALLNAME:MASTER%」
+			PRINTFORMDW 何か用かな？
+			PRINTFORML 「おまんこから吹いた潮で淹れた茶とか、美味しいのかしら」
+			PRINTFORMDW いきなりなんですか、気でも触れましたか。
+			PRINTFORML 「えー、なんかふと思って。あ、じゃあ私ので試してみたりとか……？」
+			PRINTFORMDW どちらかというとそれは直で飲みたい
+		ELSE
+			PRINTFORML 「啊，真好喝啊。能不能也给我家的千百合也配上？”
+			PRINTFORML ["啊？不行吗？太遗憾了……如果这款茶一直上架的话，我想雇个专属的。”]
+		ENDIF
+	ELSEIF TFLAG:193 == 0
+		IF TALENT:3 
+			PRINTFORML 「む、今日のは一段と美味しいわね、何かコツでもあるの？」
+			PRINTFORMDW それは……那么、その、なんだ……
+			CALL HPH_PRINT,@"「まさかとは思うけど『おいしくなぁ～れHPH』的なものとか……？」","W"
+			PRINTFORMDW それがあんまり間違いじゃないのが困るんだよ
+		ELSEIF TALENT:184 || TALENT:185 || TALENT:142
+			PRINTFORML 「あら、ありがとう。あ、ところで%CALLNAME:MASTER%」
+			PRINTFORMDW 何か用かな？
+			PRINTFORML 「母乳牛奶ティーとかって使い古されたネタだったりする？」
+			PRINTFORMDW 割とよく見る気がするな。
+			PRINTFORML 「そっかあ。美味しいのかしら……もしデキちゃったら、私ので試作してみようかしら……」
+			PRINTFORMDW 悪くないな。
+		ELSE
+			PRINTFORML 「嗯，茶?谢谢，我收下了。」
+			PRINTFORML 「要是我的助手也这么机灵就好了……话说茶从哪里拿出来的?」
+			PRINTFORMDW 这可是企业机密哦
+		ENDIF
+	ELSE
+		IF TALENT:3 
+			PRINTFORML 「うゥッ……？！なにこの妙な味……？」
+			PRINTFORMDW どうしたんだ…？
+			PRINTFORML 「いや、その……レシピに妙なアレンジ入れて『これで美味しくなるはず』みたいなコトしなかった？」
+			PRINTFORMDW してないはずなんだが……すまない……。
+		ELSEIF TALENT:184 || TALENT:185 || TALENT:142
+			PRINTFORML 「何か変なものでも入れたの……？たとえば薬とか」
+			PRINTFORMDW 入れてて欲しかったのか？
+			PRINTFORML 「えっだってそれだったらその後性交できるし、不味いのもクスリのせいにできるじゃない？」
+			PRINTFORMDW 前段はともかく確かにそうだな
+			PRINTFORML 「うーん……なんでこんな変な味に……」
+			PRINTFORMDW 純粋に失敗したんだろうなあ……
+		ELSE
+			PRINTFORML 「……喂，有哪里……失败了吗?」
+			PRINTFORMDW 梦美脸上浮现出一副苦大恶极的表情来抗议。
+			PRINTFORMDW ん？出错了吗……？"这次"明明没有加入任何东西……。
+		ENDIF
+	ENDIF
+ENDIF
+RETURN 1
+;==================================================
+;302,身体接觸
+;TFLAG:193(1=大成功 0=成功 -1=失敗)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_302
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_302_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_302_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;もうちょいパターンがあるといいなあ
+	IF TALENT:恋慕
+		PRINTFORML 「啊呵,是%CALLNAME:MASTER%的话，就先停下来吧」
+	ELSEIF TALENT:184 || TALENT:185 || TALENT:142
+		CALL HPH_PRINT,@"「稍微、もう……HPH　なに、シたくなっちゃったの？」","W"
+	ELSEIF TALENT:思慕
+		PRINTFORML 「怎么了?突然来了个恶作剧」
+	ELSE
+		PRINTFORML 「你在做什么?奇怪的家伙!」
+	ENDIF
+ENDIF
+RETURN 1
+;==================================================
+;303,道歉
+;TFLAG:193(2=菓子折成功 1=大成功 0=成功 -1=失敗 -2=菓子折失敗)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_303
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_303_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_303_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	SELECTCASE TFLAG:193
+		CASE 2
+			PRINTFORML 「这次为了你的态度原谅你。但是，从下次開始就不可以做了吗?」
+		CASE 1
+			PRINTFORML 「我知道了，但是不可以再做了哦?」
+		CASE 0
+			PRINTFORML 「是的，我知道了……原谅你，就这次呢。」
+		CASEELSE
+			PRINTFORML 「对不起，我还不能原谅你。请下次再来吧」
+	ENDSELECT
+ENDIF
+RETURN 1
+;==================================================
+;304,幫忙干活
+;TFLAG:193(1=大成功 0=成功 -1=失敗)
+;CFLAG:350(仕事内容(JOB_仕事内容.ERB参照のこと
+;TCVAR:沒法幫忙(=2 手伝っても早くは終わらない、時間停止中不可 永琳の診察等)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_304
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_304_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_304_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;時間停止中
+	IF FLAG:70
+	;通常
+	ELSE
+		IF TALENT:3 || TALENT:8
+			IF ABL:MASTER:43 >= 4
+				;MASTERの教養が夢美レベルかそれ以上のとき
+				PRINTFORML 「有%CALLNAME:MASTER%が帮忙简直胜过其他人百倍啊」
+				PRINTFORML 「嗖嗖嗖地结束吧」
+			ELSE
+				PRINTFORML 「%CALLNAME:MASTER%也能帮我吗?谢谢，得救了。」
+				PRINTFORML 「是啊，那么……」
+			ENDIF
+		ELSEIF TALENT:184 || TALENT:185 || TALENT:142
+			PRINTFORML 「啊、%CALLNAME:MASTER%も也来帮忙啊」
+			CALL HPH_PRINT,@"「そうね、ちゃちゃっと終わらせて……後でゆっくり楽しみましょHPH」","W"
+		ELSE
+			PRINTFORML 「想帮我吗?那就拜托你了吧」
+		ENDIF
+	ENDIF
+
+ENDIF
+RETURN 1
+;==================================================
+;305,索求膝枕
+;TFLAG:193(-5=MASTERがTARGETよりも巨体の場合(TALENT:MASTER:体型 > TALENT:体型 + 2) 1=大成功 0=成功 -1=失敗)(-5以外は地の文分岐無し)
+;ABL:親密(6以上=顔をのぞき込みながら頭を撫でてくれる 3以上=ただ頭を撫でてくれる 2以下=縮こまっている)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_305
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_305_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_305_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF TALENT:184 || TALENT:185 || TALENT:142
+		PRINTFORML 「もっと沈み込んでみてもいいのよ」
+		PRINTFORMDW %CALLNAME:MASTER%は夢美の太股の谷間に顔を埋めている。
+		PRINTFORMDW なるほど、もっと奥地へ行って良いということか。%CALLNAME:MASTER%は頭を更に夢美の股間に近づけた。
+		PRINTFORML 「ふふ……私の%SHOW_BOTTOM(TARGET,1)%が邪魔そうね？」
+	ELSEIF ABL:9 > 5
+		PRINTFORML 「如何%CALLNAME:MASTER% ?我的膝盖。舒服吗?」
+		PRINTFORML 「流着眼泪边哭边品味就好了，这样就无法品味了。」
+	ELSEIF ABL:9 < 3
+		PRINTFORML 「……(怎么办呢，这种情况)」
+	ELSE
+		PRINTFORML 「哟西，哟西，哟西，哟西，哟西。」
+		PRINTFORMDW 梦美一边进行着棒读一边抚摸着你的头
+	ENDIF
+ENDIF
+RETURN 1
+;==================================================
+;306,撫摸肚子
+;TFLAG:193(1=ABL:親密6以上かつ妊娠時 0=成功 -1=ABL:親密5以下)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_306
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_306_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_306_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;時間停止中
+	IF FLAG:70
+	;通常
+	ELSE
+		IF TALENT:3 && TALENT:153
+			PRINTFORML 「呵呵……%CALLNAME:MASTER%的孩子在这里呢……」
+			PRINTFORML 「是男孩子还是女孩子呢~~我很期待哦」
+		ELSEIF TALENT:8 && TALENT:153 || TALENT:184 && TALENT:153 || TALENT:142 && TALENT:153
+			IF TALENT:184
+				PRINTFORML 「嗯，那个，因为心情很好，所以好几次都是%CALLNAME:MASTER%……VVV」
+				PRINTFORML 「我曾经想过总有一天会发生这样的事情……但是果然……那个吧」
+			ENDIF
+			PRINTFORML 「搞砸了啊,吓了我一跳，不过我还是想好好照顾这个孩子。」
+			PRINTFORML 「男孩还是女孩，会是哪一个呢」
+		ELSEIF TALENT:153
+			PRINTFORML 「不被期望而降生到这世间，这孩子也太可怜了。」
+			PRINTFORML 「……虽然我也不知道谁要为此负责」
+		ELSEIF TALENT:3 || TALENT:8
+			PRINTFORML 「稍微、不要碰那种地方啊……\/\/\/」
+			PRINTFORML （不想被人说肚子上的肉比以前多了……）
+		ELSEIF TALENT:184 || TALENT:185 || TALENT:142
+			PRINTFORML 「あんっ……そんなところ撫でられたらあそこが疼いちゃう……\/\/\/」
+			PRINTFORML 「だから、もっと撫でて……？」
+		ELSE
+			PRINTFORML 「……？不要碰那种地方啊」
+		ENDIF
+	ENDIF
+ENDIF
+RETURN 1
+;==================================================
+;307,捏臉蛋
+;TFLAG:193(1=大成功 0=成功 -1=失敗)(地の文分岐無し
+	;以下は先に書いた条件が優先される
+	;TALENT:恋慕(受け入れつつ笑顔でやり返す
+	;ABL:親密(6以上=怯生生地やり返す
+	;ABL:従順(5以上=されるがまま
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_307
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_307_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_307_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;時間停止中
+	IF FLAG:70
+		PRINTFORMDW 上上下下左右左右AB……などと夢美の頬をつねって動かしてみたものの、もちろん反応はない。
+		PRINTFORMDW %CALLNAME:MASTER%觉得这个突然的行为没有任何意义……
+	;睡眠中
+	ELSEIF CFLAG:睡眠
+		PRINTFORML 「嗯……千百合不要玩奇怪的恶作剧……算了吧……」
+	;通常
+	ELSE
+		IF TALENT:184 || TALENT:185 || TALENT:142
+			PRINTFORML 「ほっぺたよりも……%CALLNAME:MASTER%はこの辺をつまむ方が好きなんじゃない？」
+			PRINTFORMDW そう言って夢美は自ら胸の先端部や秘所に%CALLNAME:MASTER%の手を這わせた。
+		ELSEIF ABL:9 > 5
+			PRINTFORML 「啊，做了啊，我也要有所回应呢」
+			PRINTFORMDW 这么说着，梦美怯生地捏了捏自己的脸颊。出乎意料的温柔……
+			PRINTFORML 「啊，什么啊，直接一点比较好吗?」
+			PRINTFORMDW 不不不，完全没有那种事
+		ELSEIF ABL:10 > 4
+			PRINTFORML 「う、うう……\/\/\/」
+		ELSE
+			PRINTFORML 「ん！？……不要突然碰那种地方，吓了我一跳」
+		ENDIF
+	ENDIF
+
+ENDIF
+RETURN 1
+;==================================================
+;308,捅臉頰
+;陪睡中or睡眠中限定
+;TFLAG:193(1=大成功 0=成功 -1=失敗)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_308
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_308_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_308_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;睡眠中
+	IF CFLAG:睡眠
+		PRINTFORML 「んぅ……？」
+	;通常
+	ELSE
+		IF TALENT:3
+			PRINTFORML 「やっ、稍微……もう……\/\/\/」
+		ELSEIF  TALENT:184 || TALENT:185 || TALENT:142
+			PRINTFORML 「哈!?你在干什么呢?」
+			SELECTCASE RAND:4
+				CASE 0
+					PRINTFORML 「指ならしゃぶらせてよ」
+				CASE 1
+					PRINTFORML 「どうせなら胸部をツンツンする方が……」
+				CASE 2
+					PRINTFORML 「私のおしりの穴是つでも%CALLNAME:MASTER%の指を待ってるわよ？」
+				CASE 3
+					PRINTFORML 「どちらかというと、あそこに入れて欲しいんだけど……」
+			ENDSELECT
+		ELSE
+			PRINTFORML 「不要突然捅那种地方啦」
+		ENDIF
+	ENDIF
+
+ENDIF
+RETURN 1
+;==================================================
+;309,摸頭
+;TFLAG:193(1=大成功 0=成功 -1=失敗)
+;ABL:親密(6以上=通常成功時分岐
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_309
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_309_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_309_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;時間停止中
+	IF FLAG:70
+	;睡眠中
+	ELSEIF CFLAG:睡眠
+		PRINTFORML 「ううん……」
+	;通常
+	ELSE
+		IF TALENT:3 || TALENT:8
+			PRINTFORML 「呵呵……总觉得让%CALLNAME:MASTER%这么做，会很平静。」
+			PRINTFORML 「尽情地抚摸就好了。」
+		ELSEIF TALENT:184 || TALENT:185 || TALENT:142
+			CALL HPH_PRINT,@"「ふふっ……HPH　なんだかいい気持ちになってきちゃうわ……」","W"
+			PRINTFORML 「%CALLNAME:MASTER%桑,怎么样?」
+		ELSE
+			PRINTFORML 「想摸摸头?……啊，你可真喜欢这样啊」
+		ENDIF
+	ENDIF
+
+ENDIF
+RETURN 1
+;==================================================
+;331,泡茶（下薬）
+;TFLAG:193(1=大成功 0=成功 -1=失敗)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_331
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_331_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_331_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;SELECTCASE TFLAG:193
+	IF TFLAG:193 == -1
+		;ご遠慮『否、私は遠慮しておきます』
+		PRINTFORML 「……うん？」
+		PRINTFORML （是什么呢，总觉得怪怪的。好像不是普通的茶……）
+		PRINTFORML 「对不起，我先告辞了，总觉得是奇怪的东西」
+	ELSEIF TCVAR:139 == 210 || TCVAR:140 == 210
+		;催情薬/媚薬
+		PRINTFORML 「啊，茶?谢谢，我收下了。」
+		PRINTFORML 「杰作，非常美味——……」
+		PRINTFORML 「……んんっ！？\/\/\/」
+		PRINTFORML （觉得……突然，身体……好烫……!\/\/\/）
+		PRINTFORML （而且……不知怎么的心情……）
+	ELSEIF TCVAR:141 == 210
+		;利尿剤
+		PRINTFORML 「啊，茶?谢谢，我收下了。」
+		PRINTFORML 「杰作，非常美味——……」
+		PRINTFORML 「……んぁっ！？\/\/\/」
+		PRINTFORML （啊……突然……想上厕所了……）
+		PRINTFORML （怎么办啊.....）
+	ELSE
+		;現状(2020/05/17現在)では睡眠薬のみ
+		PRINTFORML 「啊，茶?谢谢，我收下了。」
+		PRINTFORML 「杰作，非常美味——……」
+		PRINTFORML 「……う」
+		PRINTFORML （什么啊，什么啊……总觉得怪怪的……突然睡意……）
+	ENDIF
+ENDIF
+RETURN 1
+;==================================================
+;332,勸酒
+;TFLAG:193(0=不會喝酒成功 -1=不會喝酒失敗 -2=不會喝酒大失敗 -5=不會喝酒あきらめ)
+;TFLAG:194(51=濁酒 52=清酒 53=鬼殺酒)
+;ALCOHOL_TASTE(TFLAG:194)(15以上=気に入る 9以下=口に合わない)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_332
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_332_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_332_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;333,聽牢騷
+;TFLAG:193(6=大成功(酔い) 5=成功(酔い) 4=失敗(酔い) 3=大成功 2=成功 1=失敗)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_333
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_333_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_333_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	SELECTCASE TFLAG:193
+		CASE 6
+		;大成功（酔い）
+		CASE 5
+		;成功（酔い）
+		CASE 4
+		;失敗（酔い）
+		CASE 3
+		;大成功
+		CASE 2
+		;成功
+		CASE 1
+		;失敗
+	ENDSELECT
+ENDIF
+RETURN 1
+;==================================================
+;334,碰杯
+;TFLAG:193(1=大成功 0=成功 -1=失敗)
+;CFLAG:妊娠自覚状態(1=吃飯)
+;TALENT:酒耐性(-2=吃飯)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_334
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_334_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_334_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	SELECTCASE TFLAG:193
+		CASE 1
+		;大成功
+		CASE 0
+		;成功
+		CASE -1
+		;失敗
+	ENDSELECT
+ENDIF
+RETURN 1
+;==================================================
+;335,照料
+;TFLAG:193(1=大成功 0=成功 -1=失敗)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_335
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_335_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_335_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	SELECTCASE TFLAG:193
+		CASE 1
+		;大成功
+		CASE 0
+		;成功
+		CASE -1
+		;失敗
+	ENDSELECT
+ENDIF
+RETURN 1
+;==================================================
+;336,膝枕
+;ABL:親密(4以下=居心地悪げ 9以下=恥ずかしげ それ以上=幸せそう
+;TIME_PROGRESS(TFLAG:膝枕した)(44以下=失敗
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_336
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_336_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_336_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF TFLAG:193 > 0
+	;寝ちゃった
+	ELSE
+	;それ以外
+	ENDIF
+ENDIF
+RETURN 1
+;==================================================
+;350,推倒（時姦時は「猥褻」
+;TFLAG:194 
+;    0   = 成功
+;    1   = 人目がある
+;    2   = 野外は嫌でござりまする
+;    3   = 多人数プレイは勘弁
+;    4   = 合意があっても情緒が足りぬ
+;    100 = 合意はあるが口上内特殊判定によって失敗
+;TCVAR:初次拥抱
+;    1  = 普通に合意ゲット
+;    2  = 先に接吻ぐらいしろよ
+;    3  = 媚薬or発情には勝てなかったよお…
+;    4  = 悔しい…刻印さえなければﾋﾞｸﾋﾞｸﾝ
+;    5  = 強引に迫られると断れぬ(素質膽怯持ち専用)
+;    6  = まんざらでもない
+;    7  = 駄目
+;    8  = 論外
+;    98 = 口上内特殊判定による失敗
+;    99 = 口上内特殊判定による成功
+;口上内特殊判定は該当するCFLAGが0だと無効
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_350
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_350_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_350_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF FLAG:70
+	;時間停止中
+		PRINTFORMDW 在停止的时间中,慢慢地接近梦美。
+		PRINTFORMDW 现在的话，眼前的漂亮的脸，那长长的三股辫，还有身体的各个角落，都如自己想的那样。
+		PRINTFORMDW 那么，怎样去享受她呢?快乐的时光从现在開始。
+	ELSE
+	;それ以外
+		SELECTCASE TFLAG:194
+			CASE 0
+				IF TCVAR:181
+				;初回実行時
+					SELECTCASE TCVAR:181
+						CASE 1
+							;もう稍微分岐を増やしてもいいかもしれない
+							PRINTFORML 「你想和我……做这种事吗?」
+							PRINTFORML 「没关系，如果是你的话。」
+						CASE 2
+							PRINTFORML 「唉,好……不先调整下顺序,或者那样的东西吗?……」
+							PRINTFORML （没想到「这边」比接吻先……）
+						CASE 3, 4
+							PRINTFORML 「ちょっ……や……だ……\/\/\/」
+							PRINTFORML （奇怪……心里没有接受身体却擅自……!）
+						CASE 6
+							PRINTFORML 「算了，如果是你的话……我可以让你做吗?」
+						CASEELSE
+							PRINTFORML 「讨厌啊，我们,也不是那种程度的关系吧」
+					ENDSELECT
+				ENDIF
+			CASE 1
+				IF ABL:14 > 5
+					PRINTFORML 「啊，在这种地方边看边做……?\/\/\/」
+					CALL HPH_PRINT,@"「すっごく興奮するわね……HPH　見てる人達、どんな反応するかしら……\/\/\/」","W"
+					PRINTFORML 「……嗯嗯，是啊，真好啊……不对!不是那样的!在这样的地方不行的吧!」
+				ELSE
+					PRINTFORML 「稍微……在这样的地方可不行啊……也许有人在看」
+					PRINTFORML 「考虑下地点啊!地点!」
+				ENDIF
+			CASE 2
+				IF ABL:14 > 5
+					PRINTFORML 「在外面……吗?说实话，我很兴奋........\/\/\/」
+					PRINTFORML 「虽然想做的事像山一样多，但是好像会失去什么东西的样子……还是算了吧」
+				ELSE
+					PRINTFORML 「只是在外面稍微做一点的话，也不是不行，但是请手下留情哦。」
+				ENDIF
+			CASE 3
+				PRINTFORML 「唉？和在这里的大家一起？请允许我拒绝......」
+			CASEELSE
+				PRINTFORML 「现在还不行哦，也要稍微顾及一下我的情緒呢。」
+		ENDSELECT
+	ENDIF
+ENDIF
+RETURN 1
+;==================================================
+;351,帯出去
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_351
+;連れ出しにはTRAIN_MESSAGEが無い
+CALL M_KOJO_MESSAGE_COM_K9_351_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_351_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;TARGET連れ出し
+	IF CFLAG:同行 == 60
+		;IF TCVAR:141
+		;	PRINTFORML 「い、いいけど……その……んんっ……わ、私ね……？」
+		;	PRINTFORMDW 夢美はもじもじしながらしきりに両膝を擦り合わせ、有点害臊的言った。
+		;	PRINTFORML 「じ、実はその……す、すごく……お、お廁所に、行きたいのだけど……良いかしら……\/\/\/」
+		;ENDIF
+
+		IF TALENT:3 || TALENT:8
+			PRINTFORML 「?想让我跟着来吗?好啊，你带我去哪里啊？」
+		ELSEIF TALENT:184 || TALENT:185 || TALENT:142
+			PRINTFORML 「啊，希望我跟你来……吗？呵呵，去哪里呢？」
+			CALL HPH_PRINT,@"「人気の無いところとかだと嬉しいわHPH」","W"
+		ELSE
+			PRINTFORML 「跟你来?……嗯，好吧」
+		ENDIF
+	;TARGET以外連れ出し(TARGET同行中のみ
+	ELSE
+		PRINTFORML 「你要带那个孩子一起去吗？」
+	ENDIF
+ENDIF
+RETURN 1
+;==================================================
+;352,告白
+;FLAG:甲斐性無(1=失敗)
+;TFLAG:193 (1=成功 0=失敗)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_352
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_352_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_352_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;353,猥褻
+;FLAG:甲斐性無(1=失敗)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_353
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_353_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_353_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;354,陪睡（相手は起きて被窝に招く感じ）
+;CFLAG:衰弱(1以上=起きない
+;CFLAG:招待(0以外=起きない
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_354
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_354_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_354_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;355,時止め（地の文の改変程度に留めるべき
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_355
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_355_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_355_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;356,邀请去阴暗处
+;ABL:露出癖 + TALENT:羞恥心で判定
+;==================================================
+@M_KOJO_SUCCESS_COM_K9_356
+;成否判定
+;TFLAG:192(-1＝強制失敗、0=COM依存、1=強制成功
+TFLAG:192 = 0
+
+@M_KOJO_MESSAGE_COM_K9_356
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_356_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_356_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+	;约会中(CFLAG:12)
+	IF CFLAG:12 == 1
+		;露出Lv6以上
+		IF ABL:14 >= 6
+			CALL HPH_PRINT,@"「稍微……ここら辺でシたいって%CALLNAME:MASTER%ね……约会中にそういうこと言う……？HPH」","W"
+			PRINTFORML 「わかってるわよ……わたしも今更どこでヤったって、平気な感じだし」
+			PRINTFORMW 
+			;利尿剤
+			IF TCVAR:141
+				CALL HPH_PRINT,@"「……ただね、その前におしっこしていい？　わたしがしてるとこ、見てていいから……HPH」","W"
+				PRINTFORMDW %CALLNAME:MASTER%が目当ての場所に夢美を連れ込むと、夢美はすぐさましゃがみ込んで放尿しはじめた。
+				CALL HPH_PRINT,@"（ああっ……%CALLNAME:MASTER%が私のおしっこ姿を見てる……HPH　それだけでも興奮するのに、他の誰かにまで、見られたら……HPH）","W"
+				CALL HPH_PRINT,@"「んんっ……はぁ……ぁ～……HPH　ふぅ……」","W"
+				PRINTFORMDW いったん出し切った夢美はぶるりと震え、ゆっくり立ち上がり、とろんとした目で%CALLNAME:MASTER%を見つめた。
+				PRINTFORML 「お待たせ……じゃあ、シましょっか？」
+			;発情/媚薬
+			ELSEIF TCVAR:140 || TCVAR:142
+				PRINTFORMDW 目当ての場所に夢美を連れ込むと、平静を装っていた夢美の様子が一変した。
+				CALL HPH_PRINT,@"「はぁ……はぁ……HPH　ふふ……こういう状況を期待して、私と约会しようって思ったの……？」","W"
+				CALL HPH_PRINT,@"「まぁどっちでもいいけれど……わたしももう、我慢できそうに、ない、し……HPH」","W"
+				CALL HPH_PRINT,@"「見られたらどうするかって？　見させておいたら？――だってキモチイイことのほうが、大事だものHPH」","W"
+			;恋慕
+			ELSEIF TALENT:3
+				PRINTFORML 「でも……誰かに見られたら……どうしよう、って\/\/\/」
+				CALL HPH_PRINT,@"「満更でもないだろうって？　……うんHPH　むしろめいっぱい、見せつけちゃうし……\/\/\/」","W"
+			;ヤリ友
+			ELSEIF TALENT:184 || TALENT:185
+				CALL HPH_PRINT,@"「もう、ほんとしょうがないくらいスケベなんだから……HPH　ま、私も%CALLNAME:MASTER%のこと、言えないけどHPH」","W"
+				CALL HPH_PRINT,@"「もし……見られちゃったら、後で私たちのプレイをオカズにしちゃうぐらい――素敵な约会えっち、シましょ？HPH」","W"
+			;思慕
+			ELSEIF TALENT:8
+				PRINTFORML 「い、一応確認だけど……み、見られ、ないわよ、ね？\/\/\/」
+				CALL HPH_PRINT,@"「べ、別に見られたくないわけじゃないし、いやそのむしろ、いっぱい見てほしいくらいだけど……HPH」","W"
+				PRINTFORML 「う、うん……约会えっち……興奮しちゃう、かも\/\/\/」
+			ENDIF
+		;それ以外
+		ELSE
+			PRINTFORML 「稍微……ここら辺でシたいって%CALLNAME:MASTER%ね……曲がりなりにも约会中でしょ……\/\/\/」
+			PRINTFORML 「その……す、少しは情緒ってものを考えてほしいのだけれど……」
+			PRINTFORMW 
+			;利尿剤
+			IF TCVAR:141
+				PRINTFORML 「そ、それに……その……い、今すごく……おしっこが……したいんだけ、ど……\/\/\/」
+				PRINTFORML 「こ、ここですればいいって……？　やだ、そんな、%CALLNAME:MASTER%が、見てるのに……\/\/\/」
+				PRINTFORMDW そうは言ったものの尿意の限界だったのか、観念した夢美はその場でしゃがみ込むと顔を真っ赤にして放尿しはじめた。
+				CALL HPH_PRINT,@"（見られてる……HPH　こんな姿、%CALLNAME:MASTER%に見られてる……\/\/\/　なのに、コーフンして……ヘンタイだわHPH）","W"
+				PRINTFORML 「……っ、……ぁ……んんっ……はぁ……はぁ……\/\/\/」
+				PRINTFORMDW 放尿を終えた夢美が真っ赤な顔のまま%CALLNAME:MASTER%のほうを向いて、ゆっくり立ち上がる
+				PRINTFORML 「こんなことした後でするんだから……せめて、ちゃんと気持ちよくしてよ？」
+			;発情/媚薬
+			ELSEIF TCVAR:140 || TCVAR:142
+				CALL HPH_PRINT,@"「はぁーっ……HPH　はぁーっ……HPH　……でも、正直、今はそれどころじゃないから――」","W"
+				PRINTFORMDW 人気の少ない場所へと移った途端、夢美の瞳はすっかり情欲に塗れたものとなっていた
+				CALL HPH_PRINT,@"「きて、%CALLNAME:MASTER%……もう、いますぐここで、思いっきりシちゃいましょう？HPH」","W"
+			;恋慕
+			ELSEIF TALENT:3
+				PRINTFORML 「だ、誰かに見られたり……しない、わよ、ね？\/\/\/」
+				PRINTFORML （でも、约会中に物陰でえっちするとか……稍微、コーフンしちゃう、かも……\/\/\/）
+			;ヤリ友
+			ELSEIF TALENT:184 || TALENT:185
+				PRINTFORML 「……でもま、そんなところも、私たちの関係なら丁度いいのかしらね？」
+				CALL HPH_PRINT,@"「约会中に物陰で性交なんて……HPH　ハマっちゃったら、%CALLNAME:MASTER%が責任取ってくれるわよね？HPH」","W"
+			;思慕
+			ELSEIF TALENT:8
+				PRINTFORML 「そ、その。い、一応確認だけど……み、見られ、ないわよ、ね？\/\/\/」
+			ENDIF
+		ENDIF
+	;それ以外
+	ELSE
+		;露出Lv6以上
+		IF ABL:14 >= 6
+			PRINTFORML 「どうしたの？いきなりこんな所に連れ込んで……え？ここでシたいの……？\/\/\/」
+			PRINTFORMW 
+			;利尿剤
+			IF TCVAR:141
+				CALL HPH_PRINT,@"「いいけど……その前に、おしっこしてから、ね？HPH」","W"
+				PRINTFORMDW 言った荞麦麺から夢美はすぐにしゃがみ込むと、%CALLNAME:MASTER%に見えるように体の向きを変えて放尿しはじめた。
+				CALL HPH_PRINT,@"「んぅ……ねぇ%CALLNAME:MASTER%、わたしのアソコ、見て……？　コーフンして、濡れてきちゃった……HPH」","W"
+				PRINTFORMDW %CALLNAME:MASTER%がしゃがんで夢美の秘所をじっくり眺めると、確かに尿以外の粘液も垂れてきている。
+				CALL HPH_PRINT,@"「んんっ……はぁ～……HPH　お待たせ……それじゃ、シましょっか……HPH」","W"
+				PRINTFORMDW 排泄を終えて蕩けた顔で見つめる夢美を%CALLNAME:MASTER%はすぐさま抱き寄せた。
+			;発情/媚薬
+			ELSEIF TCVAR:140 || TCVAR:142
+				CALL HPH_PRINT,@"「ぁはHPH　いいわね、ソレ……HPH」","W"
+				CALL HPH_PRINT,@"「もう、誰かにバレちゃっても構わないから、この疼きが収まるまで……めちゃくちゃにイかせて？HPH」","W"
+			;恋慕
+			ELSEIF TALENT:3
+				CALL HPH_PRINT,@"「稍微そんな……もし誰か来たら……すっごく興奮しちゃうじゃない……HPH」","W"
+				CALL HPH_PRINT,@"「もし見られたら……たくさん見せつけちゃうんだから……HPH」","W"
+			;ヤリ友
+			ELSEIF TALENT:184 || TALENT:185
+				CALL HPH_PRINT,@"「もう、ほんとしょうがないくらいスケベなんだから……HPH　ま、私も%CALLNAME:MASTER%のこと、言えないけどHPH」","W"
+				CALL HPH_PRINT,@"「もし……見られちゃったら、後で私たちをオカズにしちゃうぐらいすごいの、シましょ？HPH」","W"
+			;思慕
+			ELSEIF TALENT:8
+				PRINTFORML 「い、一応確認だけど……み、見られ、ないわよ、ね？\/\/\/」
+				CALL HPH_PRINT,@"「べ、別に見られたくないわけじゃないし、いやそのむしろ、いっぱい見てほしいくらいだし……HPH」","W"
+			ENDIF
+		;それ以外
+		ELSE
+			PRINTFORML 「稍微……ここら辺でシたいって%CALLNAME:MASTER%ね……ここ、そんな場所じゃないでしょ……\/\/\/」
+			PRINTFORMW 
+			;利尿剤
+			IF TCVAR:141
+				PRINTFORML 「そ、それに……その……い、今すごく……おしっこが……したいんだけ、ど……\/\/\/」
+				PRINTFORML 「こ、ここですればいいって……？　やだ、そんな、%CALLNAME:MASTER%が、見てるのに……\/\/\/」
+				PRINTFORMDW そうは言ったものの尿意の限界だったのか、観念した夢美はその場でしゃがみ込むと顔を真っ赤にして放尿しはじめた。
+				CALL HPH_PRINT,@"（見られてる……こんな姿、%CALLNAME:MASTER%に見られてる……\/\/\/　なのに、ドキドキして……これじゃヘンタイみたいHPH）","W"
+				PRINTFORML 「……っ、……ぁ……んんっ……はぁ……はぁ……\/\/\/」
+				PRINTFORMDW 放尿を終えた夢美が真っ赤な顔のまま%CALLNAME:MASTER%のほうを向いて、ゆっくり立ち上がる
+				PRINTFORML 「こんなことした後でするんだから……せめて、ちゃんと気持ちよくしてよ？\/\/\/」
+			;発情/媚薬
+			ELSEIF TCVAR:140 || TCVAR:142
+				CALL HPH_PRINT,@"「はぁーっ……HPH　はぁーっ……HPH　……でも、正直、今はそれどころじゃないから――」","W"
+				PRINTFORMDW 人気の少ない場所へと移った途端、夢美の瞳はすっかり情欲に塗れたものとなっていた
+				CALL HPH_PRINT,@"「きて、%CALLNAME:MASTER%……もう、いますぐここで、思いっきりシちゃいましょう？HPH」","W"
+			;恋慕
+			ELSEIF TALENT:3
+				PRINTFORML 「だ、誰かに見られたり……しない、わよ、ね？\/\/\/」
+				PRINTFORML （でも、見られるかもしれないのに物陰でえっちするとか……コーフンする、かも……\/\/\/）
+			;ヤリ友
+			ELSEIF TALENT:184 || TALENT:185
+				PRINTFORML 「……でもま、こんな場所で所かまわずヤっちゃうのも、私たちの関係なら丁度いいのかしらね？」
+				CALL HPH_PRINT,@"「人が来るかもしれないのに物陰で性交なんて……興奮しちゃうHPH　クセになったら%CALLNAME:MASTER%、責任取ってくれる？HPH」","W"
+			;思慕
+			ELSEIF TALENT:8
+				PRINTFORML 「そ、その。い、一応確認だけど……だ、大丈夫、よ、ね？\/\/\/」
+			ENDIF
+		ENDIF
+	ENDIF
+
+ENDIF
+RETURN 1
+;==================================================
+;360,任憑擺佈
+;TCVAR:20(27=谷間を見せる 32=前から抱きつく 35=裙子の中を見せる 53=乳交 73=ぱふぱふ 77=乳を吸わせる 85=Ｖ挿入する 86=だいしゅき大堂ド 87=Ａ挿入する 88=腰振りＶ 89=腰振りＡ
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_360
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_360_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_360_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;361,抵抗
+;TCVAR:20(27=谷間を見せる 32=前から抱きつく 35=裙子の中を見せる 53=乳交 73=ぱふぱふ 77=乳を吸わせる 85=Ｖ挿入する 86=だいしゅき大堂ド 87=Ａ挿入する 88=腰振りＶ 89=腰振りＡ
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_361
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_361_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_361_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+
+;==================================================
+;363,朗読（[幼稚]持ち専用）
+;TFLAG:193(1=大成功 0=成功 -1=失敗)(地の文分岐無し
+;CFLAG:陪睡中(1=被窝orベッドの中で本を読む
+;MASTERがTARGETより大柄の場合、膝の上にTARGETを乗せる
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_363
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_363_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_363_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;364,撒豆子(萃香、勇儀、斯喀雷特姉妹用
+;TFLAG:193(撒豆子に参加してる人数
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_364
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_364_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_364_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;365,向守矢神社移動(早苗、神奈子、諏訪子用
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_365
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_365_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_365_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;368,陪同行動 
+;技能系の行動は技能レベルが1以上なら発生
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_368
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_368_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_368_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	SELECTCASE Activity_Type:TARGET
+		CASE 0
+			;▼考え事［なに考えてるの］
+			;TFLAG:193,-1=はぐらかされる
+			;PRINTFORMW 
+		CASE 1
+			;▼玩遊戲［一緒に玩遊戲］
+			;※[幼稚]持ちのみ
+			;TFLAG:193,1=大いに盛り上がる,-1=あまり盛り上がらない
+			;PRINTFORMW 
+		CASE 2
+			;▼吃飯［一緒に吃飯する］
+			;TFLAG:193,-1=MASTERはお腹が空いてなかった
+			;PRINTFORMW 
+		CASE 3
+			;▼つまみ食い［一緒につまみ食い］
+			;※[妖精]持ちと露米亜、恋、幽幽子、紫苑のみ
+			;TFLAG:193,-1=MASTERはお腹が空いてなかった
+			;PRINTFORMW 
+		CASE 4
+			;▼掃除［掃除を手伝う］
+			;※[掃除係]持ちまたは汚臭耐性-1以下のみ
+			;PRINTFORMW 
+		CASE 5
+			;▼運動［一緒に運動する］
+			;※[音楽知識]持ちは除く（演奏になる）
+			;PRINTFORMW 
+		CASE 6
+			;▼読書［本の感想を聞く］
+			;TFLAG:193,-1=集中していて返事してくれない
+			;PRINTFORMW 
+		CASE 7
+			;▼料理［料理を手伝う］→［料理を分けてもらう］
+			;TFLAG:193,2=料理を手伝う,0=作った料理を食べる,-1==MASTERはお腹が空いてなかった（食べる時）
+			;PRINTFORMW 
+		CASE 8
+			;▼演奏［セッションする］or［伴奏する］
+			;※[音楽知識]持ちのみ（TALENT:音楽知識で変化）
+			;TALENT:音楽知識,1=演奏してる,2=歌ってる,3=踊ってる
+			;TFLAG:193,1=ノリノリ,0=成功,-1=失敗,-2=楽器がなくて見てるだけ
+			;PRINTFORMW 
+		CASE 9
+			;▼採集［採集を手伝う］
+			;PRINTFORMW 
+		CASE 10
+			;▼釣魚［一緒に釣魚］
+			;TFLAG:193,-1=釣魚竿がなくて見てるだけ
+			;PRINTFORMW 
+		CASE 11
+			;▼実験［実験を手伝う］
+			;PRINTFORMW 
+		CASE 12
+			;▼のんびり［一緒にのんびりする］
+			;PRINTFORMW 
+		CASE 13
+			;▼晩酌［晩酌に交手］
+			;※酒耐性0以上のみ
+			;PRINTFORMW 
+		CASE 14
+			;▼買い物［買い物を手伝う］
+			;PRINTFORMW 
+		CASE 15
+			;▼説教［様子をうかがう］
+			;※神霊・蓬莱人は除く
+			;TFLAG:193,-1
+			;PRINTFORMW 
+		CASE 16
+			;▼落とし穴［いたずらに交手］or［様子をうかがう］
+			;※三月精・琪露諾・克勞恩皮絲のみ
+			;それ以外は落ちる側
+			;PRINTFORMW 
+		CASE 17
+			;▼雪だるま作り［一緒に雪作り］
+			;※冬之月のみ
+			;PRINTFORMW 
+		CASE 18
+			;▼炬燵でのんびり［炬燵でくつろぐ］
+			;※冬之月のみ
+			;PRINTFORMW 
+	ENDSELECT
+ENDIF
+RETURN 1
+;==================================================
+;402,就寝
+;TFLAG:193(0=通常 1=兒童と一緒に川の字で寝る)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_402
+;就寝にTRAIN_MESSAGEは無い
+CALL M_KOJO_MESSAGE_COM_K9_402_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_402_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;403,休憩
+;CFLAG:TARGET:睡眠(1=TARGETが寝てる隣で休憩
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_403
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_403_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_403_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;405,外出(同行時约会
+;条件が厄介なので、COMF405 外出.ERBを参照のこと
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_405
+;外出にTRAIN_MESSAGEは無い
+CALL M_KOJO_MESSAGE_COM_K9_405_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_405_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	;TARGETと约会
+	IF CFLAG:同行
+	;TARGET以外と约会
+	ELSEIF CFLAG:MASTER:同行
+	;お出かけお見送り
+	ELSE
+	ENDIF
+ENDIF
+RETURN 1
+;==================================================
+;410,掃除
+;FLAG:70(1=時間停止中
+;TFLAG:193(0=見てるだけ 1=一緒に掃除)
+;TFLAG:194(3=汚れ高 2=汚れ中 1=汚れ低 0=汚れ最小
+;OUTROOF(CFLAG:現在位置)(野外掃除（冬は扫雪
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_410
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_410_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_410_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF FLAG:70
+	ELSE
+		SELECTCASE TFLAG:193
+			CASE 0
+				PRINTFORML 「啊，你会帮我打扫吗？帮上大忙了。那就拜托你了。」
+			CASEELSE
+				SELECTCASE TFLAG:194
+					CASE 3
+						PRINTFORML 「嗯，是骗人的吧……什么时候积压那么多的……不应该的吧……」
+						CALL HPH_PRINT,@"「ねえ你に全部任せても良いかしらHPH」","W"
+						PRINTFORMDW 不行.
+						PRINTFORML 「这样啊ー……」
+						IF (TALENT:184 || TALENT:185 || TALENT:142) && CFLAG:积攒度 > 500
+							PRINTFORML 「ちなみに関係ないけど私もすっごくムラムラしてきたわ」
+							PRINTFORMDW いきなりそういう話をしないでください先生
+							PRINTFORML 「じゃあ後でがっつりヤりましょう？」
+							PRINTFORMDW 是是、掃除終わったらね？
+						ENDIF
+					CASE 2
+						PRINTFORML 「うーん……結構な溜まりようだわ……まぁ、淡々と、やりましょうか」
+						IF (TALENT:184 || TALENT:185 || TALENT:142) && CFLAG:积攒度 > 500
+							PRINTFORML 「結構溜まってるのは私の性欲も一緒なのだけど……」
+							PRINTFORMDW いきなりそういう話をしないでください先生
+							PRINTFORML 「じゃあ後で一発シましょ？」
+							PRINTFORMDW 是是、掃除終わったらね？
+						ENDIF
+					CASEELSE
+						PRINTFORML 「这点小事啊，赶快结束吧」
+				ENDSELECT
+		ENDSELECT
+	ENDIF
+ENDIF
+RETURN 1
+;==================================================
+;411,戦闘訓練
+;TFLAG:194(3=夏の昼間 2=ヤバい天気 1=悪天候 0=屋内or通常天気
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_411
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_411_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_411_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	SELECTCASE TFLAG:194
+		CASE 3
+			PRINTFORML 「这么热的天气还有弹幕的干劲呢……算了，小心哦?」
+			PRINTFORML 「结束了之后请我喝点什么吧,草莓味的最好。」
+		CASE 0
+			PRINTFORML 「弹幕训练?好啊?正好可以散散心」
+		CASEELSE
+			; めんどいんで荒天悪天を統合
+			PRINTFORML 「喂，你知道现在的天气是怎样的吧?那样也要做吗?」
+			PRINTFORML 「嗯，是要做的吧……真是个闲的太多的家伙啊，看，来吧」
+	ENDSELECT
+ENDIF
+RETURN 1
+;==================================================
+;412,学习
+;ABL:教養(ABL:MASTER:教養より大=MASTERが教えてもらう ABL:MASTER:教養より小=TARGETが教えてもらう
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_412
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_412_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_412_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF ABL:MASTER:43 < ABL:43
+		PRINTFORML 「想让你教我学习吗?好吧，我怎么说也是个大学教授。」
+		PRINTFORML 「有学习热情是件好事啊，真好真好」
+		PRINTFORML 「那么，開始吧」
+		PRINTFORMDW %CALLNAME:MASTER%は夢美の臨時講義を受講することになった……
+	ELSE
+		PRINTFORML 「哦，原来是这样啊。」
+		PRINTFORML 「まさか私が%CALLNAME:MASTER%から教わるような日が来るなんて思わなかったわ……你凄く努力したのね」
+	ENDIF
+ENDIF
+RETURN 1
+;==================================================
+;413,料理
+;TFLAG:194(100以上=禁断のメニュー 3=甜点 2=主食 1=軽食
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_413
+;TFLAG:194が100以上の場合のみ
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_413_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_413_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+ENDIF
+RETURN 1
+;==================================================
+;414,吃飯
+;TFLAG:193(1=大成功 0=成功 -1=失敗)
+;TFLAG:194(1=没穿内裤涮涮锅 2=禁断のメニュー 31=興奮劑高湯 30=奶酪番茄沙拉 34=银吉獣料理
+;TCVAR:MASTER:308(bit0=浓郁 bit1=薄味 bit3=超辣 bit4=超甜 bit5=芥末 bit6=激酸っぱ
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_414
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_414_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_414_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;415,招待吃飯
+;TFLAG:193(1=大成功 0=成功 -1=失敗)
+;TCVAR:MASTER:308(bit0=浓郁 bit1=薄味 bit3=超辣 bit4=超甜 bit5=芥末 bit6=激酸っぱ
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_415
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_415_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_415_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;416,演奏
+;TFLAG:193(1=大成功 0=成功 -1=失敗)
+;TFLAG:使用楽器(1=電子琴 2=鋼琴 3=吉他 4=小號 5=小提琴)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_416
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_416_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_416_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;417,午睡をする
+;TFLAG:193(0=MASTERを抱き枕にして寝ている 1=MASTERの膝を枕にして寝ている 2=寝顔に接吻された 3=寝顔をのぞき込まれた 4=MASTERが膝枕されてる 5=秘処or阴茎揉み
+;CFLAG:陪睡中(1=一緒に寝ている
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_417
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_417_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_417_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;421,祈願する
+;条件が複雑なので、COMF421 祈願.ERBおよび、EVENT_MESSAGE_COM400.ERBの祈願するの項を参照のこと
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_421
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_421_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_421_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+
+;==================================================
+;422～430は、特殊指令なので貂プレでは対応しません
+;==================================================
+
+;==================================================
+;431,在浴室里放鬆
+;TFLAG:209(4=人里の銭湯で番台ちゃんを怒らせている 1=銭湯に入った
+;TFLAG:211(4=地底の温泉で番台妖怪を怒らせている 1=温泉に入った
+;TFLAG:194(1=連続入浴不可(表示しない可能性あり？
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_431
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_431_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_431_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;432,在浴室里放鬆
+;表示タイミングは入浴後なので、お風呂上がりでの
+;TFLAG:209(4=人里の銭湯で番台ちゃんを怒らせている 1=銭湯に入った
+;TFLAG:211(4=地底の温泉で番台妖怪を怒らせている 1=温泉に入った
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_432
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_432_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_432_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;436,読書
+;TFLAG:193(選択肢文学(1=忍殺(文学？) 2=失敗 3=文学),選択肢実用書(4=失敗 5=実用書),選択肢エッチな本(6=单薄的高い本 7=保健体育 8=カーマスートラ))
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_436
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_436_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_436_1
+;==================================================
+;440,等待
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_440
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_440_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_440_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;441,聽課(慧音専用
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_441
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_441_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_441_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;442,伐採（未実装
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_442
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_442_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_442_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+
+;==================================================
+;442以降の指令は、実行しても口上はおそらく表示されないので貂プレでもスルー
+;==================================================
+
+
+;※※※※※※※※※※※※※※※※※※※※※※※※※
+;约会系指令
+;约会系口上は文字街道外出先で発生
+;※※※※※※※※※※※※※※※※※※※※※※※※※
+[SKIPSTART]
+;現状未実装
+;==================================================
+;600,约会会話
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_600
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_600_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_600_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+
+;==================================================
+;601,约会身体接觸
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_601
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_601_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_601_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+
+;==================================================
+;602,约会接吻
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_602
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_602_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_602_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+[SKIPEND]
+;==================================================
+;603,牽手
+;TFLAG:193(1=大成功 0=成功 -1=失敗)(失敗でもふりほどかれたりはしません
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_603
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_603_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_603_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+
+;==================================================
+;604,散步
+;约会中の場合、CFLAG:現在位置に移動先の場所が既に入ってる
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_604
+;散步にはTRAIN_MESSAGEが無い
+CALL M_KOJO_MESSAGE_COM_K9_604_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_604_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;605,繞道
+;TFLAG:193(1=大成功 0=成功 -1=失敗)(地の文無し
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_605
+;繞道にはTRAIN_MESSAGEが無い
+CALL M_KOJO_MESSAGE_COM_K9_605_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_605_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+
+;==================================================
+;610,請吃飯
+;TFLAG:193(1=大成功 0=成功 -1=失敗)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_610
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_610_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_610_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+
+;==================================================
+;613,賺錢（オミットされました
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_613
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_613_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_613_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;614,採購食材
+;TFLAG:193(1=購入＆約會経験UP 0=購入 -1=非購入)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_614
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_614_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_614_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;615,吃便當
+;実行可能場所　地蔵小路,倒垂的柳樹下,霧之湖,玄武之澤,大蛤蟆之池,絶景之丘,山之湖,天界
+;TFLAG:193(1=大成功 0=成功 -1=失敗)
+;ABL:料理技能(2未満=微妙な出来 4未満=そこそこ美味しい 4以上=絶品)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_615
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_615_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_615_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;617,甘味処に誘う
+;TFLAG:193(1=大成功 0=成功 -1=失敗)(地の文分岐は大成功のみ追加
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_617
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_617_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_617_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;618,花屋（口上は表示されない模様？
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_618
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_618_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_618_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;620,鈴奈庵
+;TFLAG:193(1=貸し出しOK 0=貸し出し不可
+;ITEM:10X (X=1戦術指南書 X=2調理指南書 X=3字典 X=4御伽草子
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_620
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_620_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_620_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;621,釣魚
+;TFLAG:193(0=釣れない 1～4=魚 11～15=好吃的魚 610=木材 131=守矢之守札 21=跳蛋 609=氷之鱗 606=龍之爪)
+;TFLAG:194(1000以上ならTARGETが釣った)
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_621
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_621_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_621_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;660,読書
+;TFLAG:193(選択肢文学(1=忍殺(文学？) 2=失敗 3=文学),選択肢実用書(4=失敗 5=実用書),選択肢エッチな本(6=单薄的高い本 7=保健体育 8=カーマスートラ))
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_660
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_660_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_660_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;698,進入房間
+;TARGET的房間に入る場合のみ表示
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_698
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_698_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_698_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF TALENT:3 || TALENT:8
+		PRINTFORML 「ん？私的房間に行きたいの？」
+		PRINTFORML 「どうぞ、あがってって。（……散らかっては、ない、わよね？）」
+	ELSEIF TALENT:184 || TALENT:185
+		PRINTFORML 「あら、私的房間に……？ふふ、いいわよ」
+		CALL HPH_PRINT,@"「ここなら邪魔も入らないし……HPH」","W"
+	ELSE
+		;発生しなさそうだけど一応
+		PRINTFORML 「私的房間に入りたい、ですって？……まあ、いいわよ」
+	ENDIF
+ENDIF
+RETURN 1
+;==================================================
+;699,外出
+;==================================================
+@M_KOJO_MESSAGE_COM_K9_699
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_COM_K9_699_1
+RETURN RESULT
+
+@M_KOJO_MESSAGE_COM_K9_699_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+
+;※※※※※※※※※※※※※※※※※※※※※※※※※
+;派生指令
+;※※※※※※※※※※※※※※※※※※※※※※※※※
+;==================================================
+;60,掏耳朵
+;前ターン膝枕後身体接觸指令
+;TFLAG:193(1=大成功 0=成功 -1=失敗)(失敗するのはTARGET
+;==================================================
+@M_KOJO_MESSAGE_SCOM_K9_60
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_SCOM_K9_60_1
+RETURN RESULT
+@M_KOJO_MESSAGE_SCOM_K9_60_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;61,抱枕
+;(TARGET睡眠時間or衰弱)陪睡中、前ターン抱きつく後就寝指令
+;分岐無し
+;==================================================
+@M_KOJO_MESSAGE_SCOM_K9_61
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_SCOM_K9_61_1
+RETURN RESULT
+@M_KOJO_MESSAGE_SCOM_K9_61_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;62,亲額頭
+;前ターン頭撫で後接吻
+;TFLAG:193(1=大成功 0=成功 -1=失敗)(地の文分岐無し
+;ABL:欲望(5以上=物足りない
+;ABL:親密(5以上=照れる
+;==================================================
+@M_KOJO_MESSAGE_SCOM_K9_62
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_SCOM_K9_62_1
+RETURN RESULT
+@M_KOJO_MESSAGE_SCOM_K9_62_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1
+;==================================================
+;63,更多的接吻
+;前ターン接吻後接吻
+;分岐条件はEVENT_MESSAGE_COM500.ERB参照
+;==================================================
+@M_KOJO_MESSAGE_SCOM_K9_63
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_SCOM_K9_63_1
+RETURN RESULT
+@M_KOJO_MESSAGE_SCOM_K9_63_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF FLAG:70
+	ELSE
+	ENDIF
+ENDIF
+RETURN 1
+;==================================================
+;80,拉手
+;约会出発後目的地に着くまでの間
+;TFLAG:193(1=大成功 0=成功 -1=失敗)
+;==================================================
+@M_KOJO_MESSAGE_SCOM_K9_80
+CALL TRAIN_MESSAGE
+CALL M_KOJO_MESSAGE_SCOM_K9_80_1
+RETURN RESULT
+@M_KOJO_MESSAGE_SCOM_K9_80_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+
+ENDIF
+RETURN 1

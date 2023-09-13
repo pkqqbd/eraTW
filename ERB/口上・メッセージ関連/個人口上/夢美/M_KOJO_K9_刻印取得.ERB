@@ -1,0 +1,76 @@
+﻿;-------------------------------------------
+;刻印取得
+;-------------------------------------------
+@M_KOJO_MESSAGE_MARKCNG_K9
+;このままだと地の文が表示されません
+;地の文を表示したい方は、下記のコメントアウトを削除して下さい
+CALL MARK_MESSAGE
+;苦痛刻印
+IF TFLAG:22 == 1
+	PRINTFORMW 
+ELSEIF TFLAG:22 == 2
+	PRINTFORMW 
+ELSEIF TFLAG:22 == 3
+	PRINTFORMW 
+ENDIF
+
+;時姦刻印
+IF TFLAG:時姦刻印取得 == 1
+	PRINTFORML （什么?这是什么啊……?）
+ELSEIF TFLAG:時姦刻印取得 == 2
+	CALL HPH_PRINT,@"（やだ、なんなのよこの感じ……体が……何か求めてるような……HPH）","W"
+ELSEIF TFLAG:時姦刻印取得 == 3
+	CALL HPH_PRINT,@"（なんなのよ、なんでこんなに、いきなり気持ち良くなるのよぉHPHHPHHPH）","W"
+ENDIF
+
+;快楽刻印
+IF TFLAG:23 == 1
+	CALL HPH_PRINT,@"「んんんん～～～ッHPH」","W"
+	PRINTFORML （啊，啊，现在的……心情非常好……）
+ELSEIF TFLAG:23 == 2
+	CALL HPH_PRINT,@"「……ふぁ……HPH」","W"
+	CALL HPH_PRINT,@"（キモチイイで……アタマが一杯になっちゃう……ばかに、なっちゃう……HPH）","W"
+ELSEIF TFLAG:23 == 3
+	CALL HPH_PRINT,@"「あーっ……HPH　はーっHPH　はっHPH」","W"
+	CALL HPH_PRINT,@"（えっちがこんなに気持ちいいなんて……HPH　カラダじゅうキモチイイって知っちゃったら……HPH）","W"
+	CALL HPH_PRINT,@"（もうえっち大好きになっちゃうしか、ないじゃない……HPHHPHHPH）","W"
+ENDIF
+
+;不埒刻印
+;快楽による刻印
+;LV1
+IF TFLAG:24 == 11
+	PRINTFORML （什么...我现在的……心情很好……?）
+	PRINTFORML 「ねえ、もう稍微して……くれる？」
+;LV2
+ELSEIF TFLAG:24 == 12
+	PRINTFORML （我明白……这种行为让人心情舒畅……）
+	PRINTFORML 「更多……想变得舒畅……%CALLNAME:MASTER%と」
+;LV3
+ELSEIF TFLAG:24 == 13
+	PRINTFORML （……已经，可以了，这么舒服的事……即使不忍耐，）
+	PRINTFORML 「%CALLNAME:MASTER%……ねえ、もっとシましょ……？HPH」
+
+;屈服、恭順による刻印
+;LV1
+ELSEIF TFLAG:24 == 31
+	PRINTFORML （如果是这个人的话，稍微做一些这样的事情也是可以的吧？）
+	PRINTFORML 「啊，不，没什么啊。嗯」
+;LV2
+ELSEIF TFLAG:24 == 32
+	PRINTFORML （总觉得我……我想和这个人再多做些这样的事……）
+	PRINTFORML 「到底为什么沉默了?我不会生气的，没关系的。」
+;LV3
+ELSEIF TFLAG:24 == 33
+	PRINTFORML （嗯，这个人就好了，对吧……更多，各种各样……即使死也）
+	PRINTFORML 「你说怎么了?不，没什么。%CALLNAME:MASTER%♪」
+ENDIF
+
+;反発刻印
+IF TFLAG:21 == 1
+	PRINTFORMW 
+ELSEIF TFLAG:21 == 2
+	PRINTFORMW 
+ELSEIF TFLAG:21 == 3
+	PRINTFORMW 
+ENDIF

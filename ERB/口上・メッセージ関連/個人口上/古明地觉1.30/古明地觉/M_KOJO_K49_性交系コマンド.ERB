@@ -1,0 +1,960 @@
+﻿;※※※※※※※※※※※※※※※※※※※※※※※※※
+;性交系コマンド
+;※※※※※※※※※※※※※※※※※※※※※※※※※
+;==================================================
+;60,正常位
+;==================================================
+@M_KOJO_TOKI_MESSAGE_COM_K49_60
+CALL TRAIN_MESSAGE
+CALL M_KOJO_TOKI_MESSAGE_COM_K49_60_1
+RETURN RESULT
+
+@M_KOJO_TOKI_MESSAGE_COM_K49_60_1
+
+;立位
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL && TFLAG:193
+	IF FLAG:70 == 1
+	ELSEIF CFLAG:MASTER:恶作剧 == 2
+	ELSE
+		IF TCVAR:100 == PLAYER && TARGET == TFLAG:103
+			IF NOWEX:MASTER:射精
+				PRINTFORML 「呜啊……为什么还在变大……要被撑坏掉了……」
+				PRINTFORML 「难道说要射精了吗……不要……快拔出去……」
+				PRINTFORML 「现在要是被中出的话……绝对会很不妙……」
+			ELSEIF TCVAR:102
+				PRINTFORML 「不是刚才射进去过吗，不用稍微休息下？」
+				PRINTFORML 「唔嗯……里面……明明还敏感的发痛啊……」
+				PRINTFORML 「又动起来了……呵、作为雄性来说来还不赖嘛……」
+			ELSE
+				PRINTFORML 「换着姿势折腾人啊……随意摆弄我的身体是不是很愉悦？」
+				PRINTFORML 「被下身支配的雄性动物，可别认为光靠下半身就能争取到渴望之物」
+				PRINTFORML 「就算再怎样变着花样玩弄我的身体，对我而言也只是消遣罢了……」
+			ENDIF
+		ELSE
+			IF TCVAR:破瓜 == 1
+				PRINTFORML 「你这无礼之徒……真的很痛欸……」
+				PRINTFORML 「一瞬间杀掉你的心都有了，没有人教过你该怎样善待献上处女的少女吗」
+				PRINTFORML 「算了……反正现在说什么你肯定都听不进去……」
+				PRINTFORML 「接下来还请你温柔的做，别让我连初次的美好回忆都没法留下……」
+			ELSEIF MASTER_POSE(SET_V,SET_P,1) && MASTER_POSE(SET_V,SET_P,1) != TARGET
+				IF MASTER_POSE(SET_V,SET_P,1) == 38
+					PRINTFORML 「可以同时享用美少女姐妹的身体……」
+					PRINTFORML 「命犯桃花也该有所节制吧，真不知是哪位神明瞎眼了」
+					PRINTFORML 「心怀感恩的好好侍奉我们吧……」
+				ELSE
+					PRINTFORML 「把那样脏兮兮的肉棒插进我的身体……」
+					PRINTFORML 「真是龌龊的男人……」
+				ENDIF
+			ELSE
+				PRINTFORML 「唔…！已经……顶到深处了……」
+				PRINTFORML 「为什么还在往里面…？欺负人也不要太过分了……」
+				PRINTFORML 「不过肉棒长那么一点……别得意忘形……」
+			ENDIF
+		ENDIF
+	ENDIF
+ENDIF
+;-------------------------------------------------
+;正常位
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF FLAG:70 == 1
+	ELSEIF CFLAG:MASTER:恶作剧 == 2
+	ELSE
+		IF TCVAR:100 == PLAYER && TARGET == TFLAG:103
+			IF NOWEX:MASTER:射精
+				PRINTFORML 「呜啊……为什么还在变大……要被撑坏掉了……」
+				PRINTFORML 「难道说要射精了吗……不要……快拔出去……」
+				PRINTFORML 「现在要是被中出的话……绝对会很不妙……」
+			ELSEIF TCVAR:102
+				PRINTFORML 「不是刚才射进去过吗，不用稍微休息下？」
+				PRINTFORML 「唔嗯……里面……明明还敏感的发痛啊……」
+				PRINTFORML 「又动起来了……呵、作为雄性来说来还不赖嘛……」
+			ELSE
+				PRINTFORML 「换着姿势折腾人啊……随意摆弄我的身体是不是很愉悦？」
+				PRINTFORML 「被下身支配的雄性动物，可别认为光靠下半身就能争取到渴望之物」
+				PRINTFORML 「就算再怎样变着花样玩弄我的身体，对我而言也只是消遣罢了……」
+			ENDIF
+		ELSE
+			IF TCVAR:破瓜 == 1
+				PRINTFORML 「你这无礼之徒……真的很痛欸……」
+				PRINTFORML 「一瞬间杀掉你的心都有了，没有人教过你该怎样善待献上处女的少女吗」
+				PRINTFORML 「算了……反正现在说什么你肯定都听不进去……」
+				PRINTFORML 「接下来还请你温柔的做，别让我连初次的美好回忆都没法留下……」
+			ELSEIF MASTER_POSE(SET_V,SET_P,1) && MASTER_POSE(SET_V,SET_P,1) != TARGET
+				IF MASTER_POSE(SET_V,SET_P,1) == 38
+					PRINTFORML 「可以同时享用美少女姐妹的身体……」
+					PRINTFORML 「命犯桃花也该有所节制吧，真不知是哪位神明瞎眼了」
+					PRINTFORML 「心怀感恩的好好侍奉我们吧……」
+				ELSE
+					PRINTFORML 「把那样脏兮兮的肉棒插进我的身体……」
+					PRINTFORML 「真是龌龊的男人……」
+				ENDIF
+			ELSE
+				PRINTFORML 「唔…！已经……顶到深处了……」
+				PRINTFORML 「为什么还在往里面…？欺负人也不要太过分了……」
+				PRINTFORML 「不过肉棒长那么一点……别得意忘形……」
+			ENDIF
+		ENDIF
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;61,後背位
+;==================================================
+@M_KOJO_TOKI_MESSAGE_COM_K49_61
+CALL TRAIN_MESSAGE
+CALL M_KOJO_TOKI_MESSAGE_COM_K49_61_1
+RETURN RESULT
+
+@M_KOJO_TOKI_MESSAGE_COM_K49_61_1
+;-------------------------------------------------
+;立位
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL && TFLAG:193
+	IF FLAG:70 == 1
+	ELSEIF CFLAG:MASTER:恶作剧 == 2
+	ELSE
+		IF TCVAR:100 == PLAYER && TARGET == TFLAG:103
+			IF NOWEX:MASTER:射精
+				PRINTFORML 「呜啊……为什么还在变大……要被撑坏掉了……」
+				PRINTFORML 「难道说要射精了吗……不要……快拔出去……」
+				PRINTFORML 「现在要是被中出的话……绝对会很不妙……」
+			ELSEIF TCVAR:102
+				PRINTFORML 「不是刚才射进去过吗，不用稍微休息下？」
+				PRINTFORML 「唔嗯……里面……明明还敏感的发痛啊……」
+				PRINTFORML 「又动起来了……呵、作为雄性来说来还不赖嘛……」
+			ELSE
+				PRINTFORML 「换着姿势折腾人啊……随意摆弄我的身体是不是很愉悦？」
+				PRINTFORML 「被下身支配的雄性动物，可别认为光靠下半身就能争取到渴望之物」
+				PRINTFORML 「就算再怎样变着花样玩弄我的身体，对我而言也只是消遣罢了……」
+			ENDIF
+		ELSE
+			IF TCVAR:破瓜 == 1
+				PRINTFORML 「你这无礼之徒……真的很痛欸……」
+				PRINTFORML 「一瞬间杀掉你的心都有了，没有人教过你该怎样善待献上处女的少女吗」
+				PRINTFORML 「算了……反正现在说什么你肯定都听不进去……」
+				PRINTFORML 「接下来还请你温柔的做，别让我连初次的美好回忆都没法留下……」
+			ELSEIF MASTER_POSE(SET_V,SET_P,1) && MASTER_POSE(SET_V,SET_P,1) != TARGET
+				IF MASTER_POSE(SET_V,SET_P,1) == 38
+					PRINTFORML 「可以同时享用美少女姐妹的身体……」
+					PRINTFORML 「命犯桃花也该有所节制吧，真不知是哪位神明瞎眼了」
+					PRINTFORML 「心怀感恩的好好侍奉我们吧……」
+				ELSE
+					PRINTFORML 「把那样脏兮兮的肉棒插进我的身体……」
+					PRINTFORML 「真是龌龊的男人……」
+				ENDIF
+			ELSE
+				PRINTFORML 「唔…！已经……顶到深处了……」
+				PRINTFORML 「为什么还在往里面…？欺负人也不要太过分了……」
+				PRINTFORML 「不过肉棒长那么一点……别得意忘形……」
+			ENDIF
+		ENDIF
+	ENDIF
+ENDIF
+;-------------------------------------------------
+;後背位
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF FLAG:70 == 1
+	ELSEIF CFLAG:MASTER:恶作剧 == 2
+	ELSE
+		IF TCVAR:100 == PLAYER && TARGET == TFLAG:103
+			IF NOWEX:MASTER:射精
+				PRINTFORML 「呜啊……为什么还在变大……要被撑坏掉了……」
+				PRINTFORML 「难道说要射精了吗……不要……快拔出去……」
+				PRINTFORML 「现在要是被中出的话……绝对会很不妙……」
+			ELSEIF TCVAR:102
+				PRINTFORML 「不是刚才射进去过吗，不用稍微休息下？」
+				PRINTFORML 「唔嗯……里面……明明还敏感的发痛啊……」
+				PRINTFORML 「又动起来了……呵、作为雄性来说来还不赖嘛……」
+			ELSE
+				PRINTFORML 「换着姿势折腾人啊……随意摆弄我的身体是不是很愉悦？」
+				PRINTFORML 「被下身支配的雄性动物，可别认为光靠下半身就能争取到渴望之物」
+				PRINTFORML 「就算再怎样变着花样玩弄我的身体，对我而言也只是消遣罢了……」
+			ENDIF
+		ELSE
+			IF TCVAR:破瓜 == 1
+				PRINTFORML 「你这无礼之徒……真的很痛欸……」
+				PRINTFORML 「一瞬间杀掉你的心都有了，没有人教过你该怎样善待献上处女的少女吗」
+				PRINTFORML 「算了……反正现在说什么你肯定都听不进去……」
+				PRINTFORML 「接下来还请你温柔的做，别让我连初次的美好回忆都没法留下……」
+			ELSEIF MASTER_POSE(SET_V,SET_P,1) && MASTER_POSE(SET_V,SET_P,1) != TARGET
+				IF MASTER_POSE(SET_V,SET_P,1) == 38
+					PRINTFORML 「可以同时享用美少女姐妹的身体……」
+					PRINTFORML 「命犯桃花也该有所节制吧，真不知是哪位神明瞎眼了」
+					PRINTFORML 「心怀感恩的好好侍奉我们吧……」
+				ELSE
+					PRINTFORML 「把那样脏兮兮的肉棒插进我的身体……」
+					PRINTFORML 「真是龌龊的男人……」
+				ENDIF
+			ELSE
+				PRINTFORML 「唔…！已经……顶到深处了……」
+				PRINTFORML 「为什么还在往里面…？欺负人也不要太过分了……」
+				PRINTFORML 「不过肉棒长那么一点……别得意忘形……」
+			ENDIF
+		ENDIF
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;62,正常位アナル
+;==================================================
+@M_KOJO_TOKI_MESSAGE_COM_K49_62
+CALL TRAIN_MESSAGE
+CALL M_KOJO_TOKI_MESSAGE_COM_K49_62_1
+RETURN RESULT
+
+@M_KOJO_TOKI_MESSAGE_COM_K49_62_1
+;-------------------------------------------------
+;立位
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL && TFLAG:193
+	IF FLAG:70 == 1
+	ELSEIF CFLAG:MASTER:恶作剧 == 2
+	ELSE
+		IF TCVAR:101 == PLAYER && TARGET == TFLAG:103
+			IF NOWEX:MASTER:射精
+				PRINTFORML 「不行……脑浆都要化掉了……」
+				PRINTFORML 「肉棒抵着结肠发疯一样跳动……现在被精液灌肠的话……」
+				PRINTFORML 「绝对会因为停不下来得高潮变成废人的……」
+			ELSEIF TCVAR:104
+				PRINTFORML 「肚子里……全都是黏糊糊的精液……」
+				PRINTFORML 「已经压迫腹部到难受了……还要继续吗……」
+				PRINTFORML 「你这家伙到底多爱侵犯后穴啊……」
+			ELSE
+				PRINTFORML 「又盯着其他位置欺负了……」
+				PRINTFORML 「好讨厌……偏偏被摸透了菊穴里舒服的位置……」
+				PRINTFORML 「无可救药的变态……到底玩弄我到什么程度才肯罢休……」
+			ENDIF
+		ELSE
+			IF TCVAR:Ａ破瓜 == 1
+				PRINTFORML 「哈？凭什么要我满足你下流的性癖……」
+				PRINTFORML 「好痛……要被撑裂开了……」
+				PRINTFORML 「一直顶到深处……连内脏都能感受到肉棒强行进入身体的压迫……」
+				PRINTFORML 「绝对饶不了你……究竟把我当作什么……」
+			ELSEIF MASTER_POSE(SET_A,SET_P,1) && MASTER_POSE(SET_V,SET_P,1) != TARGET
+				IF MASTER_POSE(SET_A,SET_P,1) == 38
+					PRINTFORML 「哼……怎么……想要对比胯下两位美少女的后庭哪边更好用吗？」
+					PRINTFORML 「明明是无可救药的变态……居然把我们当作泄欲的方便工具……」
+					PRINTFORML 「欺负恋的帐以后绝对会让你付出代价的……」
+				ELSE
+					PRINTFORML 「把那样脏兮兮的肉棒插进我的身体……」
+					PRINTFORML 「真是龌龊的男人……」
+				ENDIF
+			ELSE
+				PRINTFORML 「唔…！已经……进不去了吧……」
+				PRINTFORML 「再怎么说全部进到身体里这种事，想杀了我吗？」
+				PRINTFORML 「偏偏还是后面……要裂开了啊混蛋……」
+			ENDIF 
+		ENDIF
+	ENDIF
+ENDIF
+;-------------------------------------------------
+;正常位
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF FLAG:70 == 1
+	ELSEIF CFLAG:MASTER:恶作剧 == 2
+	ELSE
+		IF TCVAR:101 == PLAYER && TARGET == TFLAG:103
+			IF NOWEX:MASTER:射精
+				PRINTFORML 「不行……脑浆都要化掉了……」
+				PRINTFORML 「肉棒抵着结肠发疯一样跳动……现在被精液灌肠的话……」
+				PRINTFORML 「绝对会因为停不下来得高潮变成废人的……」
+			ELSEIF TCVAR:104
+				PRINTFORML 「肚子里……全都是黏糊糊的精液……」
+				PRINTFORML 「已经压迫腹部到难受了……还要继续吗……」
+				PRINTFORML 「你这家伙到底多爱侵犯后穴啊……」
+			ELSE
+				PRINTFORML 「又盯着其他位置欺负了……」
+				PRINTFORML 「好讨厌……偏偏被摸透了菊穴里舒服的位置……」
+				PRINTFORML 「无可救药的变态……到底玩弄我到什么程度才肯罢休……」
+			ENDIF
+		ELSE
+			IF TCVAR:Ａ破瓜 == 1
+				PRINTFORML 「哈？凭什么要我满足你下流的性癖……」
+				PRINTFORML 「好痛……要被撑裂开了……」
+				PRINTFORML 「一直顶到深处……连内脏都能感受到肉棒强行进入身体的压迫……」
+				PRINTFORML 「绝对饶不了你……究竟把我当作什么……」
+			ELSEIF MASTER_POSE(SET_A,SET_P,1) && MASTER_POSE(SET_V,SET_P,1) != TARGET
+				IF MASTER_POSE(SET_A,SET_P,1) == 38
+					PRINTFORML 「哼……怎么……想要对比胯下两位美少女的后庭哪边更好用吗？」
+					PRINTFORML 「明明是无可救药的变态……居然把我们当作泄欲的方便工具……」
+					PRINTFORML 「欺负恋的帐以后绝对会让你付出代价的……」
+				ELSE
+					PRINTFORML 「把那样脏兮兮的肉棒插进我的身体……」
+					PRINTFORML 「真是龌龊的男人……」
+				ENDIF
+			ELSE
+				PRINTFORML 「唔…！已经……进不去了吧……」
+				PRINTFORML 「再怎么说全部进到身体里这种事，想杀了我吗？」
+				PRINTFORML 「偏偏还是后面……要裂开了啊混蛋……」
+			ENDIF 
+		ENDIF
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;63,後背位アナル
+;==================================================
+@M_KOJO_TOKI_MESSAGE_COM_K49_63
+CALL TRAIN_MESSAGE
+CALL M_KOJO_TOKI_MESSAGE_COM_K49_63_1
+RETURN RESULT
+
+@M_KOJO_TOKI_MESSAGE_COM_K49_63_1
+;-------------------------------------------------
+;立位
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL && TFLAG:193
+	IF FLAG:70 == 1
+	ELSEIF CFLAG:MASTER:恶作剧 == 2
+	ELSE
+		IF TCVAR:101 == PLAYER && TARGET == TFLAG:103
+			IF NOWEX:MASTER:射精
+				PRINTFORML 「不行……脑浆都要化掉了……」
+				PRINTFORML 「肉棒抵着结肠发疯一样跳动……现在被精液灌肠的话……」
+				PRINTFORML 「绝对会因为停不下来得高潮变成废人的……」
+			ELSEIF TCVAR:104
+				PRINTFORML 「肚子里……全都是黏糊糊的精液……」
+				PRINTFORML 「已经压迫腹部到难受了……还要继续吗……」
+				PRINTFORML 「你这家伙到底多爱侵犯后穴啊……」
+			ELSE
+				PRINTFORML 「又盯着其他位置欺负了……」
+				PRINTFORML 「好讨厌……偏偏被摸透了菊穴里舒服的位置……」
+				PRINTFORML 「无可救药的变态……到底玩弄我到什么程度才肯罢休……」
+			ENDIF
+		ELSE
+			IF TCVAR:Ａ破瓜 == 1
+				PRINTFORML 「哈？凭什么要我满足你下流的性癖……」
+				PRINTFORML 「好痛……要被撑裂开了……」
+				PRINTFORML 「一直顶到深处……连内脏都能感受到肉棒强行进入身体的压迫……」
+				PRINTFORML 「绝对饶不了你……究竟把我当作什么……」
+			ELSEIF MASTER_POSE(SET_A,SET_P,1) && MASTER_POSE(SET_V,SET_P,1) != TARGET
+				IF MASTER_POSE(SET_A,SET_P,1) == 38
+					PRINTFORML 「哼……怎么……想要对比胯下两位美少女的后庭哪边更好用吗？」
+					PRINTFORML 「明明是无可救药的变态……居然把我们当作泄欲的方便工具……」
+					PRINTFORML 「欺负恋的帐以后绝对会让你付出代价的……」
+				ELSE
+					PRINTFORML 「把那样脏兮兮的肉棒插进我的身体……」
+					PRINTFORML 「真是龌龊的男人……」
+				ENDIF
+			ELSE
+				PRINTFORML 「唔…！已经……进不去了吧……」
+				PRINTFORML 「再怎么说全部进到身体里这种事，想杀了我吗？」
+				PRINTFORML 「偏偏还是后面……要裂开了啊混蛋……」
+			ENDIF 
+		ENDIF
+	ENDIF
+ENDIF
+;-------------------------------------------------
+;後背位
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF FLAG:70 == 1
+	ELSEIF CFLAG:MASTER:恶作剧 == 2
+	ELSE
+		IF TCVAR:101 == PLAYER && TARGET == TFLAG:103
+			IF NOWEX:MASTER:射精
+				PRINTFORML 「不行……脑浆都要化掉了……」
+				PRINTFORML 「肉棒抵着结肠发疯一样跳动……现在被精液灌肠的话……」
+				PRINTFORML 「绝对会因为停不下来得高潮变成废人的……」
+			ELSEIF TCVAR:104
+				PRINTFORML 「肚子里……全都是黏糊糊的精液……」
+				PRINTFORML 「已经压迫腹部到难受了……还要继续吗……」
+				PRINTFORML 「你这家伙到底多爱侵犯后穴啊……」
+			ELSE
+				PRINTFORML 「又盯着其他位置欺负了……」
+				PRINTFORML 「好讨厌……偏偏被摸透了菊穴里舒服的位置……」
+				PRINTFORML 「无可救药的变态……到底玩弄我到什么程度才肯罢休……」
+			ENDIF
+		ELSE
+			IF TCVAR:Ａ破瓜 == 1
+				PRINTFORML 「哈？凭什么要我满足你下流的性癖……」
+				PRINTFORML 「好痛……要被撑裂开了……」
+				PRINTFORML 「一直顶到深处……连内脏都能感受到肉棒强行进入身体的压迫……」
+				PRINTFORML 「绝对饶不了你……究竟把我当作什么……」
+			ELSEIF MASTER_POSE(SET_A,SET_P,1) && MASTER_POSE(SET_V,SET_P,1) != TARGET
+				IF MASTER_POSE(SET_A,SET_P,1) == 38
+					PRINTFORML 「哼……怎么……想要对比胯下两位美少女的后庭哪边更好用吗？」
+					PRINTFORML 「明明是无可救药的变态……居然把我们当作泄欲的方便工具……」
+					PRINTFORML 「欺负恋的帐以后绝对会让你付出代价的……」
+				ELSE
+					PRINTFORML 「把那样脏兮兮的肉棒插进我的身体……」
+					PRINTFORML 「真是龌龊的男人……」
+				ENDIF
+			ELSE
+				PRINTFORML 「唔…！已经……进不去了吧……」
+				PRINTFORML 「再怎么说全部进到身体里这种事，想杀了我吗？」
+				PRINTFORML 「偏偏还是后面……要裂开了啊混蛋……」
+			ENDIF 
+		ENDIF
+	ENDIF
+ENDIF
+RETURN 1
+
+;====================================================================
+;64,逆レイプする
+;紛らわしいが女あなたが上に乗るのであり、あなたが襲われるわけではない
+;====================================================================
+@M_KOJO_TOKI_MESSAGE_COM_K49_64
+CALL TRAIN_MESSAGE
+CALL M_KOJO_TOKI_MESSAGE_COM_K49_64_1
+RETURN RESULT
+
+@M_KOJO_TOKI_MESSAGE_COM_K49_64_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+		;調教者が処女
+		IF TCVAR:PLAYER:破瓜 == 1
+			PRINTFORMW 
+			RETURN 1
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:PLAYER:100 == TARGET
+		;前回射精した
+		IF TCVAR:PLAYER:102
+			PRINTFORMW 
+			RETURN 1
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;恋慕
+	IF TALENT:恋慕
+		PRINTFORMW 
+		RETURN 1
+	;屈服3
+	ELSEIF MARK:不埒刻印 == 3
+		PRINTFORMW 
+		RETURN 1
+	;それ以外
+	ELSE
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;65,騎乗位
+;==================================================
+@M_KOJO_TOKI_MESSAGE_COM_K49_65
+CALL TRAIN_MESSAGE
+CALL M_KOJO_TOKI_MESSAGE_COM_K49_65_1
+RETURN RESULT
+
+@M_KOJO_TOKI_MESSAGE_COM_K49_65_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF FLAG:70 == 1
+	ELSEIF CFLAG:MASTER:恶作剧 == 2
+	ELSE
+		IF TCVAR:100 == PLAYER && TARGET == TFLAG:103
+			IF NOWEX:MASTER:射精
+				PRINTFORML 「呜啊……为什么还在变大……要被撑坏掉了……」
+				PRINTFORML 「难道说要射精了吗……不要……快拔出去……」
+				PRINTFORML 「现在要是被中出的话……绝对会很不妙……」
+			ELSEIF TCVAR:102
+				PRINTFORML 「不是刚才射进去过吗，不用稍微休息下？」
+				PRINTFORML 「唔嗯……里面……明明还敏感的发痛啊……」
+				PRINTFORML 「又动起来了……呵、作为雄性来说来还不赖嘛……」
+			ELSE
+				PRINTFORML 「换着姿势折腾人啊……随意摆弄我的身体是不是很愉悦？」
+				PRINTFORML 「被下身支配的雄性动物，可别认为光靠下半身就能争取到渴望之物」
+				PRINTFORML 「就算再怎样变着花样玩弄我的身体，对我而言也只是消遣罢了……」
+			ENDIF
+		ELSE
+			IF TCVAR:破瓜 == 1
+				PRINTFORML 「你这无礼之徒……真的很痛欸……」
+				PRINTFORML 「一瞬间杀掉你的心都有了，没有人教过你该怎样善待献上处女的少女吗」
+				PRINTFORML 「算了……反正现在说什么你肯定都听不进去……」
+				PRINTFORML 「接下来还请你温柔的做，别让我连初次的美好回忆都没法留下……」
+			ELSEIF MASTER_POSE(SET_V,SET_P,1) && MASTER_POSE(SET_V,SET_P,1) != TARGET
+				IF MASTER_POSE(SET_V,SET_P,1) == 38
+					PRINTFORML 「可以同时享用美少女姐妹的身体……」
+					PRINTFORML 「命犯桃花也该有所节制吧，真不知是哪位神明瞎眼了」
+					PRINTFORML 「心怀感恩的好好侍奉我们吧……」
+				ELSE
+					PRINTFORML 「把那样脏兮兮的肉棒插进我的身体……」
+					PRINTFORML 「真是龌龊的男人……」
+				ENDIF
+			ELSE
+				PRINTFORML 「唔…！已经……顶到深处了……」
+				PRINTFORML 「为什么还在往里面…？欺负人也不要太过分了……」
+				PRINTFORML 「不过肉棒长那么一点……别得意忘形……」
+			ENDIF
+		ENDIF
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;66,騎乗位アナル
+;==================================================
+@M_KOJO_TOKI_MESSAGE_COM_K49_66
+CALL TRAIN_MESSAGE
+CALL M_KOJO_TOKI_MESSAGE_COM_K49_66_1
+RETURN RESULT
+
+@M_KOJO_TOKI_MESSAGE_COM_K49_66_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF FLAG:70 == 1
+	ELSEIF CFLAG:MASTER:恶作剧 == 2
+	ELSE
+		IF TCVAR:101 == PLAYER && TARGET == TFLAG:103
+			IF NOWEX:MASTER:射精
+				PRINTFORML 「不行……脑浆都要化掉了……」
+				PRINTFORML 「肉棒抵着结肠发疯一样跳动……现在被精液灌肠的话……」
+				PRINTFORML 「绝对会因为停不下来得高潮变成废人的……」
+			ELSEIF TCVAR:104
+				PRINTFORML 「肚子里……全都是黏糊糊的精液……」
+				PRINTFORML 「已经压迫腹部到难受了……还要继续吗……」
+				PRINTFORML 「你这家伙到底多爱侵犯后穴啊……」
+			ELSE
+				PRINTFORML 「又盯着其他位置欺负了……」
+				PRINTFORML 「好讨厌……偏偏被摸透了菊穴里舒服的位置……」
+				PRINTFORML 「无可救药的变态……到底玩弄我到什么程度才肯罢休……」
+			ENDIF
+		ELSE
+			IF TCVAR:Ａ破瓜 == 1
+				PRINTFORML 「哈？凭什么要我满足你下流的性癖……」
+				PRINTFORML 「好痛……要被撑裂开了……」
+				PRINTFORML 「一直顶到深处……连内脏都能感受到肉棒强行进入身体的压迫……」
+				PRINTFORML 「绝对饶不了你……究竟把我当作什么……」
+			ELSEIF MASTER_POSE(SET_A,SET_P,1) && MASTER_POSE(SET_V,SET_P,1) != TARGET
+				IF MASTER_POSE(SET_A,SET_P,1) == 38
+					PRINTFORML 「哼……怎么……想要对比胯下两位美少女的后庭哪边更好用吗？」
+					PRINTFORML 「明明是无可救药的变态……居然把我们当作泄欲的方便工具……」
+					PRINTFORML 「欺负恋的帐以后绝对会让你付出代价的……」
+				ELSE
+					PRINTFORML 「把那样脏兮兮的肉棒插进我的身体……」
+					PRINTFORML 「真是龌龊的男人……」
+				ENDIF
+			ELSE
+				PRINTFORML 「唔…！已经……进不去了吧……」
+				PRINTFORML 「再怎么说全部进到身体里这种事，想杀了我吗？」
+				PRINTFORML 「偏偏还是后面……要裂开了啊混蛋……」
+			ENDIF 
+		ENDIF
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;67,対面座位
+;==================================================
+@M_KOJO_TOKI_MESSAGE_COM_K49_67
+CALL TRAIN_MESSAGE
+CALL M_KOJO_TOKI_MESSAGE_COM_K49_67_1
+RETURN RESULT
+
+@M_KOJO_TOKI_MESSAGE_COM_K49_67_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF FLAG:70 == 1
+	ELSEIF CFLAG:MASTER:恶作剧 == 2
+	ELSE
+		IF TCVAR:100 == PLAYER && TARGET == TFLAG:103
+			IF NOWEX:MASTER:射精
+				PRINTFORML 「呜啊……为什么还在变大……要被撑坏掉了……」
+				PRINTFORML 「难道说要射精了吗……不要……快拔出去……」
+				PRINTFORML 「现在要是被中出的话……绝对会很不妙……」
+			ELSEIF TCVAR:102
+				PRINTFORML 「不是刚才射进去过吗，不用稍微休息下？」
+				PRINTFORML 「唔嗯……里面……明明还敏感的发痛啊……」
+				PRINTFORML 「又动起来了……呵、作为雄性来说来还不赖嘛……」
+			ELSE
+				PRINTFORML 「换着姿势折腾人啊……随意摆弄我的身体是不是很愉悦？」
+				PRINTFORML 「被下身支配的雄性动物，可别认为光靠下半身就能争取到渴望之物」
+				PRINTFORML 「就算再怎样变着花样玩弄我的身体，对我而言也只是消遣罢了……」
+			ENDIF
+		ELSE
+			IF TCVAR:破瓜 == 1
+				PRINTFORML 「你这无礼之徒……真的很痛欸……」
+				PRINTFORML 「一瞬间杀掉你的心都有了，没有人教过你该怎样善待献上处女的少女吗」
+				PRINTFORML 「算了……反正现在说什么你肯定都听不进去……」
+				PRINTFORML 「接下来还请你温柔的做，别让我连初次的美好回忆都没法留下……」
+			ELSEIF MASTER_POSE(SET_V,SET_P,1) && MASTER_POSE(SET_V,SET_P,1) != TARGET
+				IF MASTER_POSE(SET_V,SET_P,1) == 38
+					PRINTFORML 「可以同时享用美少女姐妹的身体……」
+					PRINTFORML 「命犯桃花也该有所节制吧，真不知是哪位神明瞎眼了」
+					PRINTFORML 「心怀感恩的好好侍奉我们吧……」
+				ELSE
+					PRINTFORML 「把那样脏兮兮的肉棒插进我的身体……」
+					PRINTFORML 「真是龌龊的男人……」
+				ENDIF
+			ELSE
+				PRINTFORML 「唔…！已经……顶到深处了……」
+				PRINTFORML 「为什么还在往里面…？欺负人也不要太过分了……」
+				PRINTFORML 「不过肉棒长那么一点……别得意忘形……」
+			ENDIF
+		ENDIF
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;68,背面座位
+;==================================================
+@M_KOJO_TOKI_MESSAGE_COM_K49_68
+CALL TRAIN_MESSAGE
+CALL M_KOJO_TOKI_MESSAGE_COM_K49_68_1
+RETURN RESULT
+
+@M_KOJO_TOKI_MESSAGE_COM_K49_68_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF FLAG:70 == 1
+	ELSEIF CFLAG:MASTER:恶作剧 == 2
+	ELSE
+		IF TCVAR:100 == PLAYER && TARGET == TFLAG:103
+			IF NOWEX:MASTER:射精
+				PRINTFORML 「呜啊……为什么还在变大……要被撑坏掉了……」
+				PRINTFORML 「难道说要射精了吗……不要……快拔出去……」
+				PRINTFORML 「现在要是被中出的话……绝对会很不妙……」
+			ELSEIF TCVAR:102
+				PRINTFORML 「不是刚才射进去过吗，不用稍微休息下？」
+				PRINTFORML 「唔嗯……里面……明明还敏感的发痛啊……」
+				PRINTFORML 「又动起来了……呵、作为雄性来说来还不赖嘛……」
+			ELSE
+				PRINTFORML 「换着姿势折腾人啊……随意摆弄我的身体是不是很愉悦？」
+				PRINTFORML 「被下身支配的雄性动物，可别认为光靠下半身就能争取到渴望之物」
+				PRINTFORML 「就算再怎样变着花样玩弄我的身体，对我而言也只是消遣罢了……」
+			ENDIF
+		ELSE
+			IF TCVAR:破瓜 == 1
+				PRINTFORML 「你这无礼之徒……真的很痛欸……」
+				PRINTFORML 「一瞬间杀掉你的心都有了，没有人教过你该怎样善待献上处女的少女吗」
+				PRINTFORML 「算了……反正现在说什么你肯定都听不进去……」
+				PRINTFORML 「接下来还请你温柔的做，别让我连初次的美好回忆都没法留下……」
+			ELSEIF MASTER_POSE(SET_V,SET_P,1) && MASTER_POSE(SET_V,SET_P,1) != TARGET
+				IF MASTER_POSE(SET_V,SET_P,1) == 38
+					PRINTFORML 「可以同时享用美少女姐妹的身体……」
+					PRINTFORML 「命犯桃花也该有所节制吧，真不知是哪位神明瞎眼了」
+					PRINTFORML 「心怀感恩的好好侍奉我们吧……」
+				ELSE
+					PRINTFORML 「把那样脏兮兮的肉棒插进我的身体……」
+					PRINTFORML 「真是龌龊的男人……」
+				ENDIF
+			ELSE
+				PRINTFORML 「唔…！已经……顶到深处了……」
+				PRINTFORML 「为什么还在往里面…？欺负人也不要太过分了……」
+				PRINTFORML 「不过肉棒长那么一点……别得意忘形……」
+			ENDIF
+		ENDIF
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;69,対面座位アナル
+;==================================================
+@M_KOJO_TOKI_MESSAGE_COM_K49_69
+CALL TRAIN_MESSAGE
+CALL M_KOJO_TOKI_MESSAGE_COM_K49_69_1
+RETURN RESULT
+
+@M_KOJO_TOKI_MESSAGE_COM_K49_69_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF FLAG:70 == 1
+	ELSEIF CFLAG:MASTER:恶作剧 == 2
+	ELSE
+		IF TCVAR:101 == PLAYER && TARGET == TFLAG:103
+			IF NOWEX:MASTER:射精
+				PRINTFORML 「不行……脑浆都要化掉了……」
+				PRINTFORML 「肉棒抵着结肠发疯一样跳动……现在被精液灌肠的话……」
+				PRINTFORML 「绝对会因为停不下来得高潮变成废人的……」
+			ELSEIF TCVAR:104
+				PRINTFORML 「肚子里……全都是黏糊糊的精液……」
+				PRINTFORML 「已经压迫腹部到难受了……还要继续吗……」
+				PRINTFORML 「你这家伙到底多爱侵犯后穴啊……」
+			ELSE
+				PRINTFORML 「又盯着其他位置欺负了……」
+				PRINTFORML 「好讨厌……偏偏被摸透了菊穴里舒服的位置……」
+				PRINTFORML 「无可救药的变态……到底玩弄我到什么程度才肯罢休……」
+			ENDIF
+		ELSE
+			IF TCVAR:Ａ破瓜 == 1
+				PRINTFORML 「哈？凭什么要我满足你下流的性癖……」
+				PRINTFORML 「好痛……要被撑裂开了……」
+				PRINTFORML 「一直顶到深处……连内脏都能感受到肉棒强行进入身体的压迫……」
+				PRINTFORML 「绝对饶不了你……究竟把我当作什么……」
+			ELSEIF MASTER_POSE(SET_A,SET_P,1) && MASTER_POSE(SET_V,SET_P,1) != TARGET
+				IF MASTER_POSE(SET_A,SET_P,1) == 38
+					PRINTFORML 「哼……怎么……想要对比胯下两位美少女的后庭哪边更好用吗？」
+					PRINTFORML 「明明是无可救药的变态……居然把我们当作泄欲的方便工具……」
+					PRINTFORML 「欺负恋的帐以后绝对会让你付出代价的……」
+				ELSE
+					PRINTFORML 「把那样脏兮兮的肉棒插进我的身体……」
+					PRINTFORML 「真是龌龊的男人……」
+				ENDIF
+			ELSE
+				PRINTFORML 「唔…！已经……进不去了吧……」
+				PRINTFORML 「再怎么说全部进到身体里这种事，想杀了我吗？」
+				PRINTFORML 「偏偏还是后面……要裂开了啊混蛋……」
+			ENDIF 
+		ENDIF
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;70,背面座位アナル
+;==================================================
+@M_KOJO_TOKI_MESSAGE_COM_K49_70
+CALL TRAIN_MESSAGE
+CALL M_KOJO_TOKI_MESSAGE_COM_K49_70_1
+RETURN RESULT
+
+@M_KOJO_TOKI_MESSAGE_COM_K49_70_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 1
+;-------------------------------------------------
+IF LOCAL
+	IF FLAG:70 == 1
+	ELSEIF CFLAG:MASTER:恶作剧 == 2
+	ELSE
+		IF TCVAR:101 == PLAYER && TARGET == TFLAG:103
+			IF NOWEX:MASTER:射精
+				PRINTFORML 「不行……脑浆都要化掉了……」
+				PRINTFORML 「肉棒抵着结肠发疯一样跳动……现在被精液灌肠的话……」
+				PRINTFORML 「绝对会因为停不下来得高潮变成废人的……」
+			ELSEIF TCVAR:104
+				PRINTFORML 「肚子里……全都是黏糊糊的精液……」
+				PRINTFORML 「已经压迫腹部到难受了……还要继续吗……」
+				PRINTFORML 「你这家伙到底多爱侵犯后穴啊……」
+			ELSE
+				PRINTFORML 「又盯着其他位置欺负了……」
+				PRINTFORML 「好讨厌……偏偏被摸透了菊穴里舒服的位置……」
+				PRINTFORML 「无可救药的变态……到底玩弄我到什么程度才肯罢休……」
+			ENDIF
+		ELSE
+			IF TCVAR:Ａ破瓜 == 1
+				PRINTFORML 「哈？凭什么要我满足你下流的性癖……」
+				PRINTFORML 「好痛……要被撑裂开了……」
+				PRINTFORML 「一直顶到深处……连内脏都能感受到肉棒强行进入身体的压迫……」
+				PRINTFORML 「绝对饶不了你……究竟把我当作什么……」
+			ELSEIF MASTER_POSE(SET_A,SET_P,1) && MASTER_POSE(SET_V,SET_P,1) != TARGET
+				IF MASTER_POSE(SET_A,SET_P,1) == 38
+					PRINTFORML 「哼……怎么……想要对比胯下两位美少女的后庭哪边更好用吗？」
+					PRINTFORML 「明明是无可救药的变态……居然把我们当作泄欲的方便工具……」
+					PRINTFORML 「欺负恋的帐以后绝对会让你付出代价的……」
+				ELSE
+					PRINTFORML 「把那样脏兮兮的肉棒插进我的身体……」
+					PRINTFORML 「真是龌龊的男人……」
+				ENDIF
+			ELSE
+				PRINTFORML 「唔…！已经……进不去了吧……」
+				PRINTFORML 「再怎么说全部进到身体里这种事，想杀了我吗？」
+				PRINTFORML 「偏偏还是后面……要裂开了啊混蛋……」
+			ENDIF 
+		ENDIF
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;71,二穴挿し
+;==================================================
+@M_KOJO_TOKI_MESSAGE_COM_K49_71
+CALL TRAIN_MESSAGE
+CALL M_KOJO_TOKI_MESSAGE_COM_K49_71_1
+RETURN RESULT
+
+@M_KOJO_TOKI_MESSAGE_COM_K49_71_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	;考えうる分岐が多すぎるので地の文の大まかな分岐だけ
+	;連続
+	IF PREVCOM == SELECTCOM
+		PRINTFORMW 
+		RETURN 1
+	;主人V挿入→助手A挿入
+	ELSEIF TCVAR:100 == MASTER
+		PRINTFORMW 
+		RETURN 1
+	;主人A挿入→助手V挿入
+	ELSEIF TCVAR:101 == MASTER
+		PRINTFORMW 
+		RETURN 1
+	;助手V挿入→主人A挿入
+	ELSEIF TCVAR:100 == ASSI
+		PRINTFORMW 
+		RETURN 1
+	;助手A挿入→主人V挿入
+	ELSEIF TCVAR:101 == ASSI
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;77,小人オナホ(針妙丸用？
+;==================================================
+@M_KOJO_TOKI_MESSAGE_COM_K49_77
+CALL TRAIN_MESSAGE
+CALL M_KOJO_TOKI_MESSAGE_COM_K49_77_1
+RETURN RESULT
+
+@M_KOJO_TOKI_MESSAGE_COM_K49_77_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+	ENDIF
+	;-------------------------------------------------
+	;挿入継続
+	;記入チェック
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF LOCAL:1 && TCVAR:101 == PLAYER
+		;前回射精した
+		IF TCVAR:104
+			PRINTFORMW 
+			RETURN 1
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	ENDIF
+	;基本セット
+	;恋慕
+	IF TALENT:恋慕
+		PRINTFORMW 
+		RETURN 1
+	;屈服3
+	ELSEIF MARK:不埒刻印 == 3
+		PRINTFORMW 
+		RETURN 1
+	;それ以外
+	ELSE
+		PRINTFORMW 
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 1
+
+;==================================================
+;95,疑似挿入
+;==================================================
+@M_KOJO_TOKI_MESSAGE_COM_K49_95
+CALL TRAIN_MESSAGE
+CALL M_KOJO_TOKI_MESSAGE_COM_K49_95_1
+RETURN RESULT
+
+@M_KOJO_TOKI_MESSAGE_COM_K49_95_1
+;-------------------------------------------------
+;記入チェック（=0, 非表示、1, 表示）
+LOCAL = 0
+;-------------------------------------------------
+IF LOCAL
+	;-------------------------------------------------
+	;小分岐
+	;-------------------------------------------------
+	;初めて
+	;記入チェック
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	IF LOCAL:1 && FIRSTTIME(SELECTCOM)
+	ENDIF
+	;-------------------------------------------------
+	;記入チェック
+	LOCAL:1 = 0
+	;-------------------------------------------------
+	;処女か無自覚非処女の場合
+	IF LOCAL:1 && TFLAG:194
+		;欲情が高い場合の分岐
+		IF TFLAG:194 == 2
+			PRINTFORMW 
+			RETURN 1
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	;非処女
+	ELSE
+		;恋慕
+		IF TALENT:恋慕
+			PRINTFORMW 
+			RETURN 1
+		;それ以外
+		ELSE
+			PRINTFORMW 
+			RETURN 1
+		ENDIF
+	ENDIF
+ENDIF
+RETURN 1
